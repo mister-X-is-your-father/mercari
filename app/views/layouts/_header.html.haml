@@ -1,0 +1,17 @@
+%header
+  .hd-all-conponents
+    .hd-all-conponents__top
+      .hd-all-conponents__top__logo
+        %a.hd-all-conponents__top__logo__link
+          = image_tag ''
+      .form_with url: _path, method: :get, local: true do |f|
+        = f.label 
+        = f.text_field
+    .hd-all-conponents__bottom
+      .hd-all-conponents__bottom__left
+        .hd-all-conponents__bottom__left__category
+        .hd-all-conponents__bottom__left__brand
+      .hd-all-conponents__bottom__right
+        .hd-all-conponents__bottom__right__news
+        .hd-all-conponents__bottom__right__todolist
+        .hd-all-conponents__bottom__right__mypage
