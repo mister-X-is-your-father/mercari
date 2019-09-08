@@ -17,8 +17,8 @@
 |access_code|string||
 |publishable_key|string||
 |stripe_customer_id|string||
-- has_many :items
-- has_many :reviews
+- has_many :items ,dependent: :destroy
+- has_many :user_reviews ,dependent: :destroy
 
 
 ## itemsテーブル
@@ -37,9 +37,9 @@
 |image_id|references|null: false, foreign_key: true|
 |user_id|references|null: false , foreign_key: true|
 |buyer_id|references|foreign_key: true|
-- has_many :item_comments
-- has_many :likes
-- has_many :images
+- has_many :item_comments ,dependent: :destroy
+- has_many :likes ,dependent: :destroy
+- has_many :images ,dependent: :destroy
 - belongs_to :user
 - belongs_to :small_category
 
