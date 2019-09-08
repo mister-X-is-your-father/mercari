@@ -20,10 +20,9 @@
 - has_many :user_reviews, dependent: :destroy
 - has_many :item_comments, dependent: :destroy
 - has_many :likes, dependent: :destroy
-- has_one　:card
+- has_one :card
 - has_one :user_address
 - has_one :delivery_address
-
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -34,18 +33,23 @@
 |product_condition|integer|null: false|
 |description|text|null: false|
 |sold_condition|boolean|null: false|
-|small_category_id|references|null: false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
+|region_id|references|null: false, foreign_key: true|
 |brand_id|references|foreign_key: true|
-|delivery_id|references|null: false, foreign_key: true|
-|image_id|references|null: false, foreign_key: true|
 |user_id|references|null: false , foreign_key: true|
 |buyer_id|references|foreign_key: true|
 |size_id|references|foreign_key: true|
+|delivery_payee|integer|null: false|
+|delivery_time|integer|null: false|
+|delivery_method|integer||
 - has_many :item_comments, dependent: :destroy
 - has_many :likes, dependent: :destroy
 - has_many :images, dependent: :destroy
 - belongs_to :user
 - belongs_to :category
+- belongs_to :brand
+- belongs_to :region
+- belongs_to :size
 
 ## cardsテーブル
 |Column|Type|Options|
@@ -78,16 +82,6 @@
 |address_phone_number|string||
 - belongs_to :user
 
-## deliveriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|payee|integer|null: false|
-|region_id|references|null: false, foreign_key: true|
-|time|integer|null: false|
-|item_id|references|null: false, foreign_key: true|
-|method|intger|null: false|
-- belongs_to :item
-
 ## regionsテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -102,21 +96,20 @@ has_many :items
 |user_id|references|null: false, foreign_key: true|
 - belongs_to :user
 
-
 ## item_commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |comment|text|null: false|
-|user_id|references|foreign_key: true|
-|item_id|references|foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 - belongs_to :item
 - belongs_to :user
 
 ## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|item_id|references|foreign_key: true|
-|user_id|references|foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 - belongs_to :item
 - belongs_to :user
 
@@ -131,24 +124,30 @@ has_many :items
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|item_id|references|foreign_key: true|
-- belongs_to :item
+- has_many :items
 
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|item_id|references|foreign_key: true|
-|size_id|references|foreign_key: true|
 |ancestory|string||
 - has_many :items
-- has_many :sizes
+- has_many :sizes_categories
+- has_many :sizes, through: :sizes_categories
 - has_ancestry
 
 ## sizesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|category_id|references|foreign_key: true|
-- belongs_to :category
+- has_many :sizes_categories
+- has_many :category, through: :sizes_categories
 - has_many :items
+
+## sizes_categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|size_id|references|null: false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
+- belongs_to category
+- belongs_to size

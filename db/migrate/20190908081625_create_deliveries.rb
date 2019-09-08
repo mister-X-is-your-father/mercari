@@ -5,7 +5,7 @@ class CreateDeliveries < ActiveRecord::Migration[5.2]
       t.references  :region_id  null: false, foreign_key: true
       t.integer     :time       null: false
       t.references  :item_id    null: false, foreign_key: true
-      t.integer     :method     null: false
+      t.integer     :method
       t.timestamps
     end
   end
