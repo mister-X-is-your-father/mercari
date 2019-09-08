@@ -14,9 +14,6 @@
 |birth_day|date|null: false|
 |phone_number|string|unique:true|
 |avator|string||
-|access_code|string||
-|publishable_key|string||
-|stripe_customer_id|string||
 |profile|text||
 |point|integer||
 - has_many :items ,dependent: :destroy
@@ -42,7 +39,15 @@
 - has_many :likes ,dependent: :destroy
 - has_many :images ,dependent: :destroy
 - belongs_to :user
-- belongs_to :small_category
+- belongs_to :category
+
+## cardsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false , foreign_key: true|
+|customer_id|string|null: false|
+|card_id|string|null: false|
+- belongs_to :user
 
 ## user_addressテーブル
 |Column|Type|Options|
@@ -104,7 +109,6 @@ has_many :items
 ## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|like|bool|null: false|
 |item_id|references|foreign_key: true|
 |user_id|references|foreign_key: true|
 - belongs_to :item
@@ -124,37 +128,21 @@ has_many :items
 |item_id|references|foreign_key: true|
 - belongs_to :item
 
-## small_categoryテーブル
+## categoryテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 |item_id|references|foreign_key: true|
-|middle_category_id|references|foreign_key: true|
 |size_id|references|foreign_key: true|
+|ancestory|string||
 - has_many :items
 - has_many :sizes
-- belongs_to :middle_category
-
-## middle_categoryテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|item_id|references|foreign_key: true|
-|big_category_id|references|foreign_key: true|
-- has_many :small_categories
-- belongs_to :big_category
-
-## big_categoryテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|item_id|references|foreign_key: true|
-- has_many :middle_categories
+- has_ancestry
 
 ## sizeテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|small_category_id|references|foreign_key: true|
-- belongs_to :small_categories
+|big_category_id|references|foreign_key: true|
+- belongs_to :category
 - has_many :items
