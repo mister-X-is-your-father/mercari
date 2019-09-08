@@ -16,8 +16,14 @@
 |avator|string||
 |profile|text||
 |point|integer||
-- has_many :items ,dependent: :destroy
-- has_many :user_reviews ,dependent: :destroy
+- has_many :items, dependent: :destroy
+- has_many :user_reviews, dependent: :destroy
+- has_many :item_comments, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_one　:card
+- has_one :user_address
+- has_one :delivery_address
+
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -35,9 +41,9 @@
 |user_id|references|null: false , foreign_key: true|
 |buyer_id|references|foreign_key: true|
 |size_id|references|foreign_key: true|
-- has_many :item_comments ,dependent: :destroy
-- has_many :likes ,dependent: :destroy
-- has_many :images ,dependent: :destroy
+- has_many :item_comments, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :images, dependent: :destroy
 - belongs_to :user
 - belongs_to :category
 
@@ -49,7 +55,7 @@
 |card_id|string|null: false|
 - belongs_to :user
 
-## user_addressテーブル
+## user_addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
@@ -60,7 +66,7 @@
 |building|string||
 - belongs_to :user
 
-## delivery_addressテーブル
+## delivery_addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
@@ -72,7 +78,7 @@
 |address_phone_number|string||
 - belongs_to :user
 
-## deliveryテーブル
+## deliveriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |payee|integer|null: false|
@@ -82,7 +88,7 @@
 |method|intger|null: false|
 - belongs_to :item
 
-## regionテーブル
+## regionsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |region|string|null: false|
@@ -92,7 +98,7 @@ has_many :items
 |Column|Type|Options|
 |------|----|-------|
 |rate|integer|null: false|
-|comment|text|null: false|
+|comment|text||
 |user_id|references|null: false, foreign_key: true|
 - belongs_to :user
 
@@ -128,7 +134,7 @@ has_many :items
 |item_id|references|foreign_key: true|
 - belongs_to :item
 
-## categoryテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
@@ -139,10 +145,10 @@ has_many :items
 - has_many :sizes
 - has_ancestry
 
-## sizeテーブル
+## sizesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|big_category_id|references|foreign_key: true|
+|category_id|references|foreign_key: true|
 - belongs_to :category
 - has_many :items
