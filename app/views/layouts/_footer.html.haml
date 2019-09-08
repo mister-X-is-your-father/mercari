@@ -1,23 +1,89 @@
 %footer
   .ft-all
-    .ft-all__top
-      .ft-all__about-app
-        .ft-all__about-app__left
-          .ft-all__about-app__left__top
-          .ft-all__about-app__left__middle
-          .ft-all__about-app__left__bottom
-            .ft-all__about-app__left__bottom__mercari-logo
-              = image_tag ''
-            %a.ft-all__about-app__left__bottom__app-store
-              = image_tag ''
-            %a.ft-all__about-app__left__bottom__google-play
-              = image_tag ''
-        .ft-all__about-app__right
-          = image_tag ''
+    .ft-all__about-app
+      .ft-all__about-app__left
+        .ft-all__about-app__left__top
+        .ft-all__about-app__left__middle
+        .ft-all__about-app__left__bottom
+          .ft-all__about-app__left__bottom__mercari-logo
+            = image_tag ''
+          %a.ft-all__about-app__left__bottom__app-store{ href: ''}
+            = image_tag ''
+          %a.ft-all__about-app__left__bottom__google-play{ href: ''}
+            = image_tag ''
+      .ft-all__about-app__right
+        = image_tag ''
     .ft-all__about-company
       %nav.ft-all__about-company__company-info
         .ft-all__about-company__company-info__about-mercari
+          %h2 メルカリについて
+          %ul
+            %li
+              %a{ href: ''} 会社概要（運営会社）
+            %li
+              %a{ href: ''} 採用情報
+            %li
+              %a{ href: ''} プレスリリース
+            %li
+              %a{ href: ''} 公式ブログ
+            %li
+              %a{ href: ''} メルカリロゴ利用ガイドライン
+            %li.sns-link
+              %a{ href: 'https://twitter.com/mercari_jp'}
+                %i.twitter-icon
+            %li.sns-link
+              %a{ href: 'https://www.facebook.com/mercarijp'} 
+                %i.facebook-icon
         .ft-all__about-company__company-info__help-guide
+          %h2 ヘルプ&ガイド
+          %ul
+            %li
+              %a{ href: ''} メルカリガイド
+            %li
+              %a{ href: ''} らくらくメルカリ便
+            %li
+              %a{ href: ''} ゆうゆうメルカリ便
+            %li
+              %a{ href: ''} 大型メルカリ便
+            %li
+              %a{ href: ''} 車体取引ガイド
+            %li
+              %a{ href: ''} メルカリあんしん・あんぜん宣言！
+            %li
+              %a{ href: ''} 偽ブランド品撲滅への取り組み
+            %li
+              %a{ href: ''} メルカリボックス
         .ft-all__about-company__company-info__privacy-terms
-        .ft-all__about-company__company-info__country
-               
+          %h2 プライバシーと利用規約
+          .left
+            %ul
+              %li
+                %a{ href: ''} プライバシーポリシー
+              %li
+                %a{ href: ''} メルカリ利用規約
+              %li
+                %a{ href: ''} あんしんスマホサポート制度に関する利用特約
+              %li
+                %a{ href: ''} コンプライアンスポリシー
+          .right
+            %ul
+              %li
+                %a{ href: ''} 個人データの安全管理に係る基本方針
+              %li
+                %a{ href: ''} 特定商取引に関する表記
+              %li
+                %a{ href: ''} 資金決済法に基づく表示
+              %li
+                %a{ href: ''} 法令順守と犯罪抑止のために
+        .ft-all__about-company__company-info__language
+          %h2 国
+          %ul
+            %li
+              %a{ href: ''} 日本
+            %li
+              %a{ href: ''} United States
+    .ft-all__mercari
+      %a.ft-all__mercari__logo{ href: ''}
+        = image_tag ''
+      %span.ft-all__mercari__copyright
+        %small © 2019 Mercari
