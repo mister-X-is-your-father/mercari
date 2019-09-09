@@ -74,6 +74,7 @@ gem 'font-awesome-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
+gem 'ancestry'
 
 # group :development, :test do
 #   gem 'pry-rails'
