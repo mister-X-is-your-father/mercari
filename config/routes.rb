@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users, :controllers => {
     :delivery_addresses => 'users/delivery_addresses',
   }
@@ -12,5 +13,6 @@ Rails.application.routes.draw do
   resources :brands, only: :index
   resources :regions, only: :index
   resources :user_reviewes, only: [:index, :create]
+
 
 end
