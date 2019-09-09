@@ -86,9 +86,9 @@ gem 'fog-aws'
 #   gem 'capistrano3-unicorn'
 # end
 
-# group :production do
-#   gem 'unicorn', '5.4.1'
-# end
+group :production do
+  gem 'unicorn', '5.4.1'
+end
 
 group :development do
   gem 'better_errors'
