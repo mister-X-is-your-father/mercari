@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2019_09_09_051314) do
   end
 
   create_table "delivery_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.integer "user_id", null: false
     t.string "postal_code", null: false
     t.string "region", null: false
     t.string "city", null: false
@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 2019_09_09_051314) do
     t.string "address_phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_delivery_addresses_on_user_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -121,7 +120,7 @@ ActiveRecord::Schema.define(version: 2019_09_09_051314) do
   end
 
   create_table "user_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.integer "user_id", null: false
     t.string "postal_code"
     t.string "region"
     t.string "city"
@@ -129,16 +128,14 @@ ActiveRecord::Schema.define(version: 2019_09_09_051314) do
     t.string "buildings"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_user_addresses_on_user_id"
   end
 
   create_table "user_reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "rate", null: false
     t.text "comment"
-    t.bigint "user_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_user_reviews_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -163,7 +160,4 @@ ActiveRecord::Schema.define(version: 2019_09_09_051314) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "delivery_addresses", "users"
-  add_foreign_key "user_addresses", "users"
-  add_foreign_key "user_reviews", "users"
 end
