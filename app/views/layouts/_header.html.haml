@@ -2,16 +2,48 @@
   .hd-all-conponents
     .hd-all-conponents__top
       .hd-all-conponents__top__logo
-        %a.hd-all-conponents__top__logo__link
-          = image_tag ''
-      = form_with url: _path, method: :get, local: true do |f|
-        = f.label 
+        %a.hd-all-conponents__top__logo__link{href: ''}
+          = image_tag '', size: "134*36"
+      = form_with url: '', method: :get, local: true do |f|
+        = f.label
         = f.text_field
+        = f.submit
     .hd-all-conponents__bottom
-      .hd-all-conponents__bottom__left
-        .hd-all-conponents__bottom__left__category
-        .hd-all-conponents__bottom__left__brand
+      %nav.hd-all-conponents__bottom__left
+        %ul.hd-all-conponents__bottom__left__category-brand
+          %li.hd-all-conponents__bottom__left__category-brand__category
+            %h2
+              %a{href: ''} 
+                %i.icon-list
+                %span カテゴリーから探す
+            %ul
+          %li.hd-all-conponents__bottom__left__category-brand__brand
+            %h2
+              %a{href: ''}
+                %i.icon-tag
+                %span ブランドから探す
+            %ul
       .hd-all-conponents__bottom__right
-        .hd-all-conponents__bottom__right__news
-        .hd-all-conponents__bottom__right__todolist
-        .hd-all-conponents__bottom__right__mypage
+        %ul.hd-all-conponents__bottom__right__components
+          %li.hd-all-conponents__bottom__right__components__likelist
+            %a{href: ''} 
+              %i.icon-like-border
+              %span いいね一覧
+          %li.hd-all-conponents__bottom__right__components__news
+            %a{href: ''} 
+              %i.icon-bell
+              %span お知らせ
+              .news-count
+            %ul 
+          %li.hd-all-conponents__bottom__right__components__todolist
+            %a{href: ''} 
+              %i.icon-check
+              %span やることリスト
+            %ul
+          %li.hd-all-conponents__bottom__right__components__mypage
+            %a{href: ''} 
+              %figure
+                %div
+                  = image_tag ''
+              %span マイページ
+            .mypage__box
