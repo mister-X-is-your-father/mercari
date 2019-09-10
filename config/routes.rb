@@ -6,13 +6,13 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
-  resources :users, only: [:show, :new, :create, :edit, :update, :create_address]
+  resources :users, only: [:show, :edit, :update, :create_address] do
+    resources :user_addresses, only: [:new, :create, :edit, :update]
+  end
   resources :items
-  resources :comments, only: :create
-  resources :categories, only: :index
-  resources :brands, only: :index
-  resources :regions, only: :index
+  resources :item_comments, only: :create
+  resources :categories, only: [:index, :show]
+  resources :brands, only: [:index, :show]
   resources :user_reviewes, only: [:index, :create]
-
 
 end
