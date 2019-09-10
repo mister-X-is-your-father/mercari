@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @comments = @item.comments.includes(:user)
+    @comments = @item.comments.all()
   end
 
   def new
