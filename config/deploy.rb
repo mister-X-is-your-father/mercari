@@ -1,8 +1,8 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.1"
 
-set :application, "mercari"
-set :repo_url, "git@example.com:HiroshiMorita/mercari.git"
+set :application, 'mercari'
+set :repo_url, 'git@example.com:hiroshimorita/mercari.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -45,8 +45,8 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.5.1' #カリキュラム通りに進めた場合、2.5.1か2.3.1です
 
 # どの公開鍵を利用してデプロイするか
-set :ssh_options, auth_methods: ['publickey'],#😨ここは個人の公開鍵を指定してください
-                  keys: ['~/.ssh/morita.pem']#😨ここは個人の秘密鍵を指定してください
+set :ssh_options, auth_methods: ['publickey'],
+                  keys: ['~/.ssh/morita.pem']
 
 # プロセス番号を記載したファイルの場所
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
