@@ -75,6 +75,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
 gem 'ancestry'
+gem 'jquery-rails'
 
 # group :development, :test do
 #   gem 'pry-rails'
@@ -100,5 +101,3 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
 end
-
-gem 'ancestry'
