@@ -76,6 +76,8 @@ gem 'mini_magick'
 gem 'fog-aws'
 gem 'ancestry'
 gem 'jquery-rails'
+gem 'carrierwave'
+gem 'fog-aws'
 
 # group :development, :test do
 #   gem 'pry-rails'
