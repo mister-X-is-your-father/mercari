@@ -3,12 +3,12 @@
     .hd-all-conponents__top
       .hd-all-conponents__top__logo
         %a.hd-all-conponents__top__logo__link{href: ''}
-          = image_tag '', size: "134*36"
+          = image_tag '/assets/images/header/mercari-logo.svg'
       = form_with url: '', method: :get, local: true do |f|
-        = f.label
-        = f.text_field
-        = f.submit
-    .hd-all-conponents__bottom
+        -# = f.label
+        -# = f.text_field
+        -# = f.submit
+    .hd-all-conponents__bottom.clearfix
       %nav.hd-all-conponents__bottom__left
         %ul.hd-all-conponents__bottom__left__category-brand
           %li.hd-all-conponents__bottom__left__category-brand__category
