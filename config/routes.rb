@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   end
   resources :items
   resources :item_comments, only: :create
-  resources :categories, only: :index
-  resources :brands, only: :index
+  resources :categories, only: [:index, :show]
+  resources :brands, only: [:index, :show]
   resources :user_reviewes, only: [:index, :create]
 
 end
