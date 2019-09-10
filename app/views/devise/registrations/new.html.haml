@@ -1,0 +1,98 @@
+-# %h2 Sign up
+-# = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+-#   = render "devise/shared/error_messages", resource: resource
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   .field
+-#     = f.label :password
+-#     - if @minimum_password_length
+-#       %em
+-#         (#{@minimum_password_length} characters minimum)
+-#     %br/
+-#     = f.password_field :password, autocomplete: "new-password"
+-#   .field
+-#     = f.label :password_confirmation
+-#     %br/
+-#     = f.password_field :password_confirmation, autocomplete: "new-password"
+-#   .actions
+-#     = f.submit "Sign up"
+-# = render "devise/shared/links"
+
+
+%main.new-user-main
+  %section.new-user-contents
+    %h2.new-user-input
+      会員情報入力
+     
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), class: "new-form") do |f|
+
+      .new-form__content
+        
+        .form-group
+          = f.label :nickname, "ニックネーム"
+          %span.form-require 必須
+          = f.email_field :email, placeholder: "PC・携帯どちらでも可", class: "form-group__input"
+        
+        .form-group
+          = f.label :password, "パスワード"
+          %span.form-require 必須
+          = f.password_field :password, placeholder: "7文字以上", class: "form-group__input"
+
+        .form-group
+          = f.label :password, "パスワード (確認)"
+          %span.form-require 必須
+          = f.password_field :password, placeholder: "7文字以上", class: "form-group__input"
+
+        .form-group
+          %h3.text-left.l-character-sub-head
+            本人確認
+          %p.l-single-text
+            安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        
+        .form-group
+          %div
+            = f.label "お名前(全角)"
+            %span.form-require 必須
+          .form-name
+            = f.text_field :kan_familyname, placeholder: "例)山田", class: "form-group__input name-left"
+            = f.text_field :kan_firstname, placeholder: "例)彩", class: "form-group__input"
+          
+        .form-group
+          %div
+            = f.label "お名前カナ(全角)"
+            %span.form-require 必須
+          .form-name
+            = f.text_field :kana_familyname, placeholder: "例)ヤマダ", class: "form-group__input name-left"
+            = f.text_field :kana_firstname, placeholder: "例)アヤ", class: "form-group__input"
+        
+        .form-group
+          = f.label :birth_day, "生年月日"
+          %span.form-require 必須
+          %br/
+          .birthday-form
+            .birthday-form__year.birthday-form__default
+              = f.select :birth_day, [["1980", "1980"], ["1981", "1981"], ["1982", "1982"], ["1983", "1983"], ["1984", "1984"], ["1985", "1985"]], prompt: "--", class: "select-default"
+            %span 年
+            .birthday-form__month.birthday-form__default
+              = f.select :birth_day, [["1月", "1月"], ["2月", "2月"]], prompt: "--", class: "select-default"
+            %span 月
+            .birathday-form__day.birthday-form__default
+              = f.select :birth_day, [["1日", "1日"], ["2日", "2日"]], prompt: "--", class: "select-default"
+            %soan 日
+
+        %p.form-info-text
+          * 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        
+        .form-group
+          %p.rule-text
+            「次へ進む」のボタンを押すことにより、
+            = link_to "#" do
+              利用規約
+            に同意したものとみなします
+
+          = f.submit "次へ進む", class: "next-btn btn"
+          .form-group.personal-register
+            %p
+              = link_to "本人情報の登録について", "#"
