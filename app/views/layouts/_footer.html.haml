@@ -1,89 +1,113 @@
 %footer
   .ft-all
-    .ft-all__about-app
-      .ft-all__about-app__left
-        .ft-all__about-app__left__top
-        .ft-all__about-app__left__middle
-        .ft-all__about-app__left__bottom
-          .ft-all__about-app__left__bottom__mercari-logo
-            = image_tag ''
-          %a.ft-all__about-app__left__bottom__app-store{ href: ''}
-            = image_tag ''
-          %a.ft-all__about-app__left__bottom__google-play{ href: ''}
-            = image_tag ''
-      .ft-all__about-app__right
-        = image_tag ''
-    .ft-all__about-company
-      %nav.ft-all__about-company__company-info
-        .ft-all__about-company__company-info__about-mercari
-          %h2 メルカリについて
+    .ft-dl
+      .ft-dl__component
+        .ft-dl__component__left
+          %h2.ft-dl__component__left__top スマホでかんたんフリマアプリ
+          %p.ft-dl__component__left__middle 今すぐ無料ダウンロード！
+          .ft-dl__component__left__bottom
+            %figure.ft-dl__component__left__bottom__mercari-logo
+              = image_tag 'footer/ft_mercari_logo.png', size: "68x68", class: "ft-dl__component__left__bottom__mercari-logo__img"
+            = link_to 'https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8', class: "ft-dl__component__left__bottom__app-store" do
+              = image_tag 'footer/ft_app_store.svg', size: "133x40"
+            = link_to 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja', class: "ft-dl__component__left__bottom__google-play" do
+              = image_tag 'footer/ft_google_play.svg', size: "133x40"
+        %figure.ft-dl__component__right
+          = image_tag 'footer/ft_phone.png', class: "ft-dl__component__right__phone-img"
+    .ft-company
+      %nav.ft-company__top
+        .ft-company__top__about-mercari
+          %h2.ft-list-head メルカリについて
           %ul
-            %li
-              %a{ href: ''} 会社概要（運営会社）
-            %li
-              %a{ href: ''} 採用情報
-            %li
-              %a{ href: ''} プレスリリース
-            %li
-              %a{ href: ''} 公式ブログ
-            %li
-              %a{ href: ''} メルカリロゴ利用ガイドライン
-            %li.sns-link
-              %a{ href: 'https://twitter.com/mercari_jp'}
-                %i.icon-twitter
-            %li.sns-link
-              %a{ href: 'https://www.facebook.com/mercarijp'} 
-                %i.icon-facebook
-        .ft-all__about-company__company-info__help-guide
-          %h2 ヘルプ&ガイド
+            %li.ft-list
+              = link_to '', class: "" do
+                会社概要（運営会社）
+            %li.ft-list
+              = link_to '', class: "" do
+                採用情報
+            %li.ft-list
+              = link_to '', class: "" do
+                プレスリリース
+            %li.ft-list
+              = link_to '', class: "" do
+                公式ブログ
+            %li.ft-list
+              = link_to '', class: "" do
+                メルカリロゴ利用ガイドライン
+            %li.ft-list.sns
+              = link_to 'https://twitter.com/mercari_jp' do
+                = fa_icon 'twitter', class: 'icon-twitter'
+            %li.ft-list.sns
+              = link_to 'https://www.facebook.com/mercarijp' do
+                = fa_icon 'facebook-square', class: 'icon-facebook'
+        .ft-company__top__help-guide
+          %h2.ft-list-head ヘルプ&ガイド
           %ul
-            %li
-              %a{ href: ''} メルカリガイド
-            %li
-              %a{ href: ''} らくらくメルカリ便
-            %li
-              %a{ href: ''} ゆうゆうメルカリ便
-            %li
-              %a{ href: ''} 大型メルカリ便
-            %li
-              %a{ href: ''} 車体取引ガイド
-            %li
-              %a{ href: ''} メルカリあんしん・あんぜん宣言！
-            %li
-              %a{ href: ''} 偽ブランド品撲滅への取り組み
-            %li
-              %a{ href: ''} メルカリボックス
-        .ft-all__about-company__company-info__privacy-terms
-          %h2 プライバシーと利用規約
-          .left
+            %li.ft-list
+              = link_to '', class: "" do
+                メルカリガイド
+            %li.ft-list
+              = link_to '', class: "" do
+                らくらくメルカリ便
+            %li.ft-list
+              = link_to '', class: "" do
+                ゆうゆうメルカリ便
+            %li.ft-list
+              = link_to '', class: "" do
+                大型メルカリ便
+            %li.ft-list
+              = link_to '', class: "" do
+                車体取引ガイド
+            %li.ft-list
+              = link_to '', class: "" do
+                メルカリあんしん・あんぜん宣言！
+            %li.ft-list
+              = link_to '', class: "" do
+                偽ブランド品撲滅への取り組み
+            %li.ft-list
+              = link_to '', class: "" do
+                メルカリボックス
+        .ft-company__top__privacy-terms
+          %h2.ft-list-head プライバシーと利用規約
+          .ft-company__top__privacy-terms__left
             %ul
-              %li
-                %a{ href: ''} プライバシーポリシー
-              %li
-                %a{ href: ''} メルカリ利用規約
-              %li
-                %a{ href: ''} あんしんスマホサポート制度に関する利用特約
-              %li
-                %a{ href: ''} コンプライアンスポリシー
-          .right
+              %li.ft-list
+                = link_to '', class: "" do
+                  プライバシーポリシー
+              %li.ft-list
+                = link_to '', class: "" do
+                  メルカリ利用規約
+              %li.ft-list
+                = link_to '', class: "" do
+                  あんしんスマホサポート制度に関する利用特約
+              %li.ft-list
+                = link_to '', class: "" do
+                  コンプライアンスポリシー
+          .ft-company__top__privacy-terms__right
             %ul
-              %li
-                %a{ href: ''} 個人データの安全管理に係る基本方針
-              %li
-                %a{ href: ''} 特定商取引に関する表記
-              %li
-                %a{ href: ''} 資金決済法に基づく表示
-              %li
-                %a{ href: ''} 法令順守と犯罪抑止のために
-        .ft-all__about-company__company-info__language
-          %h2 国
+              %li.ft-list
+                = link_to '', class: "" do
+                  個人データの安全管理に係る基本方針
+              %li.ft-list
+                = link_to '', class: "" do
+                  特定商取引に関する表記
+              %li.ft-list
+                = link_to '', class: "" do
+                  資金決済法に基づく表示
+              %li.ft-list
+                = link_to '', class: "" do
+                  法令順守と犯罪抑止のために
+        .ft-company__top__language
+          %h2.ft-list-head 国
           %ul
-            %li
-              %a{ href: ''} 日本
-            %li
-              %a{ href: ''} United States
-    .ft-all__mercari
-      %a.ft-all__mercari__logo{ href: ''}
-        = image_tag ''
-      %span.ft-all__mercari__copyright
-        %small © 2019 Mercari
+            %li.ft-list
+              = link_to '', class: "" do
+                日本
+            %li.ft-list
+              = link_to '', class: "" do
+                United States
+      .ft-company__bottom
+        = link_to '', class: "ft-company__bottom__logo" do
+          = image_tag 'footer/ft_mercari_logo_white.svg', size: "124x33"
+        %span.ft-company__bottom__copyright
+          %small © 2019 Mercari

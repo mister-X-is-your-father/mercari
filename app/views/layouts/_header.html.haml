@@ -1,49 +1,45 @@
 %header
-  .hd-all-conponents
-    .hd-all-conponents__top
-      .hd-all-conponents__top__logo
-        %a.hd-all-conponents__top__logo__link{href: ''}
-          = image_tag '/assets/images/header/mercari-logo.svg'
-      = form_with url: '', method: :get, local: true do |f|
-        -# = f.label
-        -# = f.text_field
-        -# = f.submit
-    .hd-all-conponents__bottom.clearfix
-      %nav.hd-all-conponents__bottom__left
-        %ul.hd-all-conponents__bottom__left__category-brand
-          %li.hd-all-conponents__bottom__left__category-brand__category
-            %h2
-              %a{href: ''} 
-                %i.icon-list
-                %span カテゴリーから探す
-            %ul
-          %li.hd-all-conponents__bottom__left__category-brand__brand
-            %h2
-              %a{href: ''}
-                %i.icon-tag
-                %span ブランドから探す
-            %ul
-      .hd-all-conponents__bottom__right
-        %ul.hd-all-conponents__bottom__right__components
-          %li.hd-all-conponents__bottom__right__components__likelist
-            %a{href: ''} 
-              %i.icon-like-border
-              %span いいね一覧
-          %li.hd-all-conponents__bottom__right__components__news
-            %a{href: ''} 
-              %i.icon-bell
-              %span お知らせ
-              .news-count
+  .hd-contents
+    .hd-top
+      %h1.hd-logo
+        = link_to '', class: "hd-logo__link" do
+          = image_tag 'header/mercari-logo.svg', size: '134x36', class: "hd-logo__link__logo"
+      = form_with url: "", method: :get, local: true, class: "hd-form" do |f|
+        = f.text_field :search, class: 'hd-form__textarea', placeholder: '何かお探しですか？'
+        = f.button type: 'submit', class: 'hd-form__icon', name: nil do
+          = fa_icon 'search', class: ''
+    .hd-bottom.clearfix
+      %nav.hd-bottom__left
+        %ul.hd-left-list
+          %li.hd-left-list__category
+            %h2.hd-left-list__category__components
+              =link_to '', class: "hd-left-list__category__components__link" do
+                = fa_icon 'list-ul', class: 'hd-left-list__category__components__link__logo'
+                %span.hd-left-list__category__components__link__text カテゴリーから探す
+          %li.hd-left-list__brand
+            %h2.hd-left-list__brand__components
+              =link_to '', class: "hd-left-list__brand__components__link" do
+                = fa_icon 'tags', class: 'hd-left-list__brand__components__link__logo'
+                %span.hd-left-list__brand__components__link__text ブランドから探す
+      .hd-bottom__right
+        %ul.hd-right-list
+          %li.hd-right-list__likelist
+            =link_to '', class: "hd-right-list__likelist__link" do
+              = fa_icon 'heart-o', class: 'hd-right-list__likelist__link__logo'
+              %span.hd-right-list__likelist__link__text いいね！一覧
+          %li.hd-right-list__news
+            =link_to '', class: "hd-right-list__news__link" do
+              = fa_icon 'bell-o', class: 'hd-right-list__news__link__logo'
+              %span.hd-right-list__news__link__text お知らせ
             %ul 
-          %li.hd-all-conponents__bottom__right__components__todolist
-            %a{href: ''} 
-              %i.icon-check
-              %span やることリスト
+          %li.hd-right-list__todolist
+            =link_to '', class: "hd-right-list__todolist__link" do
+              = fa_icon 'check', class: 'hd-right-list__todolist__link__logo'  
+              %span.hd-right-list__todolist__link__text やることリスト
             %ul
-          %li.hd-all-conponents__bottom__right__components__mypage
-            %a{href: ''} 
-              %figure
-                %div
-                  = image_tag ''
-              %span マイページ
-            .mypage__box
+          %li.hd-right-list__mypage
+            =link_to '', class: "hd-right-list__mypage__link" do
+              %figure.hd-right-list__mypage__link__image
+                %div.hd-right-list__mypage__link__image__div
+                  = image_tag 'header/userimage_if_noimage.png', size:'32x32', class: 'mypage-image' 
+              %span.hd-right-list__mypage__link__text マイページ
