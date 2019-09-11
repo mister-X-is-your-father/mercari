@@ -78,6 +78,9 @@ gem 'ancestry'
 gem 'jquery-rails'
 gem 'carrierwave'
 gem 'fog-aws'
+gem 'payjp'
+gem 'seed-fu'
+gem 'gretel'
 
 # group :development, :test do
 #   gem 'pry-rails'
