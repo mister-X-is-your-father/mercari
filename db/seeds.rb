@@ -11,7 +11,7 @@ require 'csv'
 
 # ブランド
 CSV.foreach('db/brand.csv') do |record|
-  Brand.create(name: record[0], brand_group_id: record[1])
+  Brand.create(name: record[0])
 end
 
 # サイズ
