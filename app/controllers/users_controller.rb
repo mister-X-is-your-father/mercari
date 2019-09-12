@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[;id])
+    @user = User.find(params[:id])
   end
 
   def edit
@@ -18,6 +18,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:)
+    # params.require(:user).permit(:)
   end
 end

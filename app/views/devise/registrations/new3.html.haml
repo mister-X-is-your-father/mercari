@@ -1,0 +1,34 @@
+.register_container
+
+  %header.register-head
+    %h1.new-user
+      -# = link_to "#" do
+        -# = image_tag "#"
+
+  %main.register
+    %section.contents
+      %h2.contents__new
+        新規会員登録
+      .contents__main.main
+        .main__list
+          = link_to "メールアドレスで登録する", "#", class: "btn-mail btn"
+        .main__list
+          = link_to "Facebookで登録する", "#", class: "btn-facebook btn"
+        .main__list
+          = link_to "Googleで登録する", "#", class: "btn-google btn"
+
+  %footer.register-footer
+    %nav
+      %ul
+        %li
+          = link_to "プライバシーポリシー", "#"
+        %li
+          = link_to "メルカリ利用規約", "#"
+        %li
+          = link_to "特定商取引に関する表記", "#"
+    -# = link_to "#" do
+    -#   = image_tag "#"
+    %p
+      %small
+        c 2019 Mercari
+    
