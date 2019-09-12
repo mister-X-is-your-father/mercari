@@ -1,14 +1,6 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.order("created_at DESC").limit(10)
-
-    # ビューでの子要素の取り出しは 
-    # - parents.children.each do |child|
-      # = child.name
-    # 孫要素の取り出しは
-    # - child.children.each do |grandchild|
-      # = grandchild.name
-    @parents = Category.all.order("id ASC").limit(13)
   end
 
   def show
@@ -17,14 +9,9 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
-    @image = Image.new
-    @sizes = Size.all
-    @category = Category.all
   end
 
   def create
-    @item = Item.new(item_params)
     
   end
 
@@ -38,6 +25,7 @@ class ItemsController < ApplicationController
   end
 
   private
+
   def item_params 
     params.require(:item).permit(
       :name,
