@@ -13,7 +13,6 @@ a {
   background-position: center;
   background-size: cover;
   &__component {
-    display: block;
     overflow: hidden;
     position: relative;
     width: 750px;
@@ -52,11 +51,8 @@ a {
     }
     &__right {
       position: absolute;
-      top: 0;
       right: 0;
-      bottom: 0;
       width: 300px;
-      height: 100%;
       margin: 0;
       &__phone-img {
         width: 100%;
@@ -66,8 +62,6 @@ a {
 }
 
 .ft-company {
-  font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
-  font-weight: 500;
   padding: 0 20px 10px 20px;
   background: #212121;
   color: #fff;
@@ -77,21 +71,21 @@ a {
     display: flex;
     &__about-mercari {
       width: 20%;
-      padding: 0 20px 0 0;
+      padding-right: 20px;
       margin-top: 18px;
     }
     &__help-guide {
       width: 23%;
-      padding: 0 40px 0 0;
+      padding-right: 40px;
       margin-top: 18px;
     }
     &__privacy-terms {
       width: 42%;
-      padding: 0 40px 0 0;
+      padding-right: 40px;
       margin-top: 18px;
       &__left {
         float: left;
-        padding: 0 10px 0 0;
+        padding-right: 10px;
         width: 50%;
       }
       &__right {
@@ -115,7 +109,6 @@ a {
       line-height: 1.5em;
       display: inline-block;
       margin-right: 10px;
-      width: auto;
       vertical-align: middle;
     }
     &__copyright {
@@ -123,7 +116,6 @@ a {
       display: inline-block;
       margin: 8px 0 0;
       text-align: center;
-      vertical-align: sub;
       font-size: 15px;
     }
   }
@@ -164,5 +156,3 @@ a {
 .icon-twitter, .icon-facebook {
   margin: 16px 18px 0 0;
 }
-
-
