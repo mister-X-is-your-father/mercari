@@ -4,5 +4,6 @@ class ItemCommentsController < ApplicationController
 
   private
   def item_comments_params
+    
   end
 end
