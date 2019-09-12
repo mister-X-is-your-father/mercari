@@ -1,0 +1,129 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.register-container {
+	padding: 0 0 250px;
+}
+
+.register-container a {
+	text-decoration: none;
+}
+
+.register-head {
+	text-align: center;
+}
+
+.new-user {
+	display: inline-block;
+	margin: 11px 0 12px;
+}
+
+.register {
+	display: block;
+}
+
+.contents {
+	background-color: #fff;
+	width: 700px;
+	margin: 0 auto;
+}
+
+.contents__new {
+	padding: 16px 0;
+	font-size: 18px;
+	line-height: 1.5;
+	text-align: center;
+}
+
+.contents__main {
+	border-top: 1px solid #f5f5f5;
+	padding: 24px 16px 40px;
+}
+
+.main__list {
+	margin: 0 auto;
+	max-width: 343px;
+}
+
+.register-footer {
+	height: 250px;
+	padding: 40px 0;
+	text-align: center;
+}
+
+.register-footer a {
+	text-decoration: none;
+}
+
+.register-footer ul {
+	display: flex;
+	align-items: center;
+}
+
+.register-footer li {
+	text-decoration: none;
+	font-size: 12px;
+}
+
+.new-user-main {
+	display: block;
+}
+
+.new-user-contents {
+	width: 700px;
+	margin: 0 auto;
+	background-color: #fff;
+}
+
+.new-user-input {
+	font-size: 22px;
+	padding: 32px;
+}
+
+
+.name-left {
+	margin-right: 8px;
+}
+
+.birthday-form {
+	display: flex;
+}
+
+.select-default {
+	height: 54px;
+	width: 76px;
+	padding: 0 10px;
+	margin: 1px;
+	position: relative;
+	z-index: 2;
+	height: 48px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	background: 0;
+	font-size: 16px;
+	line-height: 1.5;
+	cursor: pointer;
+	display: inline-block;
+	text-shadow: none;
+	overflow: visible;
+	background-color: #fff;
+}
+
+.form-info-text {
+	margin: 8px 0 0;
+	line-height: 1.5;
+	color: #888;
+}
+
+.rule-text {
+	text-align: center;
+}
+
+.personal-register {
+	text-align: right;
+	margin-top: 24px;
+}
+
+
