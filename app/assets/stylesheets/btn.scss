@@ -1,0 +1,36 @@
+.btn {
+	display: block;
+	width: 100%;
+	line-height: 48px;
+	font-size: 14px;
+	border: 1px solid transparent;
+	transition: all ease-out .3s;
+	cursor: pointer;
+	text-align: center;
+	border-radius: 4px;
+}
+
+.btn-mail {
+	margin: 16px 0 0;
+	background-color: #ea352d;
+	color: #fff;
+}
+
+.btn-facebook {
+	margin: 16px 0 0;
+	background-color: #385185;
+	color: #fff;
+}
+
+.btn-google {
+	margin: 16px 0 0;
+	background-color: #fff;
+	border: #979797 solid 1px;
+	color: #333;
+}
+
+.next-btn {
+	background-color: #ea352d;
+	border: 1px solid #ea352d;
+	color: #fff;
+}
