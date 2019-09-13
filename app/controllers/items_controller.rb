@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
   def index
-    @ladies = Category.find(1)
-    @ladies_items = @ladies.items.order("created_at DESC").limit(10)
-
+    # @ladies = Category.find(1)
+    # @ladies_items = @ladies.items.order("created_at DESC").limit(10)
+    
     # ビューでの子要素の取り出しは 
     # - parents.children.each do |child|
       # = child.name
@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
       end
       redirect_to root_path
     else
-      @images = @item.images.build
+      # @images = @item.images.build
       render :new
     end
   end
