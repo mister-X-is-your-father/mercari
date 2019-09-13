@@ -5,7 +5,7 @@
     .is-photo
       .is-photo__portion
         .is-photo__up
-          = image_tag ""
+          = image_tag asset_path('index/benchpress.jpg')
           .is-photo__down
 
       .is-photo__down__portion
@@ -96,7 +96,7 @@
 .is-detail-message
   .message-container
     .message-content
-      -# = form_for , html: { class: 'message-form' } do |f|
-      -#   %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      -#   = f.text_field :comment, class: "textarea-default"
-      -#   = f.submit "コメントする", class: "message-submit btn-default"
+      = form_with url: "", method: :post, local: true, class: "message-form" do |f|
+        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        = f.text_field :comment, class: "textarea-default"
+        = f.submit "コメントする", class: "message-submit btn-default"
