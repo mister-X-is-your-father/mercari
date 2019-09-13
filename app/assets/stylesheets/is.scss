@@ -4,7 +4,8 @@
 	height: auto;
 	padding: 24px 40px 40px;
 	margin-left: auto;
-	margin-right: auto;
+  margin-right: auto;
+  margin-top: 40px;
 	background-color: white;
 }
 
@@ -314,3 +315,99 @@ span {
 	font-size: 14px;
   vertical-align: middle;
 }
+
+.is-nav {
+  margin: 24px auto 0;
+  width: 700px;
+  display: flex;
+  justify-content: space-between;
+  &__prev {
+    width: 45%;
+    padding: 0 0 0 14px;
+    list-style: none;
+  }
+  &__next {
+    width: 45%;
+    text-align: right;
+    list-style: none;
+  }
+}
+
+.is-sns-box {
+  margin: 24px auto;
+  padding: 32px 0 24px;
+  width: 700px;
+  background: #fff;
+
+  &__items {
+    margin: 16px 0 0;
+    text-align: center;
+    font-size: 0;
+    list-style: none;
+  }
+}
+
+.share-btn {
+  display: block;
+}
+
+.is-in-user {
+  width: 700px;
+  margin: 0 auto;
+}
+
+.is-container {
+
+}
+
+.is-items-head {
+  font-size: 22px;
+  margin: 24px 0 8px;
+}
+
+.is-content {
+  width: auto;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0px 0px;
+  display: grid;
+  &__card {
+    width: 220px;
+    margin: 0 20px 20px 0;
+    position: relative;
+  }
+  &__photo {
+    width: 220px;
+    height: 220px;
+    position: relative;
+    img {
+      height: 220px;
+      width: 220px;
+    }
+  }
+  &__body {
+    padding: 16px;
+    background: #fff;
+  }
+  &__name {
+    overflow: hidden;
+    position: relative;
+    font-weight: 400;
+    height: 3em;
+    line-height: 1.5;
+    white-space: normal;
+  }
+  &__num {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 8px 0 0;
+  }
+  &__price {
+    font-size: 17px;
+  }
+}
+
+
+
+
+
