@@ -9,13 +9,13 @@ class Item < ApplicationRecord
   belongs_to :size
 
   validates :name,         presence: true,  length: { in: 1..40 } 
-            :description,  presence: true,  length: { in: 1..1,000 } 
-            :price,        presence: true, numericality: { 
+  validates :description,  presence: true,  length: { in: 1..1000 } 
+  validates :price,        presence: true, numericality: { 
               only_integer: true,
               greater_than_or_equal_to: 300,
-              less_than_or_equal_to: 9,999,999,
+              less_than_or_equal_to: 9999999,
                } 
-            :production_condition, 
+  validates :production_condition, 
             :sold_condition,
             :category_id,
             :region_id,
