@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   }
 
   root 'items#index'
+  get 'mypage/:id', to: 'users#show', as: :mypage
+  get 'mypage/:id/logout', to: 'users#show', as: :mypage_logout
+  get 'mypage/:id/profile', to: 'users#edit', as: :mypage_edit
+  
+
 
   resources :users, only: [:show, :edit, :update, :create_address] do
     resources :user_addresses, only: [:new, :create, :edit, :update]
