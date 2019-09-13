@@ -13,11 +13,14 @@ class User < ApplicationRecord
   has_one :delivery_address
 
   validates :nickname,
+            :email,
+            :password,
+            :password_confirmation,
             :kan_familyname,
             :kan_firstname,
             :kana_familyname,
             :kana_firstname,
-            :phone_number, presence: true
+            :birth_day, presence: true
   
   validates :email, :phone_number, uniqueness: true
   validates :kan_familyname, :kan_firstname, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
