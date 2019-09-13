@@ -7,4 +7,20 @@ class Item < ApplicationRecord
   belongs_to :brand
   belongs_to :region
   belongs_to :size
+
+  validates :name,         presence: true,  length: { in: 1..40 } 
+            :description,  presence: true,  length: { in: 1..1,000 } 
+            :price,        presence: true, numericality: { 
+              only_integer: true,
+              greater_than_or_equal_to: 300,
+              less_than_or_equal_to: 9,999,999,
+               } 
+            :production_condition, 
+            :sold_condition,
+            :category_id,
+            :region_id,
+            :user_id,
+            :delivery_payee,
+            :delivery_time,
+            :delivery_method, presence: true
 end
