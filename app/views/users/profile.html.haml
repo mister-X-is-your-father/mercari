@@ -1,0 +1,12 @@
+.mp-contents
+  %section.mp-contents__mp-content
+    %h2.mp-title
+      プロフィール
+    = form_with url: '', method: :post, local: true do |f|
+      .mp-icon-portion
+        %div
+          = image_tag asset_path('profile/test4.jpg'), class: 'mp-size'
+        = f.text_field :nickname, placeholder: '例)AYA☆セール中', class: 'mp-name'
+      .mp-setting-profile
+        = f.text_area :introduction, placeholder: '例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪', class: 'mp-text'
+        = f.submit '変更する', class: 'mp-btn-bottom' 

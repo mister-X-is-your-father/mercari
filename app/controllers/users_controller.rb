@@ -20,6 +20,8 @@ class UsersController < ApplicationController
 
   end
 
+  def profile
+  end
 
   private
   def user_params
