@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
+  get 'users/:id/logout', to: 'users#show', as: :user_logout
+  get 'users/:id/profile', to: 'users#edit', as: :user_edit
+  get 'users/:id/card', to: 'users#edit', as: :user_card_edit
+  
   resources :users, only: [:show, :edit, :update, :create_address] do
     resources :user_addresses, only: [:new, :create, :edit, :update]
   end
