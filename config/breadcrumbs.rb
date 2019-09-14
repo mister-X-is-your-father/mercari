@@ -2,11 +2,13 @@ crumb :root do
   link "メルカリ", root_path
 end
 
-crumb :mypage do
+crumb :user do
   link "マイページ", user_path
 end
 
-
+crumb :categories do
+  link "カテゴリー一覧", categories_path
+end
 
 
 # crumb :project do |project|
