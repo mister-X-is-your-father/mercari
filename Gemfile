@@ -44,6 +44,9 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
+  gem 'fatory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -53,6 +56,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'web-console'
 end
 
 group :test do
@@ -61,6 +67,11 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'faker'
+end
+
+group :production do
+  gem 'unicorn', '5.4.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -81,28 +92,6 @@ gem 'fog-aws'
 gem 'payjp'
 gem 'seed-fu'
 gem 'gretel'
-
-# group :development, :test do
-#   gem 'pry-rails'
-#   gem 'compass-rails'
-#   gem 'sprockets'
-#   gem 'rspec-rails', '~> 3.5'
-#   gem 'factory_bot_rails'
-#   gem 'rails-controller-testing'
-#   gem 'faker'
-#   gem 'spring'
-#   gem 'capistrano'
-#   gem 'capistrano-rbenv'
-#   gem 'capistrano-bundler'
-#   gem 'capistrano-rails'
-#   gem 'capistrano3-unicorn'
-# end
-
-group :production do
-  gem 'unicorn', '5.4.1'
-end
-
-group :development do
-  gem 'better_errors'
-  gem 'binding_of_caller'
-end
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
