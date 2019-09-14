@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root 'items#index'
 
-  resources :users, only: [:show, :edit, :update, :create_address] do
+  resources :users, only: [:new, :show, :edit, :update, :create_address] do
     resources :user_addresses, only: [:new, :create, :edit, :update]
   end
   resources :items
