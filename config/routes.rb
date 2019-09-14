@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   get 'users/:id/logout', to: 'users#show', as: :user_logout
   get 'users/:id/profile', to: 'users#edit', as: :user_edit
   get 'users/:id/card', to: 'users#edit', as: :user_card_edit
-  
+  get 'users/profile', to: 'users#profile', as: :user_profile
+
   resources :users, only: [:new, :show, :edit, :update, :create_address] do
     resources :user_addresses, only: [:new, :create, :edit, :update]
   end
