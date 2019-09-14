@@ -6,8 +6,21 @@ crumb :user do
   link "マイページ", user_path
 end
 
+crumb :user_edit do #ビューのファイル名？？？　パス名？
+  link "プロフィール", user_edit_path
+  parent :user
+end
+
 crumb :categories do
   link "カテゴリー一覧", categories_path
+end
+
+crumb :brands do
+  link "ブランド一覧", brands_path
+end
+
+crumb :item do |item|
+  link item.name, item_path(item)
 end
 
 
