@@ -1,0 +1,15 @@
+.breadcrumbs {
+  position: relative;
+  border-top: 1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  background: #fff;
+  &__text {
+    width : 1020px;
+    margin: 0 auto;
+    padding: 16px 0;
+    & span.current {
+      font-weight: 600;
+    }
+  }
+  
+}
