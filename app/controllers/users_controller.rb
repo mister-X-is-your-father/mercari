@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
+  
+  def new
+  end
+  
+  
   def show
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
   end
 
   def edit
@@ -15,6 +20,8 @@ class UsersController < ApplicationController
 
   end
 
+  def profile
+  end
 
   private
   def user_params
