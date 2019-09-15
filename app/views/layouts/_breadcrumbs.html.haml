@@ -1,0 +1,7 @@
+- case params.values_at :controller, :action
+
+- when ['users', 'show']
+  - breadcrumb :user
+
+%nav.breadcrumbs
+  = breadcrumbs class: "breadcrumbs__text", separator: " &nbsp;&nbsp;&#12297;&nbsp; "

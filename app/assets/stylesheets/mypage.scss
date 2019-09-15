@@ -1,0 +1,291 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+
+h3 {
+	font-size: 22px;
+	font-weight: 600;
+}
+
+li {
+	list-style: none;
+}
+
+.clearfix:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.my-contents {
+	margin: 40px auto 0;
+	padding: 0 0 40px;
+  width: 1020px;
+	&__side {
+		width: 280px;
+		float: left;
+		margin: 0 40px 0 0;
+	}
+	&__main {
+		width: 700px;
+		float: right;
+		padding: 0;
+	}
+}
+
+.my-side {
+	&__list {
+		width: 280px;
+		height: auto;
+		background-color: pink;
+		list-style: none;
+		text-decoration: none;
+		padding: 0px;
+		margin: 0px;
+		&__detail {
+			border-top: 1px solid #eee;
+			&__link.active {
+				background: #eee;
+				font-weight: 600;
+			}
+			&__link {
+				position: relative;
+    		display: block;
+    		min-height: 48px;
+    		padding: 16px;
+    		background: #fff;
+    		font-size: 14px;
+				color: #333;
+				&__number {
+					position: absolute;
+					top: 50%;
+					right: 32px;
+					width: 24px;
+					height: 24px;
+					border-radius: 50%;
+					background: #ea352d;
+					text-align: center;
+					line-height: 24px;
+					color: #fff;
+					-webkit-transform: translate(0, -50%);
+					transform: translate(0, -50%);
+				}
+			}
+		}
+		&__detail:first-child {
+			border: 0;
+		}
+	}
+	&__item {
+		margin: 40px 0 0;
+		display: inline-block;
+		font-size: 16px;
+	}
+}
+
+.my-side-icon {
+	position: absolute;
+	top: 50%;
+	right: 16px;
+	transform: translate(0, -50%);
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.my-main-header {
+	position: relative;
+	padding: 20px;
+	background-image: image-url("mypage/mypage-background.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-align: center;
+	height: 200px;
+	&__detail {
+		display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translate(0, -50%);
+		color: #333;
+		&__name {
+			margin: 8px 0 0;
+			font-size: 14px;
+			font-weight: 600;
+		}
+		&__number {
+			margin: 8px 0 0;
+			font-size: 0;
+			&__text {
+				display: inline-block;
+				font-size: 14px;
+				&__num {
+					margin: 0 0 0 8px;
+					font-size: 16px;
+					font-weight: 600;
+				}
+			}
+			&__text.second {
+				margin: 0 0 0 16px;
+			}
+		}
+	}
+}
+
+.my-userimage {
+	overflow: hidden;
+	width: 60px;
+	height: 60px;
+	margin: auto;
+	display: block;
+	border-radius: 50%;
+}
+
+.my-main-news-todo {
+	background: #fff;
+	&__tabs {
+    background: #eee;
+		font-size: 0;
+		& li.active {
+			background: #fff;
+			& a {
+				border-top: 2px solid #ea352d;
+			}
+		}
+		& li {
+			width: 50%;
+			display: inline-block;
+			text-align: center;
+			vertical-align: top;
+		}
+		& a {
+			position: relative;
+			display: block;
+			color: #333;
+			font-size: 16px;
+			line-height: 72px;
+		}
+	}
+}
+
+.tab-content {
+	&.tab-pane {
+		&.active {
+			display: block;
+		}
+	}
+}
+
+.my-item-list {
+	& li:first-child {
+	border-bottom: 1px solid #eee;
+	}
+	& li {
+		position: relative;
+		border-bottom: 1px solid #eee;
+	}
+	& li:last-child {
+		border: 0;
+		& a {
+			display: block;
+			height: 56px;
+			margin: 0 auto;
+			background: #eee;
+			color: #333;
+			line-height: 56px;
+			text-align: center;
+		}
+	}
+}
+
+.my-item-link {
+	display: block;
+	min-height: 80px;
+	color: #333;
+	position: relative;
+	padding: 16px;
+	& figure {
+		position: absolute;
+    overflow: hidden;
+    float: left;
+    width: 48px;
+		height: 48px;
+		margin: 0;
+		& img {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+		width: 100%;
+		height: 48px;
+    margin: 0;
+		}
+	}
+}
+
+.my-text-box {
+	margin: 0 40px 0 68px;
+	&__text {
+		overflow: hidden;
+    display: block;
+    display: -webkit-box;
+    max-height: 4.4em;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+	}
+}
+
+time {
+	display: inline-block;
+	color: #888;
+	& span {
+		vertical-align: middle;
+	}
+}
+
+.my-clock-icon {
+	margin: 0 8px 0 0;
+}
+
+
+.my-go-list {
+	padding: 16px;
+}
+
+.my-main-buy {
+	height: 382px;
+	margin: 40px 0 0;
+	background: #fff;
+	&__header {
+		padding: 0 16px;
+		background: #fafafa;
+    font-size: 16px;
+		line-height: 72px;
+		font-weight: 600;
+	}
+}
+
+.tab-content {
+	& .tab-pane.active {
+	display: block;
+	}
+}
+
+.my-item-not-found {
+	padding: 160px 0 60px 0;
+	background-image: image-url("mypage/mypage-mercari-logo-gray.svg");
+	background-repeat: no-repeat;
+	background-position: center 40px;
+	background-size: 78px 85px;
+	text-align: center;
+	font-size: 16px;
+	color: #ccc;
+	font-weight: 600;
+	&.old {
+		display: none;
+	}
+}

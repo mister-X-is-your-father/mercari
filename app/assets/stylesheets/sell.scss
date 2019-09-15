@@ -1,0 +1,166 @@
+.iu-item-container {
+  width: 700px;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.iu-container__inner {
+  padding: 0 40px;
+}
+
+.l-single-head {
+  padding: 32px 16px;
+  font-size: 22px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.iu-upload-box {
+  width: 538px;
+  padding: 40px;
+}
+
+.iu-upload-head {
+  font-size: 16px;
+}
+
+.iu-dropbox-container {
+  display: block;
+  width: 538px;
+}
+
+.iu-upload-items-container {
+  display: inline;
+}
+
+.iu-upload-items {
+  float: left;
+  display: block;
+}
+
+.iu-upload-drop-box {
+  width: 100%;
+  margin-left: 0;
+  padding: 40px;
+  min-height: 162px;
+  background: #f5f5f5;
+  border: 1px dashed #ccc;
+  text-align: center;
+  cursor: pointer;
+}
+
+.iu-content {
+  padding: 40px;
+  border-top: 1px solid #eee;
+}
+
+.iu-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-default {
+  width: 100%;
+  margin: 8px 0 0;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.textarea-default {
+  display: block;
+  height: 140px;
+  width: 100%;
+  max-width: 100%;
+  min-height: 104px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.iu-sub-head {
+  color: #888;
+  font-size: 14px;
+}
+
+.iu-form-box {
+  margin: 0;
+  width: 400px;
+}
+
+.select-wrap {
+  margin: 8px 0 0;
+  position: relative;
+  background: #fff;
+}
+
+.iu-half {
+  width: 50%;
+}
+
+
+.iu-price ul{
+  list-style: none;
+}
+
+.iu-price li{
+  padding: 24px 0;
+  border-top: 1px solid #ccc;
+  list-style: none;
+}
+
+.iu-price-input {
+  display: flex;
+  line-height: 60px;
+  border-top: none;
+}
+
+.right {
+  text-align: right;
+}
+
+.btn-red {
+  margin: 40px 0 0;
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  width: 100%;
+  display: block;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+}
+
+
+.btn-gray {
+  width: 45%;
+  margin: 24px auto 0;
+  background: #aaa;
+  border: 1px solid #aaa;
+  color: #fff;
+  display: block;
+  line-height: 48px;
+  font-size: 14px;
+  text-align: center;
+}
+
+
+.input-price {
+  height: 48px;
+  width: 180px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  text-align: right;
+  margin-left: 10px;
+}
