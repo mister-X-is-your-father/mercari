@@ -22,20 +22,50 @@ class ItemsController < ApplicationController
     @item = Item.new
     @images = @item.images.build
     @sizes = Size.all
-    @category = Category.all
+    @categories = Category.all
+    @regions = Region.all
+    @product_conditions = {
+      "新品、未使用":1,
+      "未使用に近い":2,
+      "目立った傷や汚れなし":3,
+      "やや傷や汚れあり":4,
+      "傷や汚れあり":5,
+      "全体的に状態が悪い":6
+    }
+    @delivery_payee = {
+      "送料込み(出品者負担)":1, 
+      "着払い(購入者負担)":2 
+    }
+    @delivery_method_if_seller = {"未定":1,
+      "らくらくメルカリ便":2,
+      "ゆうメール":3,
+      "レターパック普通郵便(定形、定形外)":4,
+      "クロネコヤマト":5,
+      "ゆうパック":6,
+      "クリックポスト":7,
+      "ゆうパケット":8
+      } 
+    @delivery_time = {
+      "1~2日で発送":1,
+      "2~3日で発送":2,
+      "4~7日で発送":3
+    }
+    render layout: "register-layout"
   end
 
   def create
-    @item = Item.new(item_params)
-    if @item.save
-      params[:images][:image].each do |i|
-        @item.images.create(image: i, item_id: @item.id)
-      end
-      redirect_to root_path
-    else
+    Item.create(item_params)
+    redirect_to root_path
+    # @item = Item.new(item_params)
+    # if @item.save
+    #   params[:images][:image].each do |i|
+    #     @item.images.create(image: i, item_id: @item.id)
+    #   end
+    #   redirect_to root_path
+    # else
       # @images = @item.images.build
-      render :new
-    end
+    #   render :new
+    # end
   end
 
   def edit
@@ -53,12 +83,16 @@ class ItemsController < ApplicationController
       :name,
       :description, 
       :product_condition,
+      :category_id,
+      :region_id,
+      :brand_id,
+      :size_id,
       :delivery_payee,
-      :delivery_time, 
+      :delivery_time,
       :delivery_method,
       :price,
-      images_attributes: {image:[]} 
-    ).merge(user_id: current_user.id, category_id: category.id)
+      images_attributes: [:image, :destroy, :id]
+    ).merge(user_id: current_user.id)
   end
 
 end

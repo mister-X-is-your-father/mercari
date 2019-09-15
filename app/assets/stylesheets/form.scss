@@ -23,6 +23,10 @@
 	font-size: 12px;
 	vertical-align: top;
 	border-style: solid;
+	&-not {
+		background-color: #ccc;
+		color: #fff;
+	}
 }
 
 .form-group__input {

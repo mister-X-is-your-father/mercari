@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to :brand
   belongs_to :region
   belongs_to :size
-  accepts_nested_attributes_for :images #itemのフォーム画面でネストされたフォームを作成でき、image情報も同時に送信できる
+  accepts_nested_attributes_for :images, allow_destroy: true #itemのフォーム画面でネストされたフォームを作成でき、image情報も同時に送信できる
 
   validates :name,         presence: true,  length: { in: 1..40 } 
   validates :description,  presence: true,  length: { in: 1..1000 } 

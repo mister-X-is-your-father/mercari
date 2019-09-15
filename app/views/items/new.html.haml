@@ -3,7 +3,7 @@
     #iu-container
       .iucontainer__inner
         %h2.l-single-head 商品の情報を入力
-        = form_with url: "", method: :post, local: true, class: "form" do |f|
+        = form_with model: @item, method: :post, local: true, class: "form" do |f|
           .iu-container__inner
             %h3.iu-upload-head
               出品画像
@@ -13,8 +13,9 @@
               .iu-upload-items
                 %ul
             .iu-upload-drop-box
-              -# = f.file_field
-              -# %pre.visible-pc ドラッグ&ドロップまたはクリックしてファイルをアップロード
+              = f.fields_for :images do |i|
+                = i.file_field :image
+                %pre.visible-pc ドラッグ&ドロップまたはクリックしてファイルをアップロード
           
           .iu-content
             .form-group
@@ -35,19 +36,29 @@
                 %span.form-require 必須
                 %div
                   .select-wrap
-                    %i.icon-arrow-bottom
-                    %select.select-default
-                      %option ---
-              
+                    = f.collection_select :category_id, @categories, :id, :name, include_blank: '---'
+                  .select-wrap
+                    = f.collection_select :category_id, @categories, :id, :name, include_blank: '---'
+                  .select-wrap
+                    = f.collection_select :category_id, @categories, :id, :name, include_blank: '---'
+              .form-group
+                = f.label "サイズ"
+                %span.form-require 必須
+                %div
+                  .select-wrap
+                    = f.collection_select :size_id, @sizes, :id, :name, include_blank: '---'
+              .form-group
+                = f.label "ブランド"
+                %span.form-require-not 任意
+                %div
+                  .select-wrap
+                    = f.text_field :brand_id, placeholder: "例) シャネル", class: "input-brand"
               .form-group
                 = f.label "商品の状態"
                 %span.form-require 必須
                 %div
                   .select-wrap
-                    %i.icon-arrow-bottom
-                    %select.select-default
-                      %option ---
-            
+                    = f.select :product_condition, options_for_select(@product_conditions), include_blank: '---'
           .iu-content.iu-flex
             %h3.iu-sub-head 配送について
             .iu-form-box
@@ -55,26 +66,22 @@
                 = f.label "配送料の負担"
                 %span.form-require 必須
                 .select-wrap
-                  %i.icon-arrow-bottom
-                  %select.select-default
-                    %option ---
-              
+                  = f.select :delivery_payee, options_for_select(@delivery_payee), include_blank: '---'
+              .form-group
+                = f.label "配送の方法"
+                %span.form-require 必須
+                .select-wrap
+                  = f.select :delivery_method, options_for_select(@delivery_method_if_seller), include_blank: '---'
               .form-group
                 = f.label "配送元の地域"
                 %span.form-require 必須
                 .select-wrap
-                  %i.icon-arrow-bottom
-                  %select.select-default
-                    %option ---
-              
+                  = f.collection_select :region_id, @regions, :id, :region, include_blank: '---'
               .form-group
                 = f.label "配送までの日数"
                 %span.form-require 必須
                 .select-wrap
-                  %i.icon-arrow-bottom
-                  %select.select-default
-                    %option ---
-
+                  = f.select :delivery_time, options_for_select(@delivery_time), include_blank: '---'
           .iu-content.iu-flex
             %h3.iu-sub-head 販売価格(300~9,999,999)
             .iu-form-box
@@ -93,7 +100,6 @@
                 %li.iu-flex.bold
                   .iu-half 販売利益
                   .iu-half.right -
-          
           .iu-content.iu-btn-box
             %div
               %p
