@@ -1,18 +1,25 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-
 .register-container {
 	padding: 0 0 250px;
-}
-
-.register-container a {
-	text-decoration: none;
+	& a {
+		text-decoration: none;
+	}
 }
 
 .register-head {
 	text-align: center;
+	height: 128px;
+	background-color: whitesmoke;
+	& h1 {
+		margin: 40px 0 0;
+		display: inline-block;
+		& a {
+			width: 185px;
+			height: 49px;
+			line-height: 49px;
+			margin: 0 8px 0 0;
+			display: inline-block;
+		}
+	}
 }
 
 .new-user {
@@ -48,23 +55,40 @@
 }
 
 .register-footer {
-	height: 250px;
+	width: 456px;
+	height: 220px;
+	margin: 0 auto;
 	padding: 40px 0;
-	text-align: center;
-}
-
-.register-footer a {
-	text-decoration: none;
-}
-
-.register-footer ul {
-	display: flex;
-	align-items: center;
-}
-
-.register-footer li {
-	text-decoration: none;
-	font-size: 12px;
+  text-align: center;
+	& nav {
+		& ul {
+      & li {
+				display: inline-block;
+				margin: 0 0 0 16px;
+				font-size: 12px;
+			}
+			& li:first-child {
+				margin: 0;
+			}
+		}
+	}
+	&__link {
+		display: block;
+		color: #333;	
+	}
+	&__icon {
+		display: block;
+		color: #333;
+		width: 80px;
+    height: 65px;
+    margin: 40px auto 0;
+	}
+	& p {
+		margin: 8px 0 0;
+		& small {
+			font-size: 13px;
+		}
+	}
 }
 
 .new-user-main {
