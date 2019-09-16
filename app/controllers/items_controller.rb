@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @item.images.build
+    @images = @item.images.build
     @sizes = Size.all
     @categories = Category.all
     @regions = Region.all
@@ -36,7 +36,8 @@ class ItemsController < ApplicationController
       "送料込み(出品者負担)":1, 
       "着払い(購入者負担)":2 
     }
-    @delivery_method_if_seller = {"未定":1,
+    @delivery_method_if_seller = {
+      "未定":1,
       "らくらくメルカリ便":2,
       "ゆうメール":3,
       "レターパック普通郵便(定形、定形外)":4,
@@ -53,22 +54,27 @@ class ItemsController < ApplicationController
     render layout: "register-layout"
   end
 
-  def create  
-    Item.create(item_params)
-    redirect_to root_path
-    # @item = Item.new(item_params)
-    # if @item.save
-    #   params[:images][:image].each do |i|
-    #     @item.images.create(image: i, item_id: @item.id)
-    #   end
-    #   redirect_to root_path
-    # else
-      # @images = @item.images.build
-    #   render :new
-    # end
+  def create
+    # Item.create(item_params)
+    # redirect_to root_path
+    @item = Item.new(item_params)
+    if @item.save
+      params[:images][:image].each do |i|
+        @images = @item.images.create(image: i)
+      end
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def edit
+    @sold_condition = {
+      "出品中":1,
+      "取引中":2,
+      "売却済":3,
+      "公開停止中":4
+    }
   end
 
   def update
@@ -92,7 +98,7 @@ class ItemsController < ApplicationController
       :delivery_method,
       :price,
       images_attributes: [:image, :_destroy, :id]
-    ).merge(user_id: 1, sold_condition: 0)
+    ).merge(user_id: 1)
   end
 
 end

@@ -14,7 +14,7 @@
                 %ul
             .iu-upload-drop-box
               = f.fields_for :images do |i|
-                = i.file_field :image
+                = i.file_field :image, multiple: true, type: 'file'
                 %pre.visible-pc 
                 ドラッグアンドドロップ
                 またはクリックしてファイルをアップロード
