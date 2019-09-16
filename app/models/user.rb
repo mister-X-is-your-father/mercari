@@ -52,7 +52,8 @@ class User < ApplicationRecord
             :kana_familyname,
             :kana_firstname,
             :birth_day, presence: true
-  
+
+
   validates :email, :phone_number, uniqueness: true
   validates :kan_familyname, :kan_firstname, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
   validates :kana_familyname, :kana_firstname, format: { with: /\A[ァ-ヶー－]+\z/ }
