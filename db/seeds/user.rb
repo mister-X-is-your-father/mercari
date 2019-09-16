@@ -1,4 +1,4 @@
-User.create(
+User.create!(
   nickname: "ゆきんこ",
   email: "yukinko@example.com",
   password: "1234567",
@@ -12,7 +12,7 @@ User.create(
   point: 0
 )
 
-User.create(
+User.create!(
   nickname: "キン肉マン",
   email: "kinniku@example.com",
   password: "1234567",
@@ -26,3 +26,16 @@ User.create(
   point: 0
 )
 
+User.create!(
+  nickname: "拓馬シーン",
+  email: "komi@canon.com",
+  password: "1234567",
+  kan_familyname: "こみ",
+  kan_firstname: "拓馬",
+  kana_familyname: "コミ",
+  kana_firstname: "タクマ",
+  birth_day: "1960-08-21",
+  phone_number: "080-9876-5432",
+  profile: "久野さーん",
+  point: 0  
+)
