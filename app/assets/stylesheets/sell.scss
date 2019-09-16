@@ -5,7 +5,8 @@
 }
 
 .iu-container__inner {
-  padding: 0 40px;
+  padding: 40px;
+  border-top: 1px solid #eee;
 }
 
 .l-single-head {
@@ -52,6 +53,9 @@
 .iu-content {
   padding: 40px;
   border-top: 1px solid #eee;
+  & div {
+    font-size: 14px;
+  }
 }
 
 .iu-flex {
@@ -191,4 +195,8 @@ select {
   font-size: 16px;
   line-height: 1.5;
   cursor: pointer;
+}
+
+.iu-sell-link {
+  color: #0099e8;
 }
