@@ -1,0 +1,26 @@
+%main.new-user-main
+  %section.new-user-contents
+    %h2.new-user-input
+      .h2
+        電話番号の確認
+
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), class: "form-wrap") do |f|
+      .contents__main
+
+        .form-content.form-group
+
+          .form-group
+            = f.label :nickname, "携帯電話の番号"
+            = f.email_field :nickname, placeholder: "携帯電話の番号を入力", class: "form-group__input"
+            %p.contents__text.top-8px
+              本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+
+            = f.submit "SMSを送信する", class: "next-btn btn square-btn contents__text top-24px"
+
+          .contents__text.top-8px
+            ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+
+          .form-group.personal-register
+            %p
+              = link_to("電話番号の確認が必要な理油", "#", {class: "blue-color-link"})
+              %i.fa.fa-chevron-right.blue-color-link.icon-thinner

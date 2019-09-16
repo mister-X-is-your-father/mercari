@@ -165,3 +165,16 @@
 	color: #888;
 	-webkit-text-stroke: 1px white
 }
+
+//共通で使うCSS→共有CSSとすると良いと思う
+.top-8px {
+	margin-top: 8px;
+}
+
+.top-24px {
+	margin-top: 24px;
+}
+
+.icon-thinner {
+	-webkit-text-stroke: 0.5px white
+}
