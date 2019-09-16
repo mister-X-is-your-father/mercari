@@ -2,7 +2,7 @@
   %section.new-user-contents
     %h2.new-user-input
       .h2
-        電話番号の確認
+        電話番号認証
 
     = form_for(resource, as: resource_name, url: registration_path(resource_name), class: "form-wrap") do |f|
       .contents__main
@@ -10,17 +10,35 @@
         .form-content.form-group
 
           .form-group
-            = f.label :nickname, "携帯電話の番号"
-            = f.email_field :nickname, placeholder: "携帯電話の番号を入力", class: "form-group__input"
+            = f.label :confirmation, "認証番号"
+            = f.email_field :nickname, placeholder: "認証番号を入力", class: "form-group__input"
             %p.contents__text.top-8px
-              本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+              SMSで届いた認証番号を入力してください
 
-            = f.submit "SMSを送信する", class: "next-btn btn square-btn contents__text top-24px"
+            = f.submit "認証して完了", class: "next-btn btn square-btn contents__text top-24px"
+      .contents__main
 
-          .contents__text.top-8px
-            ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+        .form-content.form-group
 
-          .form-group.personal-register
-            %p
-              = link_to("電話番号の確認が必要な理油", "#", {class: "blue-color-link"})
-              %i.fa.fa-chevron-right.blue-color-link.icon-thinner
+          .form-group
+            .contents__subtitle
+              30秒たっても認証番号が届かない方へ
+            %p.contents__text.top-8px
+              電話で認証番号を聞くこともできます。
+
+            = f.submit "電話で認証番号を聞く（通話無料）", class: "next-btn btn square-btn contents__text top-24px"
+
+      .contents__main
+
+        .form-content.form-group
+
+          .form-group
+            .contents__subtitle
+              認証番号を再送することもできます。もう一度電話番号を入力して下さい。
+          = link_to("電話番号を再度入力する", "#", {class:"contents__text top-8px blue-color-link"})
+
+          .form-group
+            %p.rule-text
+              ※SMSが届かない場合は
+              = link_to("SMS受信設定", "#", {class: "blue-color-link"})
+              を確認して、もう一度電話番号を入力してください。
