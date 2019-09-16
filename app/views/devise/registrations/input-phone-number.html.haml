@@ -12,12 +12,12 @@
           .form-group
             = f.label :nickname, "携帯電話の番号"
             = f.email_field :nickname, placeholder: "携帯電話の番号を入力", class: "form-group__input"
-            %p.contents__text.top-8px
+            %p.contents__text.margin__top-8px
               本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
 
-            = f.submit "SMSを送信する", class: "next-btn btn square-btn contents__text top-24px"
+            = f.submit "SMSを送信する", class: "next-btn btn square-btn contents__text margin__top-24px"
 
-          .contents__text.top-8px
+          .contents__text.margin__top-8px
             ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
 
           .form-group.personal-register

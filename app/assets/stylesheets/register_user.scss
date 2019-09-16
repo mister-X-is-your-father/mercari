@@ -106,7 +106,22 @@
 	height: 48px;
 	width: 76px;
 	padding: 0 10px;
-	margin: 1px;
+	position: relative;
+	z-index: 2;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	background: 0;
+	font-size: 16px;
+	line-height: 1.5;
+	cursor: pointer;
+	display: inline-block;
+	text-shadow: none;
+	overflow: visible;
+	color: #888;
+	-webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
+	-moz-appearance: none;	/* ベンダープレフィックス(Firefox用) */
+	appearance: none;	/* 標準のスタイルを無効にする */
+	font-weight: normal;
 }
 
 .select-default {
@@ -173,12 +188,31 @@
 }
 
 //共通で使うCSS→共有CSSとすると良いと思う
-.top-8px {
-	margin-top: 8px;
-}
 
-.top-24px {
-	margin-top: 24px;
+.margin {
+	&__top-8px {
+		margin-top: 8px;
+	}
+
+	&__top-24px {
+		margin-top: 24px;
+	}
+
+	&__top-32px {
+		margin-top: 32px;
+	}
+
+	&__top-40px {
+		margin-top: 40px;
+	}
+
+	&__bottom-60px {
+		margin-bottom: 60px;
+	}
+
+	&__side2px {
+		margin: 0 2px;
+	}
 }
 
 .icon-thinner {
