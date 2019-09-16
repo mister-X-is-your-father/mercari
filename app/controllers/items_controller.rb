@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @images = @item.images.build
+    @item.images.build
     @sizes = Size.all
     @categories = Category.all
     @regions = Region.all
@@ -53,7 +53,7 @@ class ItemsController < ApplicationController
     render layout: "register-layout"
   end
 
-  def create
+  def create  
     Item.create(item_params)
     redirect_to root_path
     # @item = Item.new(item_params)
@@ -92,7 +92,7 @@ class ItemsController < ApplicationController
       :delivery_method,
       :price,
       images_attributes: [:image, :_destroy, :id]
-    ).merge(user_id: 1)
+    ).merge(user_id: 1, sold_condition: 0)
   end
 
 end
