@@ -26,9 +26,21 @@
 	line-height: 12px;
 	font-weight: normal;
 	&__optional {
-		//任意の入力欄用
+		//任意の入力欄用.form-require.form-require__optionalと書くと適用
 		background-color: #CCCCCC;
 	}
+}
+
+.form-question {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background: #0099e8;
+	color: #fff;
+	line-height: 14px;
+	font-size: 12px;
+	text-align: center;
 }
 
 .form-group__input {
