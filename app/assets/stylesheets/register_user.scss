@@ -231,6 +231,17 @@
 	}
 }
 
+.signup-card-list {
+	display: flex;
+	li {
+			margin-right: 8px;
+	}
+}
+
+.registration-bunner {
+	width: 100%;
+}
+
 //共通で使うCSS→共有CSSとすると良いと思う
 
 .margin {
@@ -250,6 +261,10 @@
 		margin-top: 40px;
 	}
 
+	&__bottom-24px {
+		margin-bottom: 24px;
+	}
+
 	&__bottom-60px {
 		margin-bottom: 60px;
 	}
@@ -257,7 +272,7 @@
 	&__side-2px {
 		margin: 0 2px;
 	}
-	
+
 	&__side-8px {
 		margin: 0 8px;
 	}
@@ -267,13 +282,12 @@
 	}
 }
 
-.icon-thinner {
-	-webkit-text-stroke: 0.5px white;
+.font {
+	&__size-16px {
+		font-size: 16px;
+	}
 }
 
-.signup-card-list {
-	display: flex;
-	li {
-			margin-right: 8px;
-	}
+.icon-thinner {
+	-webkit-text-stroke: 0.5px white;
 }
