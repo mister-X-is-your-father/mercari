@@ -56,18 +56,18 @@
             .birthday-form
               .birthday-form__year.birthday-form__default
                 = f.select :birth_day, [["1980", "1980"], ["1981", "1981"], ["1982", "1982"], ["1983", "1983"], ["1984", "1984"], ["1985", "1985"]], prompt: "--", class: "select-default"
-                .fa.fa-chevron-down.form-icon-position__birthday
-                .contents__text.margin__side2px
+                .fa.fa-chevron-down.form-icon-position__normal
+                .contents__text.margin__side-2px
                   年
               .birthday-form__month.birthday-form__default
                 = f.select :birth_day, [["1月", "1月"], ["2月", "2月"]], prompt: "--", class: "select-default"
-                .fa.fa-chevron-down.form-icon-position__birthday
-                .contents__text.margin__side2px
+                .fa.fa-chevron-down.form-icon-position__normal
+                .contents__text.margin__side-2px
                   月
               .birthday-form__day.birthday-form__default
                 = f.select :birth_day, [["1日", "1日"], ["2日", "2日"]], prompt: "--", class: "select-default"
-                .fa.fa-chevron-down.form-icon-position__birthday
-                .contents__text.margin__side2px
+                .fa.fa-chevron-down.form-icon-position__normal
+                .contents__text.margin__side-2px
                   日
 
           %p.form-info-text.contents__text
@@ -80,7 +80,7 @@
               に同意したものとみなします
 
             = f.submit "次へ進む", class: "next-btn btn square-btn contents__text"
-            .form-group.personal-register
+            .form-group.personal-register.margin__top-24px
               %p
                 = link_to("本人情報の登録について", "#", {class: "blue-color-link"})
                 %i.fa.fa-chevron-right.blue-color-link
