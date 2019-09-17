@@ -102,6 +102,10 @@
 	}
 }
 
+.position-relative {
+	position: relative;
+}
+
 #user_birth_day {
 	height: 48px;
 	width: 76px;
@@ -115,9 +119,19 @@
 	line-height: 1.5;
 	cursor: pointer;
 	display: inline-block;
-	text-shadow: none;
 	overflow: visible;
 	color: #888;
+	-webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
+	-moz-appearance: none;	/* ベンダープレフィックス(Firefox用) */
+	appearance: none;	/* 標準のスタイルを無効にする */
+	font-weight: normal;
+}
+
+#prefecture_id {
+	padding: 0 10px;
+	position: relative;
+	z-index: 0;
+	cursor: pointer;
 	-webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
 	-moz-appearance: none;	/* ベンダープレフィックス(Firefox用) */
 	appearance: none;	/* 標準のスタイルを無効にする */
@@ -179,12 +193,23 @@
 }
 
 .form-icon-position {
-	position: absolute;
-	top: 12px;
-	left: 45px;
-	font-size: 20px;
-	color: #888;
-	-webkit-text-stroke: 1px white
+	&__birthday {
+		position: absolute;
+		top: 12px;
+		left: 45px;
+		font-size: 20px;
+		color: #888;
+		-webkit-text-stroke: 1px white;
+	}
+	&__prefecture {
+		position: absolute;
+		top: 20px;
+		right: 16px;
+		font-size: 20px;
+		color: #888;
+		-webkit-text-stroke: 1px white;
+		z-index: 0;
+	}
 }
 
 //共通で使うCSS→共有CSSとすると良いと思う
