@@ -1,0 +1,55 @@
+%main.new-user-main
+  %section.new-user-contents
+    %h2.new-user-input
+      支払い方法
+
+    -# = form_for(resource, as: resource_name, url: registration_path(resource_name), class: "form-wrap") do |f|
+    = form_with(local: true) do |f|
+      .contents__main
+        .form-content.form-group.margin__top-40px
+          .form-group
+            = f.label :kanji, "カード番号"
+            %span.form-require 必須
+            = f.email_field :kan_familyname, placeholder: "半角数字のみ", class: "form-group__input"
+          %ul.signup-card-list.margin__top-8px
+            %li
+              = image_tag 'registration/visa.svg', size: '49x20'
+            %li
+              = image_tag 'registration/master.svg', size: '34x20'
+            %li
+              = image_tag 'registration/saison.svg', size: '30x20'
+            %li
+              = image_tag 'registration/jcb.svg', size: '32x20'
+            %li
+              = image_tag 'registration/american.svg', size: '21x20'
+            %li
+              = image_tag 'registration/diners.svg', size: '32x20'
+            %li
+              = image_tag 'registration/discover.svg', size: '32x20'
+
+          .form-group
+            = f.label :card, "有効期限"
+            %span.form-require 必須
+            %br
+            .birthday-form
+              .birthday-form__year.birthday-form__default
+                = f.select :card, [["01", "01"], ["02", "02"], ["03", "03"], ["04", "04"], ["05", "05"], ["06", "06"], ["07", "07"], ["08", "08"], ["09", "09"], ["10", "10"], ["11", "11"], ["12", "12"]], prompt: "--", class: "select-default"
+                .fa.fa-chevron-down.form-icon-position__normal
+                .contents__text.margin__side-2px.margin__right-8px
+                  月
+              .birthday-form__month.birthday-form__default
+                = f.select :card, [["19", "19"], ["20", "20"],["21", "21"], ["22", "22"],["23", "23"], ["24", "24"],["25", "25"], ["26", "26"],["27", "27"], ["28", "28"],["29", "29"]], prompt: "--", class: "select-default"
+                .fa.fa-chevron-down.form-icon-position__normal
+                .contents__text.margin__side-2px.margin__right-8px
+                  年
+
+          .form-group.margin__top-32px
+            = f.label :kana, "セキュリティコード"
+            %span.form-require 必須
+            = f.email_field :kana_familyname, placeholder: "カード背面4桁もしくは3桁の番号", class: "form-group__input"
+          .personal-register.margin__top-8px
+            %p
+              .form-question
+                ?
+              = link_to("カード裏面の番号とは?", "#", {class: "blue-color-link"})
+          = f.submit "次へ進む", class: "next-btn btn square-btn contents__text margin__top-24px"
