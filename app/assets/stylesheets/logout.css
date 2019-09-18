@@ -1,0 +1,12 @@
+.logout-block {
+  height: 179px;
+  width: 700px;
+  padding: 64px 190px;
+  background-color: #ffffff;
+  margin: 0 auto;
+}
+
+.logout-block :first-child {
+  border-radius: 0;
+}
+/*# sourceMappingURL=logout.css.map */

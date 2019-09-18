@@ -1,0 +1,348 @@
+@charset "UTF-8";
+/*
+    TODO will need to remove settings on HTML since we can't namespace it.
+    TODO with the prefix, should I group by selector or property for weight savings?
+*/
+html {
+  color: #000;
+  background: #FFF;
+}
+
+/*
+  TODO remove settings on BODY since we can't namespace it.
+*/
+/*
+  TODO test putting a class on HEAD.
+      - Fails on FF.
+*/
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+fieldset,
+img {
+  border: 0;
+}
+
+/*
+  TODO think about hanlding inheritence differently, maybe letting IE6 fail a bit...
+*/
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+caption,
+th {
+  text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: bold;
+}
+
+q:before,
+q:after {
+  content: '';
+}
+
+abbr,
+acronym {
+  border: 0;
+  font-variant: normal;
+}
+
+/* to preserve line-height and selector appearance */
+sup {
+  vertical-align: text-top;
+}
+
+sub {
+  vertical-align: text-bottom;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  *font-size: 100%;
+  /*to enable resizing for IE*/
+}
+
+/*because legend doesn't inherit in IE */
+legend {
+  color: #000;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+
+body {
+  background-color: whitesmoke;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.in-main {
+  max-width: 1020px;
+  margin: 0 auto;
+}
+
+.in-main__contents {
+  position: relative;
+}
+
+.in-banner {
+  height: 390px;
+  left: 50%;
+  margin-left: -50vw;
+  position: relative;
+  top: 0px;
+  width: 100vw;
+  overflow: hidden;
+  background-image: image-url("banner/autumn-fes.jpg");
+  background-size: auto;
+  background-position: center center;
+  cursor: pointer;
+}
+
+.in-popular-categories, .in-popular-brands {
+  padding: 56px 0px 30px;
+  background-color: white;
+  left: 50%;
+  margin-left: -50vw;
+  position: relative;
+  top: 0px;
+  width: 100vw;
+}
+
+.in-popular-categories__head, .in-popular-brands__head {
+  margin-bottom: 16px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.4em;
+}
+
+.in-popular-categories__row__ul, .in-popular-brands__row__ul {
+  text-align: center;
+}
+
+.in-popular-categories__row__ul__li, .in-popular-brands__row__ul__li {
+  margin: 10px 0px 0px 10px;
+  display: inline-block;
+}
+
+.in-popular-categories__row__ul__li__category, .in-popular-brands__row__ul__li__category {
+  background-color: #efefef;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 15px;
+  padding: 8px 16px;
+}
+
+.in-category-new, .in-brand-new {
+  padding: 42px 0px 100px;
+}
+
+.in-category-new__block__top, .in-brand-new__block__top {
+  margin-bottom: 16px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.in-category-new__block__all__items, .in-brand-new__block__all__items {
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  gap: 20px 20px;
+  display: -ms-grid;
+  display: grid;
+}
+
+.in-category-new__block:not(:first-child), .in-brand-new__block:not(:first-child) {
+  margin-top: 60px;
+}
+
+.in-new-heading {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0%;
+          flex: 1 1 0%;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.4em;
+}
+
+.in-search-for-more {
+  font-size: 14px;
+  padding: 5px 16px 5px 5px;
+  color: #0095ee;
+  font-weight: 600;
+}
+
+.in-item {
+  width: 100%;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.in-item__detail {
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #fff;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  margin: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.in-item__detail__img {
+  height: 0;
+  overflow: hidden;
+  padding: 0 0 100%;
+  position: relative;
+  width: 100%;
+}
+
+.in-item__detail__img__price {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 0 14px 14px 0;
+  bottom: 8px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #fff;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 17px;
+  height: 28px;
+  letter-spacing: .02em;
+  margin: 0;
+  padding: 0 12px;
+  position: absolute;
+  z-index: 2;
+}
+
+.in-item__detail__img__img {
+  bottom: 0;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  vertical-align: top;
+  width: 100%;
+  z-index: 1;
+}
+
+.in-item__detail__description {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #222;
+  font-size: 14px;
+  height: 64px;
+  line-height: 1.4em;
+  padding: 0 12px;
+  white-space: normal;
+  word-break: break-word;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.in-item__detail__description__text {
+  display: inline-block;
+  height: 2.8em;
+  overflow: hidden;
+  position: relative;
+}
+
+.in-item__detail__description__text:after {
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), color-stop(72%, #fff));
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), #fff 72%);
+  bottom: 0;
+  content: "";
+  height: 50%;
+  position: absolute;
+  right: 0;
+  width: 50%;
+}
+/*# sourceMappingURL=item-index.css.map */

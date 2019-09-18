@@ -1,0 +1,349 @@
+@charset "UTF-8";
+.register-container {
+  padding: 0 0 250px;
+}
+
+.register-container a {
+  text-decoration: none;
+}
+
+.register-head {
+  text-align: center;
+}
+
+.new-user {
+  display: inline-block;
+  margin: 11px 0 12px;
+}
+
+.register {
+  display: block;
+}
+
+.contents {
+  background-color: #fff;
+  width: 700px;
+  margin: 0 auto;
+}
+
+.contents__new {
+  padding: 16px 0;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.contents__main {
+  border-top: 1px solid #f5f5f5;
+  padding: 0 16px 40px;
+}
+
+.contents__main__only-border {
+  border-top: 1px solid #f5f5f5;
+}
+
+.main__list {
+  margin: 0 auto;
+  max-width: 343px;
+}
+
+.register-footer {
+  height: 250px;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.register-footer a {
+  text-decoration: none;
+}
+
+.register-footer ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.register-footer li {
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.new-user-main {
+  display: block;
+}
+
+.new-user-contents {
+  width: 700px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.new-user-input {
+  font-size: 22px;
+  padding: 32px;
+  text-align: center;
+}
+
+.new-card-input {
+  font-size: 18px;
+}
+
+.name-left {
+  margin-right: 8px;
+}
+
+.birthday-form {
+  margin-top: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.birthday-form__year {
+  position: relative;
+}
+
+.birthday-form__month {
+  position: relative;
+}
+
+.birthday-form__day {
+  position: relative;
+}
+
+.position-relative {
+  position: relative;
+}
+
+#birth_day {
+  height: 48px;
+  width: 76px;
+  padding: 0 10px;
+  position: relative;
+  z-index: 2;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+  display: inline-block;
+  overflow: visible;
+  color: #888;
+  -webkit-appearance: none;
+  /* ベンダープレフィックス(Google Chrome、Safari用) */
+  -moz-appearance: none;
+  /* ベンダープレフィックス(Firefox用) */
+  appearance: none;
+  /* 標準のスタイルを無効にする */
+  font-weight: normal;
+}
+
+#prefecture_id {
+  padding: 0 10px;
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  /* ベンダープレフィックス(Google Chrome、Safari用) */
+  -moz-appearance: none;
+  /* ベンダープレフィックス(Firefox用) */
+  appearance: none;
+  /* 標準のスタイルを無効にする */
+  font-weight: normal;
+}
+
+#card {
+  height: 48px;
+  width: 131.5px;
+  padding: 0 16px;
+  position: relative;
+  z-index: 2;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+  display: inline-block;
+  overflow: visible;
+  -webkit-appearance: none;
+  /* ベンダープレフィックス(Google Chrome、Safari用) */
+  -moz-appearance: none;
+  /* ベンダープレフィックス(Firefox用) */
+  appearance: none;
+  /* 標準のスタイルを無効にする */
+  font-weight: normal;
+}
+
+.select-default {
+  height: 48px;
+  width: 100%;
+  padding: 0 16px;
+  position: relative;
+  z-index: 2;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+  display: inline-block;
+  text-shadow: none;
+  overflow: visible;
+  color: #888;
+  -webkit-appearance: none;
+  /* ベンダープレフィックス(Google Chrome、Safari用) */
+  -moz-appearance: none;
+  /* ベンダープレフィックス(Firefox用) */
+  appearance: none;
+  /* 標準のスタイルを無効にする */
+  font-weight: normal;
+}
+
+.form-info-text {
+  margin: 8px 0 0;
+  line-height: 1.5;
+  color: #888;
+}
+
+.rule-text {
+  text-align: center;
+  font-weight: normal;
+}
+
+.personal-register {
+  text-align: right;
+}
+
+.contents__subtitle {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 16px;
+}
+
+.contents__text {
+  font-weight: normal;
+  display: inline-block;
+}
+
+.blue-color-link {
+  color: #0099E8;
+  font-weight: normal;
+}
+
+.form-icon-position__normal {
+  position: absolute;
+  top: 12px;
+  right: 35px;
+  font-size: 20px;
+  color: #888;
+  -webkit-text-stroke: 1px white;
+}
+
+.form-icon-position__prefecture {
+  position: absolute;
+  top: 20px;
+  right: 16px;
+  font-size: 20px;
+  color: #888;
+  -webkit-text-stroke: 1px white;
+  z-index: 0;
+}
+
+.form-icon-position__card {
+  position: absolute;
+  top: 50px;
+  right: 16px;
+  font-size: 20px;
+  color: #888;
+  -webkit-text-stroke: 1px white;
+  z-index: 0;
+}
+
+.form-icon-position__cardicon {
+  position: absolute;
+  top: 37px;
+  left: 32px;
+  font-size: 20px;
+  color: #ffffff;
+  z-index: 0;
+}
+
+a.cardicon2 {
+  background: url(/images/mypage/card.svg);
+}
+
+.signup-card-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.signup-card-list li {
+  margin-right: 8px;
+}
+
+.registration-bunner {
+  width: 100%;
+}
+
+.margin__top-8px {
+  margin-top: 8px;
+}
+
+.margin__top-24px {
+  margin-top: 24px;
+}
+
+.margin__top-32px {
+  margin-top: 32px;
+}
+
+.margin__top-40px {
+  margin-top: 40px;
+}
+
+.margin__bottom-24px {
+  margin-bottom: 24px;
+}
+
+.margin__bottom-40px {
+  margin-bottom: 40px;
+}
+
+.margin__bottom-60px {
+  margin-bottom: 60px;
+}
+
+.margin__side-2px {
+  margin: 0 2px;
+}
+
+.margin__side-8px {
+  margin: 0 8px;
+}
+
+.margin__right-8px {
+  margin-right: 8px;
+}
+
+.padding__8px {
+  padding: 8px;
+}
+
+.font__size-16px {
+  font-size: 16px;
+}
+
+.font__size-14px {
+  font-size: 14px;
+}
+
+.icon-thinner {
+  -webkit-text-stroke: 0.5px white;
+}
+/*# sourceMappingURL=register_user.css.map */
