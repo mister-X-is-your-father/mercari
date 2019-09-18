@@ -3,16 +3,16 @@
     #iu-container
       .iucontainer__inner
         %h2.l-single-head 商品の情報を入力
-        = form_with model: @item, method: :post, local: true, class: "form" do |f|
+        = form_with model: @item, method: :post, local: true, class: "form dropzone", id: "item-dropzone" do |f|
           .iu-container__inner
             %h3.iu-upload-head
               出品画像
               %span.form-require 必須
             %p 最大10枚までアップロードできます
-            .iu-dropbox-container
+            .iu-dropbox-container.dz-message.needsclick
               .iu-upload-items
                 %ul
-            .iu-upload-drop-box
+            .iu-upload-drop-box.fallback
               = f.fields_for :images do |i|
                 = i.file_field :image, multiple: true, type: 'file'
                 %pre.visible-pc
