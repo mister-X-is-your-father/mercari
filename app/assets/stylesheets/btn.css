@@ -43,4 +43,16 @@
   border: 1px solid #ea352d;
   color: #fff;
 }
+
+.btn-delete {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 4px 6px;
+  background: #fff;
+  border-radius: 3px;
+  border: 1px solid #ea352d;
+  color: #ea352d;
+}
 /*# sourceMappingURL=btn.css.map */

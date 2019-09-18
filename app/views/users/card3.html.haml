@@ -2,16 +2,23 @@
   = render 'layouts/mypage-side-contents'
   %main.new-user-main.float__right
     %section.new-user-contents
-      %h2.new-user-input
+      %h2.new-user-input.padding__8px
         支払い方法
       .contents__main__only-border.padding__entire-64px
         .form-content__narrow.form-group__margin-l
           .inner-box.font__size-16px
             クレジットカード一覧
-            .inner-box__relative
-              = link_to("クレジットカードを追加する", '#', {class: "next-btn btn square-btn contents__text margin__top-24px"})
-              %i.material-icons.form-icon-position__cardicon
-                payment
+
+            %ul.signup-card-list.margin__top-24px.inner-box__relative
+              %li
+                = image_tag 'registration/visa.svg', size: '49x15'
+              .btn-delete.font__size-14px
+                = link_to("削除する", '#', {class: ""})
+          .margin__top-8px.font__size-14px
+            ************8693
+          .margin__top-8px.font__size-14px
+            11/19
+
         .contents__main__only-border.margin__top-32px.margin__bottom-40px
 
         .personal-register

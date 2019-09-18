@@ -1,8 +1,16 @@
+.font__size-14px {
+  font-size: 14px;
+}
+
 .font__size-16px {
   font-size: 16px;
 }
 
 .padding__entire-64px {
   padding: 64px;
+}
+
+.float__right {
+  float: right;
 }
 /*# sourceMappingURL=general.css.map */

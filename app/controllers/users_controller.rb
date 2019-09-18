@@ -29,6 +29,9 @@ class UsersController < ApplicationController
   def card2#表示用に追加（森田）
   end
 
+  def card3#表示用に追加（森田）
+  end
+
   private
   def user_params
     # params.require(:user).permit(:)

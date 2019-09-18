@@ -1,4 +1,7 @@
 .font {
+  &__size-14px {
+    font-size: 14px;
+  }
   &__size-16px {
     font-size: 16px;
   }
@@ -7,5 +10,11 @@
 .padding {
   &__entire-64px {
     padding: 64px;
+  }
+}
+
+.float {
+  &__right{
+    float: right;
   }
 }
