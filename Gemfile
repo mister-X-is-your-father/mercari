@@ -92,6 +92,7 @@ gem 'gretel'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
+gem 'dropzonejs-rails'
 
 group :development, :test do
   gem 'pry-rails'

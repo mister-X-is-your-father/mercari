@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
+
   def index
-    # @ladies = Category.find(1)
-    # @ladies_items = @ladies.items.order("created_at DESC").limit(10)
+    @parent_categories = Category.roots
     
     # ビューでの子要素の取り出しは 
     # - parents.children.each do |child|
@@ -9,7 +9,6 @@ class ItemsController < ApplicationController
     # 孫要素の取り出しは
     # - child.children.each do |grandchild|
       # = grandchild.name
-    @parents = Category.all.order("id ASC").limit(13)
   end
 
   def show
@@ -22,7 +21,9 @@ class ItemsController < ApplicationController
     @item = Item.new
     @images = @item.images.build
     @sizes = Size.all
-    @categories = Category.all
+    @parent_categories = Category.roots
+    # @child_categories = @parent_categories.children
+    # @grandchild_categories = @child_categories.child
     @regions = Region.all
     @product_conditions = {
       "新品、未使用":1,
@@ -55,8 +56,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # Item.create(item_params)
-    # redirect_to root_path
     @item = Item.new(item_params)
     if @item.save
       params[:images][:image].each do |i|
@@ -98,7 +97,7 @@ class ItemsController < ApplicationController
       :delivery_method,
       :price,
       images_attributes: [:image, :_destroy, :id]
-    ).merge(user_id: 1)
+    ).merge(user_id: 1) #current_user.id user新規登録機能待ち
   end
 
 end

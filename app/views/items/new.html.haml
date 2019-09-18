@@ -15,7 +15,7 @@
             .iu-upload-drop-box
               = f.fields_for :images do |i|
                 = i.file_field :image, multiple: true, type: 'file'
-                %pre.visible-pc 
+                %pre.visible-pc
                 ドラッグアンドドロップ
                 またはクリックしてファイルをアップロード
           .iu-content
@@ -35,11 +35,11 @@
                 %span.form-require 必須
                 %div
                   .select-wrap
-                    = f.collection_select :category_id, @categories, :id, :name, include_blank: '---'
+                    = f.collection_select :category_id, @parent_categories, :id, :name, include_blank: '---'
                   .select-wrap
-                    = f.collection_select :category_id, @categories, :id, :name, include_blank: '---'
+                    -# = f.collection_select :category_id, @child_categories, :id, :name, include_blank: '---'
                   .select-wrap
-                    = f.collection_select :category_id, @categories, :id, :name, include_blank: '---'
+                    -# = f.collection_select :category_id, @grandchild_categories, :id, :name, include_blank: '---'
               .form-group
                 = f.label "サイズ"
                 %span.form-require 必須
