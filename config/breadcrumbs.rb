@@ -6,10 +6,10 @@ crumb :user do
   link "マイページ", user_path
 end
 
-crumb :user_edit do #ビューのファイル名？？？　パス名？
-  link "プロフィール", user_edit_path
-  parent :user
-end
+# crumb :user_profile do
+#   link "プロフィール", user_profile_path
+#   parent :user
+# end
 
 crumb :categories do
   link "カテゴリー一覧", categories_path
