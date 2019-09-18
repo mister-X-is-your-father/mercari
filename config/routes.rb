@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => {
     :delivery_addresses => 'users/delivery_addresses',
+    :omniauth_callbacks => 'users/omniauth_callbacks'
   }
 
   root 'items#index'

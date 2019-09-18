@@ -1,6 +1,6 @@
 .mp-contents{
   width: 700px;
-  height: 568px;
+  float: right;
   &__mp-content{
     background: #fff;
   }
@@ -30,7 +30,8 @@
 .mp-size{
   width: 60px;
   height: 60px;
-
+  overflow: hidden;
+  border-radius: 50%;
 }
 
 .mp-name{

@@ -1,4 +1,4 @@
-User.create(
+User.create!(
   nickname: "ゆきんこ",
   email: "yukinko@example.com",
   password: "1234567",
@@ -12,7 +12,7 @@ User.create(
   point: 0
 )
 
-User.create(
+User.create!(
   nickname: "キン肉マン",
   email: "kinniku@example.com",
   password: "1234567",
