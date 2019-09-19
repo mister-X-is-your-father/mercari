@@ -25,6 +25,16 @@ Rails.application.routes.draw do
   resources :brands, only: [:index, :show]
   resources :user_reviewes, only: [:index, :create]
 
+  resources :signup, only: [:index, :create] do
+    collection do
+      get 'index'
+      get 'registration'
+      get 'sms_confirmation'
+      get 'sms_confirmed'
+      get 'delivery_address'
+      get 'card'
+      post 'done'
+    end
   get 'mypage', to: 'mypage/mypage#index', as: :mypage_top
 
   namespace :mypage do

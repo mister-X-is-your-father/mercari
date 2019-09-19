@@ -4,14 +4,14 @@
       .h2
         電話番号認証
 
-    = form_for(resource, as: resource_name, url: registration_path(resource_name), class: "form-wrap") do |f|
+    = form_for(:user, url: delivery_address_signup_index_path, class: "form-wrap", method: :get) do |f|
       .contents__main
 
         .form-content.form-group
 
           .form-group
             = f.label :confirmation, "認証番号"
-            = f.email_field :nickname, placeholder: "認証番号を入力", class: "form-group__input"
+            = f.text_field :nickname, placeholder: "認証番号を入力", class: "form-group__input"
             %p.contents__text.margin__top-8px
               SMSで届いた認証番号を入力してください
 
