@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'users/card'#表示用に仮で追加→users_controllerにも追加（森田）
   get 'users/card2'#表示用に仮で追加→users_controllerにも追加（森田）
   get 'users/card3'#表示用に仮で追加→users_controllerにも追加（森田）
+  get 'users/login'#表示用に仮で追加→users_controllerにも追加（森田）
 
   resources :users, only: [:new, :show, :edit, :update, :create_address] do
     resources :user_addresses, only: [:new, :create, :edit, :update]
@@ -24,6 +25,17 @@ Rails.application.routes.draw do
   resources :brands, only: [:index, :show]
   resources :user_reviewes, only: [:index, :create]
 
+  resources :signup, only: [:index, :create] do
+    collection do
+      get 'index'
+      get 'registration'
+      get 'sms_confirmation'
+      get 'sms_confirmed'
+      get 'delivery_address'
+      get 'card'
+      post 'done'
+    end
+  end
   get 'mypage', to: 'mypage/mypage#index', as: :mypage_top
 
   namespace :mypage do
@@ -52,9 +64,9 @@ Rails.application.routes.draw do
     # get 'email_password', to: 'email_password#edit', as: :edit_email_password
     # patch 'email_password', to: 'email_password#update', as: :update_email_password
     # get 'identification', to: 'identification#new', as: :new_identification
-    # get 'identification', to: 'identification#edit', as: :edit_identification
+    get 'identification', to: 'identification#edit', as: :edit_identification
     # post 'identification', to: 'identification#create', as: :create_identification
-    # patch 'identification', to: 'identification#update', as: :update_identification
+    patch 'identification', to: 'identification#update', as: :update_identification
     # get 'sms_confirmation', to: 'sms_confirmation#show', as: :show_sms_confirmation
     # get 'sms_confirmation', to: 'sms_confirmatipn#new', as: :new_sms_confirmation
     # post 'sms_confirmation', to: 'sms_confirmation#create', as: :create_sms_confirmation

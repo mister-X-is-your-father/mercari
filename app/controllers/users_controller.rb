@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  
+
   def new
   end
-  
-  
+
+
   def show
     # @user = User.find(params[:id])
   end
@@ -31,9 +31,12 @@ class UsersController < ApplicationController
   def card3#表示用に追加（森田）
   end
 
+  def login#表示用に追加（森田）
+  end
+
   private
   def user_params
     # params.require(:user).permit(:)
   end
-  
+
 end
