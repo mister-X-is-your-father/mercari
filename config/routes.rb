@@ -52,9 +52,9 @@ Rails.application.routes.draw do
     # get 'email_password', to: 'email_password#edit', as: :edit_email_password
     # patch 'email_password', to: 'email_password#update', as: :update_email_password
     # get 'identification', to: 'identification#new', as: :new_identification
-    # get 'identification', to: 'identification#edit', as: :edit_identification
+    get 'identification', to: 'identification#edit', as: :edit_identification
     # post 'identification', to: 'identification#create', as: :create_identification
-    # patch 'identification', to: 'identification#update', as: :update_identification
+    patch 'identification', to: 'identification#update', as: :update_identification
     # get 'sms_confirmation', to: 'sms_confirmation#show', as: :show_sms_confirmation
     # get 'sms_confirmation', to: 'sms_confirmatipn#new', as: :new_sms_confirmation
     # post 'sms_confirmation', to: 'sms_confirmation#create', as: :create_sms_confirmation
