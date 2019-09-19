@@ -58,7 +58,6 @@ class SignupController < ApplicationController
       buildings: session[:buildings],
       address_phone_number: session[:address_phone_number]
     )
-    binding.pry
     if @user.save
       session[:id] = @user.id
       redirect_to done_signup_index_path
