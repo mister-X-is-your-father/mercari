@@ -3,21 +3,18 @@
     #iu-container
       .iucontainer__inner
         %h2.l-single-head 商品の情報を入力
-        = form_with model: @item, method: :post, local: true, class: "form dropzone", id: "item-dropzone" do |f|
+        = form_with model: @item, method: :post, local: true, class: "form" do |f|
           .iu-container__inner
             %h3.iu-upload-head
               出品画像
               %span.form-require 必須
             %p 最大10枚までアップロードできます
-            .iu-dropbox-container.dz-message.needsclick
-              .iu-upload-items
-                %ul
-            .iu-upload-drop-box.fallback
+            .iu-upload-drop-box
               = f.fields_for :images do |i|
                 = i.file_field :image, multiple: true, type: 'file'
                 %pre.visible-pc
-                ドラッグアンドドロップ
-                またはクリックしてファイルをアップロード
+                  .dropzone-msg-title ドラッグアンドドロップ
+                  .dropzone-msg-text またはクリックしてファイルをアップロード
           .iu-content
             .form-group
               = f.label "商品名"
@@ -35,11 +32,11 @@
                 %span.form-require 必須
                 %div
                   .select-wrap
-                    = f.collection_select :category_id, @parent_categories, :id, :name, include_blank: '---'
+                    = f.select :category_id, options_for_select(@category_parent_array), include_blank: '---'
                   .select-wrap
-                    -# = f.collection_select :category_id, @child_categories, :id, :name, include_blank: '---'
+                    = f.collection_select :category_id, @child_categories, :id, :name, include_blank: '---'
                   .select-wrap
-                    -# = f.collection_select :category_id, @grandchild_categories, :id, :name, include_blank: '---'
+                    = f.collection_select :category_id, @child_categories, :id, :name, include_blank: '---'
               .form-group
                 = f.label "サイズ"
                 %span.form-require 必須
@@ -116,9 +113,3 @@
                 に同意したことになります。
             = f.submit "出品する", class: "btn-red"
             = link_to "もどる", "#", class: "btn-gray"
-        .overlay
-
-
-
-
-

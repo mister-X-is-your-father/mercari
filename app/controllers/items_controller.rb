@@ -21,9 +21,16 @@ class ItemsController < ApplicationController
     @item = Item.new
     @images = @item.images.build
     @sizes = Size.all
-    @parent_categories = Category.roots
-    # @child_categories = @parent_categories.children
+
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
+    @child_categories = Category.where.not(ancestry: nil)
     # @grandchild_categories = @child_categories.child
+
+
     @regions = Region.all
     @product_conditions = {
       "新品、未使用":1,
