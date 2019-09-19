@@ -7,6 +7,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     callback_for(:google)
   end
 
+  private
   def callback_for(provider)
     @user = User.find_oauth(request.env["omniauth.auth"])
     if @user.persisted?
