@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       get 'card'
       post 'done'
     end
+  end
   get 'mypage', to: 'mypage/mypage#index', as: :mypage_top
 
   namespace :mypage do
