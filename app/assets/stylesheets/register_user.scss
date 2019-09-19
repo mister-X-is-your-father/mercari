@@ -40,6 +40,9 @@
 .contents__main {
 	border-top: 1px solid #f5f5f5;
 	padding: 0 16px 40px;
+	&__only-border{
+		border-top: 1px solid #f5f5f5;
+	}
 }
 
 .main__list {
@@ -83,6 +86,10 @@
 	text-align: center;
 }
 
+.new-card-input {
+	font-size: 18px;
+
+}
 
 .name-left {
 	margin-right: 8px;
@@ -229,6 +236,26 @@
 		-webkit-text-stroke: 1px white;
 		z-index: 0;
 	}
+	&__card {
+		position: absolute;
+		top: 50px;
+		right: 16px;
+		font-size: 20px;
+		color: #888;
+		-webkit-text-stroke: 1px white;
+		z-index: 0;
+	}
+	&__cardicon {
+		position: absolute;
+		top: 37px;
+		left: 32px;
+		font-size: 20px;
+		color: #ffffff;
+		z-index: 0;
+	}
+}
+a.cardicon2 {
+	background:url(/images/mypage/card.svg);
 }
 
 .signup-card-list {
@@ -245,6 +272,7 @@
 //共通で使うCSS→共有CSSとすると良いと思う
 
 .margin {
+
 	&__top-8px {
 		margin-top: 8px;
 	}
@@ -261,8 +289,20 @@
 		margin-top: 40px;
 	}
 
+	&__top-58px {
+		margin-top: 58px;
+	}
+
+	&__top-60px {
+		margin-top: 60px;
+	}
+
 	&__bottom-24px {
 		margin-bottom: 24px;
+	}
+
+	&__bottom-40px {
+		margin-bottom: 40px;
 	}
 
 	&__bottom-60px {
@@ -282,9 +322,18 @@
 	}
 }
 
+.padding {
+	&__8px {
+		padding: 8px;
+	}
+}
+
 .font {
 	&__size-16px {
 		font-size: 16px;
+	}
+	&__size-14px {
+		font-size: 14px;
 	}
 }
 

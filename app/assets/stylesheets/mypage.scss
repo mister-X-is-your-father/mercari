@@ -289,3 +289,10 @@ time {
 		display: none;
 	}
 }
+
+.inner-box {
+	text-align: left;
+	&__relative {
+		position: relative;
+	}
+}
