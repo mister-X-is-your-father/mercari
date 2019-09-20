@@ -60,9 +60,6 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      # params[:images][:image].each do |i|
-      #   @images = @item.images.create(image: i)
-      # end
       redirect_to root_path
     else
       render :new
@@ -98,9 +95,8 @@ class ItemsController < ApplicationController
       :delivery_time,
       :delivery_method,
       :price,
-      images_attributes: [:image, :_destroy, :id]
-    ).merge(user_id: 1)
-    # params.permit(:item).merge(user_id: 1)
+      images_attributes: [:image]
+    ).merge(user_id: current_user.id)
   end
 
 end

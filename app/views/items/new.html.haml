@@ -11,7 +11,7 @@
             %p 最大10枚までアップロードできます
             .iu-upload-drop-box
               = f.fields_for :images do |i|
-                = i.file_field :image, multiple: true, name: "images[image][]"
+                = i.file_field :image
                 %pre.visible-pc
                   .dropzone-msg-title ドラッグアンドドロップ
                   .dropzone-msg-text またはクリックしてファイルをアップロード
