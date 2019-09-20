@@ -62,8 +62,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # @brand = Brand.find_by(name: params[:brand_name])
-    # binding.pry
     @item = Item.new(item_params)
     if @item.save
       params[:images][:image].each do |i|
@@ -105,7 +103,7 @@ class ItemsController < ApplicationController
       :delivery_method,
       :price,
       images_attributes: [:image, :_destroy, :id]
-    ).merge(user_id: current_user.id) 
+    ).merge(user_id: current_user.id)
   end
 
 end
