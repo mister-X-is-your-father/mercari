@@ -11,7 +11,7 @@
             %p 最大10枚までアップロードできます
             .iu-upload-drop-box
               = f.fields_for :images do |i|
-                = i.file_field :image, multiple: true, type: 'file'
+                = i.file_field :image, multiple: true, type: 'file', name: "images[image][]"
                 %pre.visible-pc
                   .dropzone-msg-title ドラッグアンドドロップ
                   .dropzone-msg-text またはクリックしてファイルをアップロード
@@ -36,7 +36,7 @@
                   .select-wrap
                     = f.collection_select :category_id, @child_categories, :id, :name, include_blank: '---'
                   .select-wrap
-                    = f.collection_select :category_id, @child_categories, :id, :name, include_blank: '---'
+                    = f.collection_select :category_id, @grandchild_categories, :id, :name, include_blank: '---'
               .form-group
                 = f.label "サイズ"
                 %span.form-require 必須
@@ -48,7 +48,8 @@
                 %span.form-require-not 任意
                 %div
                   .select-wrap
-                    = f.text_field :brand_id, placeholder: "例) シャネル", class: "input-brand"
+                    = f.collection_select :brand_id, @brands, :id, :name, include_blank: '---'
+                    -# = f.text_field :brand_id, placeholder: "例) シャネル", class: "input-brand"
               .form-group
                 = f.label "商品の状態"
                 %span.form-require 必須
@@ -112,4 +113,4 @@
                 = link_to "加盟店規約", "#", class: "iu-sell-link"
                 に同意したことになります。
             = f.submit "出品する", class: "btn-red"
-            = link_to "もどる", "#", class: "btn-gray"
+            = link_to "もどる", :back, class: "btn-gray"

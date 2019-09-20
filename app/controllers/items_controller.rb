@@ -21,6 +21,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @images = @item.images.build
     @sizes = Size.all
+    @brands = Brand.all
 
     @category_parent_array = []
     Category.where(ancestry: nil).each do |parent|
@@ -28,9 +29,7 @@ class ItemsController < ApplicationController
     end
 
     @child_categories = Category.where.not(ancestry: nil)
-    # @grandchild_categories = @child_categories.child
-
-
+    @grandchild_categories = Category.where.not(ancestry: nil)
     @regions = Region.all
     @product_conditions = {
       "新品、未使用":1,
@@ -56,13 +55,15 @@ class ItemsController < ApplicationController
       } 
     @delivery_time = {
       "1~2日で発送":1,
-      "2~3日で発送":2,
+      "2~3日で発送":2,  
       "4~7日で発送":3
     }
     render layout: "register-layout"
   end
 
   def create
+    # @brand = Brand.find_by(name: params[:brand_name])
+    # binding.pry
     @item = Item.new(item_params)
     if @item.save
       params[:images][:image].each do |i|
@@ -104,7 +105,7 @@ class ItemsController < ApplicationController
       :delivery_method,
       :price,
       images_attributes: [:image, :_destroy, :id]
-    ).merge(user_id: 1) #current_user.id user新規登録機能待ち
+    ).merge(user_id: current_user.id) 
   end
 
 end
