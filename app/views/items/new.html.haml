@@ -11,7 +11,7 @@
             %p 最大10枚までアップロードできます
             .iu-upload-drop-box
               = f.fields_for :images do |i|
-                = i.file_field :image, multiple: true, type: 'file', name: "images[image][]"
+                = i.file_field :image, multiple: true, name: "images[image][]"
                 %pre.visible-pc
                   .dropzone-msg-title ドラッグアンドドロップ
                   .dropzone-msg-text またはクリックしてファイルをアップロード
@@ -32,9 +32,9 @@
                 %span.form-require 必須
                 %div
                   .select-wrap
-                    = f.select :category_id, options_for_select(@category_parent_array), include_blank: '---'
+                    = f.select :category_id, options_for_select(@parent_categories_array), include_blank: '---'
                   .select-wrap
-                    = f.collection_select :category_id, @child_categories, :id, :name, include_blank: '---'
+                    = f.select :category_id, options_for_select(@child_categories_array), include_blank: '---'
                   .select-wrap
                     = f.collection_select :category_id, @grandchild_categories, :id, :name, include_blank: '---'
               .form-group

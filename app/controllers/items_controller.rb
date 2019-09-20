@@ -13,8 +13,8 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @comments = @item.comments.all()
-    @images = @item.images.all()
+    @comments = @item.comments
+    @images = @item.images
   end
 
   def new
@@ -23,12 +23,8 @@ class ItemsController < ApplicationController
     @sizes = Size.all
     @brands = Brand.all
 
-    @category_parent_array = []
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
-
-    @child_categories = Category.where.not(ancestry: nil)
+    @parent_categories_array = Category.where(ancestry: nil).pluck(:name)
+    @child_categories_array = Category.where.not(ancestry: nil).pluck(:name)
     @grandchild_categories = Category.where.not(ancestry: nil)
     @regions = Region.all
     @product_conditions = {
