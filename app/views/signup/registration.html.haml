@@ -2,8 +2,7 @@
   %section.new-user-contents
     %h2.new-user-input
       会員情報入力
-     
-    = form_for(:user, url: sms_confirmation_signup_index_path, class: "form-wrap", method: :get) do |f|
+    = form_for(@user, url: sms_confirmation_signup_index_path, class: "form-wrap", method: :get) do |f|
       .contents__main
         .form-content.form-group
           

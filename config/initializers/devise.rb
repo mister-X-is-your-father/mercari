@@ -267,7 +267,7 @@ Devise.setup do |config|
   
   config.omniauth :facebook,
     Rails.application.credentials.FACEBOOK_CLIENT_ID,
-    Rails.application.credentials.FACEBOOK_CLIENT_SECRET
+    Rails.application.credentials.FACEBOOK_CLIENT_SECRET, {}
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

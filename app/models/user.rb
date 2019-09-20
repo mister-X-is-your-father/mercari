@@ -20,15 +20,18 @@ class User < ApplicationRecord
           user_id: user.id
         )
       else
-        user = User.create(
+        password = Devise.friendly_token[0, 20]
+        user = User.new(
           nickname: auth.info.name,
           email: auth.info.email,
-          password: Devise.friendly_token[0, 20]
+          password: password,
+          password_confirmation: password
         )
+        binding.pry
         SnsCredential.create(
           uid: uid,
-          provider: provider,
-          user_id: user.id
+          provider: provider
+          # user_id: user.id
         )
       end
     end
