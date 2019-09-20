@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2019_09_19_084210) do
     t.integer "price", null: false
     t.integer "product_condition", null: false
     t.text "description", null: false
-    t.boolean "sold_condition", null: false
+    t.integer "sold_condition", default: 1, null: false
     t.integer "category_id", null: false
     t.integer "region_id", null: false
     t.integer "brand_id"
