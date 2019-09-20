@@ -1,53 +1,53 @@
 .register-head {
-	text-align: center;
-	height: 128px;
-	background-color: whitesmoke;
-	& h1 {
-		margin: 40px 0 0;
-		display: inline-block;
-		& a {
-			width: 185px;
-			height: 49px;
-			line-height: 49px;
-			margin: 0 8px 0 0;
-			display: inline-block;
-		}
-	}
+  text-align: center;
+  height: 128px;
+  background-color: whitesmoke;
+  & h1 { 
+    margin: 40px 0 0;
+    display: inline-block;
+    & a {
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+      margin: 0 8px 0 0;
+      display: inline-block;
+    }
+  }
 }
 
 .register-footer {
-	width: 456px;
-	height: 220px;
-	margin: 0 auto;
-	padding: 40px 0;
+  width: 456px;
+  height: 220px;
+  margin: 0 auto;
+  padding: 40px 0;
   text-align: center;
-	& nav {
-		& ul {
+  & nav {
+    & ul {
       & li {
-				display: inline-block;
-				margin: 0 0 0 16px;
-				font-size: 12px;
-			}
-			& li:first-child {
-				margin: 0;
-			}
-		}
-	}
-	&__link {
-		display: block;
-		color: #333;	
-	}
-	&__icon {
-		display: block;
-		color: #333;
-		width: 80px;
-    height: 65px;
-    margin: 40px auto 0;
-	}
-	& p {
-		margin: 8px 0 0;
-		& small {
-			font-size: 13px;
-		}
-	}
+        display: inline-block;
+        margin: 0 0 0 16px;
+        font-size: 12px;
+      }
+      & li:first-child {
+        margin: 0;
+      }
+    }
+  }
+  &__link {
+  display: block;
+  color: #333;	
+  }
+  &__icon {
+  display: block;
+  color: #333;
+  width: 80px;
+  height: 65px;
+  margin: 40px auto 0;
+  }
+  & p {
+    margin: 8px 0 0;
+    & small {
+	  font-size: 13px;
+    }
+  }
 }
