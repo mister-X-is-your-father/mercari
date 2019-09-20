@@ -6,6 +6,12 @@
 .form-content {
 	max-width: 343px;
 	margin: 0 auto;
+	&__narrow {
+		max-width: 320px;
+	}
+	&__wide {
+		max-width: 572px;
+	}
 }
 
 .form-group {
@@ -14,6 +20,9 @@
 	margin: 24px auto 0;
 	font-size: 14px;
 	font-weight: 600;
+	&__margin-l {
+	margin: 0 auto;
+	}
 }
 
 .form-require {
