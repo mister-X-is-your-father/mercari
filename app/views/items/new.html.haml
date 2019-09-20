@@ -55,7 +55,7 @@
                 %span.form-require 必須
                 %div
                   .select-wrap
-                    = f.select :product_condition, options_for_select(@product_conditions), include_blank: '---'
+                    = f.collection_select :product_condition, Product_Conditions.all, :id, :name, include_blank: '---'
           .iu-content.iu-flex
             %h3.iu-sub-head 配送について
             .iu-form-box
@@ -63,12 +63,12 @@
                 = f.label "配送料の負担"
                 %span.form-require 必須
                 .select-wrap
-                  = f.select :delivery_payee, options_for_select(@delivery_payee), include_blank: '---'
+                  = f.collection_select :delivery_payee, Delivery_Payee.all, :id, :name, include_blank: '---'
               .form-group
                 = f.label "配送の方法"
                 %span.form-require 必須
                 .select-wrap
-                  = f.select :delivery_method, options_for_select(@delivery_method_if_seller), include_blank: '---'
+                  = f.collection_select :delivery_method, Delivery_Method_If_Seller.all, :id, :name, include_blank: '---'
               .form-group
                 = f.label "配送元の地域"
                 %span.form-require 必須
@@ -78,7 +78,7 @@
                 = f.label "配送までの日数"
                 %span.form-require 必須
                 .select-wrap
-                  = f.select :delivery_time, options_for_select(@delivery_time), include_blank: '---'
+                  = f.collection_select :delivery_time, Delivery_Time.all, :id, :name, include_blank: '---'
           .iu-content.iu-flex
             %h3.iu-sub-head 販売価格(300~9,999,999)
             .iu-form-box

@@ -27,33 +27,6 @@ class ItemsController < ApplicationController
     @child_categories_array = Category.where.not(ancestry: nil).pluck(:name)
     @grandchild_categories = Category.where.not(ancestry: nil)
     @regions = Region.all
-    @product_conditions = {
-      "新品、未使用":1,
-      "未使用に近い":2,
-      "目立った傷や汚れなし":3,
-      "やや傷や汚れあり":4,
-      "傷や汚れあり":5,
-      "全体的に状態が悪い":6
-    }
-    @delivery_payee = {
-      "送料込み(出品者負担)":1, 
-      "着払い(購入者負担)":2 
-    }
-    @delivery_method_if_seller = {
-      "未定":1,
-      "らくらくメルカリ便":2,
-      "ゆうメール":3,
-      "レターパック普通郵便(定形、定形外)":4,
-      "クロネコヤマト":5,
-      "ゆうパック":6,
-      "クリックポスト":7,
-      "ゆうパケット":8
-      } 
-    @delivery_time = {
-      "1~2日で発送":1,
-      "2~3日で発送":2,
-      "4~7日で発送":3
-    }
     render layout: "register-layout"
   end
 
@@ -67,12 +40,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @sold_condition = {
-      "出品中":1,
-      "取引中":2,
-      "売却済":3,
-      "公開停止中":4
-    }
+    @sold_condition = Sold_Condition.all
   end
 
   def update
@@ -96,7 +64,7 @@ class ItemsController < ApplicationController
       :delivery_method,
       :price,
       images_attributes: [:image]
-    ).merge(user_id: current_user.id)
+    ).merge(user_id: 1)
   end
 
 end
