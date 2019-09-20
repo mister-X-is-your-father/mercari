@@ -2,6 +2,11 @@ class SignupController < ApplicationController
 
   def index
     @user = User.new
+    render :index, layout: "free-layout"
+  end
+
+  def registration
+    render :registration, layout: "free-layout"
   end
 
   def signup
@@ -15,6 +20,7 @@ class SignupController < ApplicationController
     session[:kana_firstname] = user_params[:kana_firstname]
     session[:birth_day] = user_params[:birth_day]
     @user = User.new
+    render :signup, layout: "free-layout"
   end
 
   def sms_confirmation
