@@ -1,10 +1,13 @@
 class SignupController < ApplicationController
 
   def index
+  end
+
+  def registration
     @user = User.new
   end
 
-  def signup
+  def sms_confirmation
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
@@ -17,17 +20,22 @@ class SignupController < ApplicationController
     @user = User.new
   end
 
-  def sms_confirmation
+  def sms_confirmed
     session[:phone_number] = user_params[:phone_number]
     @user = User.new
   end
 
   def delivery_address
+    @user = User.new
+  end
+
+  def card
     session[:postal_code] = user_params[:postal_code]
-    session[:prefecture] = user_params[:prefecture]
+    session[:region] = user_params[:region]
     session[:city] = user_params[:city]
     session[:block] = user_params[:block]
     session[:buildings] = user_params[:buildings]
+    session[:address_phone_number] = user_params[:address_phone_number]
     @user = User.new
   end
 
@@ -43,7 +51,12 @@ class SignupController < ApplicationController
       kana_firstname: session[:kana_firstname],
       birth_day: session[:birth_day],
       phone_number: session[:phone_number],
-
+      postal_code: session[:postal_code],
+      region: session[:region],
+      city: session[:city],
+      block: session[:block],
+      buildings: session[:buildings],
+      address_phone_number: session[:address_phone_number]
     )
     if @user.save
       session[:id] = @user.id
@@ -72,10 +85,12 @@ class SignupController < ApplicationController
         :birth_day,
         :phone_number,
         :postal_code,
-        :prefecture,
+        :region,
         :city,
         :block,
-        :buildings
+        :buildings,
+        :address_phone_number
         )
     end
+
 end

@@ -7,9 +7,9 @@
       .contents__main
         .form-content.form-group.margin__top-40px
           .form-group
-            = f.label :kanji, "カード番号"
+            = f.label :card_number, "カード番号"
             %span.form-require 必須
-            = f.text_field :kan_familyname, placeholder: "半角数字のみ", class: "form-group__input"
+            = f.text_field :card_number, placeholder: "半角数字のみ", class: "form-group__input"
           %ul.signup-card-list.margin__top-8px
             %li
               = image_tag 'registration/visa.svg', size: '49x20'
@@ -43,9 +43,9 @@
                   年
 
           .form-group.margin__top-32px
-            = f.label :kana, "セキュリティコード"
+            = f.label :security_code, "セキュリティコード"
             %span.form-require 必須
-            = f.text_field :kana_familyname, placeholder: "カード背面4桁もしくは3桁の番号", class: "form-group__input"
+            = f.text_field :security_code, placeholder: "カード背面4桁もしくは3桁の番号", class: "form-group__input"
           .personal-register.margin__top-8px
             %p
               .form-question

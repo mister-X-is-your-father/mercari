@@ -39,7 +39,7 @@ Rails.application.routes.draw do
       get 'sms_confirmed'
       get 'delivery_address'
       get 'card'
-      post 'done'
+      get 'done'
     end
   end
 

@@ -1,0 +1,79 @@
+%main.my-contents.clearfix
+  = render 'layouts/mypage-side-contents'
+  %main.new-user-main.float__right
+    .register_container
+      %main.register
+        %section.contents
+          .padding__8px
+            %h2.main__list.font__size-24px.register-head
+              本人情報の登録
+          = form_with(local: true) do |f|
+            .contents__main
+              .form-content__wide.form-group.margin__top-60px
+                .contents__text
+                  お客さまの本人情報をご登録ください。
+                  %br
+                  登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+                .form-group.personal-register.margin__top-8px
+                  %p
+                    = link_to("本人確認書類のアップロードについて", "#", {class: "blue-color-link"})
+                    %i.fa.fa-chevron-right.blue-color-link
+                .margin__top-40px
+                  お名前
+                  .dummy.margin__top-8px
+                    .contents__text
+                      -if user_signed_in?
+                        = current_user.kan_familyname
+                        = current_user.kan_firstname
+                      -else
+                        抹著・抹茶亜・末知恵酢都
+                .margin__top-40px
+                  お名前カナ
+                  .dummy.margin__top-8px
+                    .contents__text
+                      -if user_signed_in?
+                        = current_user.kana-familyname
+                        = current_user.kana-firstname
+                      -else
+                        マッチョ・マッチャー・マッチェスト
+                .margin__top-40px
+                  生年月日
+                  .dummy.margin__top-8px
+                    .contents__text
+                      -if user_signed_in?
+                        = current_user.birth_day
+                      -else
+                        筋肉が創造されし日
+
+                .form-group.margin__top-40px
+                  = f.label :postal_code, "郵便番号"
+                  %span.form-require.form-require__optional 任意
+                  = f.email_field :postal_code, placeholder: "例)123-4567", class: "form-group__input"
+
+                .form-group.margin__top-32px
+                  = f.label :region, "都道府県"
+                  %span.form-require.form-require__optional 任意
+                .position-relative
+                  .fa.fa-chevron-down.form-icon-position__prefecture
+                  = f.collection_select(:region, Prefecture.all, :id, :name, {prompt: "--"}, {class: 'form-group__input'})
+
+                .form-group.margin__top-32px
+                  = f.label :city, "市区町村"
+                  %span.form-require.form-require__optional 任意
+                  = f.password_field :city, placeholder: "例)横浜市緑区", class: "form-group__input"
+
+                .form-group.margin__top-32px
+                  = f.label :block, "番地"
+                  %span.form-require.form-require__optional 任意
+                  = f.password_field :block, placeholder: "例)青山1-1-1", class: "form-group__input"
+
+                .form-group.margin__top-32px
+                  = f.label :buildings, "建物名"
+                  %span.form-require.form-require__optional 任意
+                  = f.password_field :password, placeholder: "例)柳ビル103", class: "form-group__input"
+
+                  = f.submit "次へ進む", class: "next-btn btn square-btn contents__text margin__top-32px margin__bottom-60px"
+                  .form-group.personal-register.margin__top-24px
+                    %p
+                      = link_to("本人情報の登録について", "#", {class: "blue-color-link"})
+                      %i.fa.fa-chevron-right.blue-color-link
