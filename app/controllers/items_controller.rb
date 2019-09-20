@@ -51,7 +51,7 @@ class ItemsController < ApplicationController
       } 
     @delivery_time = {
       "1~2日で発送":1,
-      "2~3日で発送":2,  
+      "2~3日で発送":2,
       "4~7日で発送":3
     }
     render layout: "register-layout"
@@ -60,9 +60,9 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      params[:images][:image].each do |i|
-        @images = @item.images.create(image: i)
-      end
+      # params[:images][:image].each do |i|
+      #   @images = @item.images.create(image: i)
+      # end
       redirect_to root_path
     else
       render :new
@@ -99,7 +99,8 @@ class ItemsController < ApplicationController
       :delivery_method,
       :price,
       images_attributes: [:image, :_destroy, :id]
-    ).merge(user_id: current_user.id)
+    ).merge(user_id: 1)
+    # params.permit(:item).merge(user_id: 1)
   end
 
 end
