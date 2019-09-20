@@ -2,9 +2,6 @@
   %section.new-user-contents
     %h2.new-user-input
       会員登録完了
-
-    -# = form_for(resource, as: resource_name, url: registration_path(resource_name), class: "form-wrap") do |f|
-    = form_with(local: true) do |f|
       .contents__main
         .form-content.form-group.margin__top-40px
           .form-group
@@ -12,6 +9,6 @@
               ありがとうございます。
               %br
               会員登録が完了しました。
-          = f.submit "メルカリをはじめる", class: "next-btn btn btn__start square-btn contents__text margin__top-32px margin__bottom-24px"
+          = link_to "メルカリをはじめる", root_path, class: "next-btn btn btn__start square-btn contents__text margin__top-32px margin__bottom-24px"
       = link_to "#" do
         = image_tag 'registration/bunner.jpg', class: "registration-bunner"

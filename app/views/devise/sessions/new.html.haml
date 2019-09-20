@@ -1,17 +1,25 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.register_container
+
+  %main.register
+    %section.contents
+      .contents__new.font__size-14px
+        .main__list.margin__top-24px
+          アカウントをお持ちでない方はこちら
+          = link_to "新規会員登録", "#", class: "btn-color__blue btn margin__top-8px square-btn"
+      .contents__main.margin__top-24px
+        .main__list.margin__top-32px
+          = link_to "Facebookでログイン", "#", class: "btn-facebook btn"
+        .main__list
+          = link_to "Googleでログイン", "#", class: "btn-google btn"
+
+          .margin__top-58px
+            = form_with(local: true) do |f|
+              = f.email_field :email, placeholder: "メールアドレス", class: "form-group__input margin__top-52px"
+
+              .form-group
+                = f.password_field :password, placeholder: "パスワード", class: "form-group__input"
+
+        .main__list
+          = link_to "ログイン", "#", class: "next-btn btn square-btn margin__top-24px"
+          .margin__top-40px
+            = link_to("パスワードをお忘れの方", "#", {class: "blue-color-link margin__top-40px"})

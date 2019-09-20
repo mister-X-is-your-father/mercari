@@ -2,7 +2,7 @@
   .hd-contents
     .hd-top
       %h1.hd-top__logo
-        = link_to ''  do
+        = link_to root_path  do
           = image_tag 'header/mercari-logo.svg', size: '134x36', class: "hd-top__logo__link"
       = form_with url: "", method: :get, local: true, class: "hd-top__form" do |f|
         = f.text_field :search, class: 'hd-top__form__textarea', placeholder: '何かお探しですか？'
@@ -38,7 +38,7 @@
               %span.hd-todolist-link__text やることリスト
             %ul
           %li.hd-right-list__mypage
-            =link_to '', class: "hd-right-list__mypage__link" do
+            =link_to mypage_top_path, class: "hd-right-list__mypage__link" do
               %figure.hd-right-list__mypage__link__image
                 %div.hd-right-list__mypage__link__image__div
                   = image_tag 'header/userimage_if_noimage.png', size:'32x32', class: 'mypage-image' 
