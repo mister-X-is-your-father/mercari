@@ -40,7 +40,7 @@ class SignupController < ApplicationController
   end
 
   def create
-    @user = User.create(
+    @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
       password: session[:password],
