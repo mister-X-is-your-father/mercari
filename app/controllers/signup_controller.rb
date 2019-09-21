@@ -5,6 +5,11 @@ class SignupController < ApplicationController
 
   def registration
     @user = User.new
+    render :index, layout: "free-layout"
+  end
+
+  def registration
+    render :registration, layout: "free-layout"
   end
 
   def sms_confirmation
@@ -18,11 +23,17 @@ class SignupController < ApplicationController
     session[:kana_firstname] = user_params[:kana_firstname]
     session[:birth_day] = user_params[:birth_day]
     @user = User.new
+    render :signup, layout: "free-layout"
   end
 
   def sms_confirmed
     session[:phone_number] = user_params[:phone_number]
     @user = User.new
+    render :sms_confirmation, layout: "free-layout"
+  end
+
+  def sms_confirmed
+    render :sms_confirmed, layout: "free-layout"
   end
 
   def delivery_address
@@ -37,6 +48,11 @@ class SignupController < ApplicationController
     session[:buildings] = user_params[:buildings]
     session[:address_phone_number] = user_params[:address_phone_number]
     @user = User.new
+    render :delivery_address, layout: "free-layout"
+  end
+
+  def card
+    render :card, layout: "free-layout"
   end
 
   def create
@@ -68,6 +84,7 @@ class SignupController < ApplicationController
 
   def done
     sign_in User.find(session[:id]) unless user_signed_in?
+    render :done, layout: "free-layout"
   end
 
   private

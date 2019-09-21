@@ -156,3 +156,21 @@ a {
 .icon-twitter, .icon-facebook {
   margin: 16px 18px 0 0;
 }
+
+.stylebox {
+  display: inline-block;
+  &__contents {
+  margin-right: 20px;
+  color: #333333;
+  }
+}
+
+.bottom-text {
+  color: #333333;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.mercari-icon {
+  margin-top: 42px;
+}
