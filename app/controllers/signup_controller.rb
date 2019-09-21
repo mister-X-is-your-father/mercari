@@ -26,6 +26,11 @@ class SignupController < ApplicationController
   def sms_confirmation
     session[:phone_number] = user_params[:phone_number]
     @user = User.new
+    render :sms_confirmation, layout: "free-layout"
+  end
+
+  def sms_confirmed
+    render :sms_confirmed, layout: "free-layout"
   end
 
   def delivery_address
@@ -35,6 +40,11 @@ class SignupController < ApplicationController
     session[:block] = user_params[:block]
     session[:buildings] = user_params[:buildings]
     @user = User.new
+    render :delivery_address, layout: "free-layout"
+  end
+
+  def card
+    render :card, layout: "free-layout"
   end
 
   def create
@@ -61,6 +71,7 @@ class SignupController < ApplicationController
 
   def done
     sign_in User.find(session[:id]) unless user_signed_in?
+    render :done, layout: "free-layout"
   end
 
   private
