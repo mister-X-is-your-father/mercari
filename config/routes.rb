@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
 
-  devise_for :users, :controllers => {
-    :delivery_addresses => 'users/delivery_addresses',
-    :omniauth_callbacks => 'users/omniauth_callbacks'
-  }
+  # devise_for :users, :skip => [:omniauth_callbacks]
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
+
+  # devise_scope :user do
+  #   match '/signup/auth/facebook' => 'omniauth_callbacks#passthru', via: [:get, :post]
+  #   match '/signup/auth/facebook/callback' => 'omniauth_callbacks#facebook', via: [:get, :post]
+  #   match '/signup/auth/google' => 'omniauth_callbacks#passthru', via: [:get, :post]
+  #   match '/signup/auth/google/callback' => 'omniauth_callbacks#google', via: [:get, :post]
+  # end
 
   root 'items#index'
 
@@ -25,7 +30,9 @@ Rails.application.routes.draw do
   resources :brands, only: [:index, :show]
   resources :user_reviewes, only: [:index, :create]
 
+
   resources :signup, only: [:index, :create] do
+
     collection do
       get 'index'
       get 'registration'
@@ -36,6 +43,8 @@ Rails.application.routes.draw do
       get 'done'
     end
   end
+
+
   get 'mypage', to: 'mypage/mypage#index', as: :mypage_top
 
   namespace :mypage do
