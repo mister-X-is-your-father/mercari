@@ -10,8 +10,7 @@
         .main__list
           = link_to "メールアドレスで登録する", registration_signup_index_path, class: "btn-mail btn"
         .main__list
-          = link_to "Facebookで登録する", "#", class: "btn-facebook btn"
+          = link_to "Facebookで登録する", user_facebook_omniauth_authorize_path, method: :post, class: "btn-facebook btn"
         .main__list
-          = link_to "Googleで登録する", "#", class: "btn-google btn"
-
+          = link_to "Googleで登録する", user_google_oauth2_omniauth_authorize_path, method: :post, class: "btn-google btn"
 = render 'layouts/register-footer'

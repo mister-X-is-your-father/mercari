@@ -92,6 +92,7 @@ gem 'gretel'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
+gem 'dropzonejs-rails'
 gem 'active_hash'
 
 group :development, :test do
