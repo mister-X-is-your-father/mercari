@@ -1,0 +1,171 @@
+%section.is-box
+  %h1.is-name
+    = @item.name
+  .is-main
+    .is-photo
+      .is-photo__portion
+        .is-photo__up
+          -# = image_tag asset_path('index/benchpress.jpg')
+          = image_tag 
+          .is-photo__down
+
+      .is-photo__down__portion
+        .owl-dot
+        .is-photo-my.move
+        .owl-dot
+        .owl-dot
+      .number-likes
+        現在、
+        %span 8人
+        がこの商品にいいね!しています
+
+    %table.is-detail-table
+      %tbody
+        %tr.is-tables
+          %th 出品者
+          %td
+            = link_to "#" do
+              = @item.user.nickname
+            %div
+              .is-user-ratings
+                = fa_icon "fa-grin"
+                %span 80
+              .is-user-ratings
+                = fa_icon "fa-meh"
+                %span 8
+              .is-user-ratings
+                = fa_icon "fa-frown-open"
+                %span 0
+        
+        %tr.is-tables
+          %th カテゴリー
+          %td
+            = link_to "#" do
+              = @item.category.name
+
+        %tr.is-tables
+          %th ブランド
+          %td
+            = link_to "#" do
+              - if @item.brand.present?
+                = @item.brand.name
+              - else
+        
+        %tr.is-tables
+          %th 商品の状態
+          %td 目立った傷や汚れなし
+
+        %tr.is-tables
+          %th 配送料の負担
+          %td 配送料込み(出品者負担)
+
+        %tr.is-tables
+          %th 配送の方法
+          %td 未定
+
+        %tr.is-tables
+          %th 配送元地域
+          %td
+            = link_to "大阪府", "#"
+
+        %tr.is-tables
+          %th 配送日の目安
+          %td 2~3日で発送
+
+  .is-price-box.text-center
+    %span.is-price ¥4,500
+    %span.is-tax (税込)
+    %span.is-shipping-fee 送料込み
+
+  = link_to "購入画面に進む", "#", class: "is-buy-btn"
+
+  .is-message
+    %p.is-description-inner
+      パソコン便利。最近毎日使ってる。壊れないでね。
+
+  .is-button-container
+    .is-button-left
+      %button{class: "is-button-like", type: "button"}
+        %i.icon-like-border
+        %span いいね!
+        %span 0
+      %a.is-button_is-button-report
+        %i.icon-flag
+        %span 不適切な商品の報告
+    .is-button-right
+      = link_to "#" do
+        %i.icon-lock
+        %span あんしん・あんぜんへの取り組み
+
+.is-detail-message
+  .message-container
+    .message-content
+      = form_with url: "", method: :post, local: true, class: "message-form" do |f|
+        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        = f.text_field :comment, class: "textarea-default"
+        = f.submit "コメントする", class: "message-submit btn-default"
+
+.is-nav
+  %li.is-nav__prev
+    = link_to "#" do
+      東京ディズニーシーパーフェクトガイドブック
+  %li.is-nav__next
+    = link_to "#" do
+      ダンベル
+
+.is-sns-box
+  %ul.is-sns-box__items
+    %li
+      = link_to "https://www.facebook.com/login.php?skip_api_login=1&api_key=966242223397117&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fshare.php%3Fu%3Dhttps%253A%252F%252Fitem.mercari.com%252Fjp%252Fm80792844653%252F&cancel_url=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Fclose_window%2F%3Fapp_id%3D966242223397117%26connect%3D0%23_%3D_&display=popup&locale=ja_JP", class: "share-btn" do
+        = fa_icon "fa-facebook"
+    %li
+      = link_to "https://twitter.com/intent/tweet?text=%E3%83%98%E3%82%A2%E3%82%A2%E3%82%AF%E3%82%BB%20%28%C2%A5300%29%20https%3A%2F%2Fitem.mercari.com%2Fjp%2Fm80792844653%2F%20%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA%E3%80%8C%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%E3%80%8D%E3%81%A7%E8%B2%A9%E5%A3%B2%E4%B8%AD%E2%99%AA%20%23%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA%20%40mercari_jp%E3%81%95%E3%82%93%E3%81%8B%E3%82%89&url=&original_referer=", class: "share-btn" do
+        = fa_icon "fa-twitter"
+    %li
+      = link_to "https://access.line.me/oauth2/v2.1/login?returnUri=%2Foauth2%2Fv2.1%2Fauthorize%2Fconsent%3Fscope%3Dopenid%2Bprofile%2Bfriends%2Bgroups%2Btimeline.post%2Bmessage.write%26response_type%3Dcode%26redirect_uri%3Dhttps%253A%252F%252Fsocial-plugins.line.me%252Flineit%252FloginCallback%253FreturnUrl%253Dhttps%25253A%25252F%25252Fsocial-plugins.line.me%25252Flineit%25252Fshare%25253Furl%25253D%252526text%25253D%252525E3%25252583%25252598%252525E3%25252582%252525A2%252525E3%25252582%252525A2%252525E3%25252582%252525AF%252525E3%25252582%252525BB%25252520%2525257C%25252520%252525E3%25252583%252525A1%252525E3%25252583%252525AB%252525E3%25252582%252525AB%252525E3%25252583%252525AA%25252520%252525E3%25252582%252525B9%252525E3%25252583%2525259E%252525E3%25252583%2525259B%252525E3%25252581%252525A7%252525E3%25252581%2525258B%252525E3%25252582%25252593%252525E3%25252581%2525259F%252525E3%25252582%25252593%25252520%252525E3%25252583%25252595%252525E3%25252583%252525AA%252525E3%25252583%2525259E%252525E3%25252582%252525A2%252525E3%25252583%25252597%252525E3%25252583%252525AA%2525250D%2525250Ahttps%25253A%25252F%25252Fitem.mercari.com%25252Fjp%25252Fm80792844653%25252F%252526from%25253Dline_scheme%26state%3Dc8e40f267663e97a6b7ddcb0e190e0%26client_id%3D1446101138&loginChannelId=1446101138&loginState=rydoOiwkVEyyfLgXexipUz#/", class: "share-btn" do
+        = fa_icon "fa-line"
+    %li
+      = link_to "https://www.pinterest.jp/login/?next=/pin/create/button/%3Furl%3Dhttps%253A%252F%252Fitem.mercari.com%252Fjp%252Fm80792844653%252F%26media%3Dhttps%253A%252F%252Fstatic.mercdn.net%252Fitem%252Fdetail%252Forig%252Fphotos%252Fm80792844653_1.jpg%253F1567944428%26description%3D%25E3%2583%25A1%25E3%2583%25AB%25E3%2582%25AB%25E3%2583%25AA%25E5%2595%2586%25E5%2593%2581%253A%2520%25E3%2583%2598%25E3%2582%25A2%25E3%2582%25A2%25E3%2582%25AF%25E3%2582%25BB%2520%2523%25E3%2583%25A1%25E3%2583%25AB%25E3%2582%25AB%25E3%2583%25AA", class: "share-btn" do
+        = fa_icon "fa-pinterset"
+      
+.is-in-user
+  %section.is-container
+    %h2.is-items-head
+      = link_to "#" do
+        -# = @user.name
+        さんのその他の出品
+
+    .is-content
+      %section.is-content__card
+        = link_to "#" do
+          .is-content__photo
+            = image_tag asset_path('index/benchpress.jpg'), class: "is-content__height"
+          .is-content__body
+            %h3.is-content__name
+              ダンベル
+            .is-content__num
+              .is-content__price
+                ¥600
+      
+      %section.is-content__card
+        = link_to "#" do
+          .is-content__photo
+            = image_tag asset_path('index/benchpress.jpg'), class: "is-content__height"
+          .is-content__body
+            %h3.is-content__name
+              ダンベル
+            .is-content__num
+              .is-content__price
+                ¥600
+
+      %section.is-content__card
+        = link_to "#" do
+          .is-content__photo
+            = image_tag asset_path('index/benchpress.jpg'), class: "is-content__height"
+          .is-content__body
+            %h3.is-content__name
+              ダンベル
+            .is-content__num
+              .is-content__price
+                ¥600
+
