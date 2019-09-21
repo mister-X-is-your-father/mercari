@@ -14,8 +14,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in_and_redirect @user, event: :authentication
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
     else
+      render "signup/registration"
     end
-    render "signup/registration"
   end
 
   def failure

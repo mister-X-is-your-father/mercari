@@ -27,7 +27,6 @@ class User < ApplicationRecord
           password: password,
           password_confirmation: password
         )
-        binding.pry
         SnsCredential.create(
           uid: uid,
           provider: provider

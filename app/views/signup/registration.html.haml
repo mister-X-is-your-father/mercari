@@ -12,16 +12,16 @@
             = f.text_field :nickname, placeholder: "例)メルカリ太郎", class: "form-group__input"
     
           .form-group
-            = f.label :nickname, "メールアドレス"
+            = f.label :email, "メールアドレス"
             %span.form-require 必須
-            = f.email_field :email, placeholder: "PC・携帯どちらでも可", class: "form-group__input"
-          
-          .form-group
+            = f.email_field :email, placeholder: "PC・携帯どちらでも可", class: "form-group__input reg-email"
+                   
+          .form-group.reg-pass
             = f.label :password, "パスワード"
             %span.form-require 必須
             = f.password_field :password, placeholder: "7文字以上", class: "form-group__input"
 
-          .form-group
+          .form-group.reg-pass-conf
             = f.label :password, "パスワード (確認)"
             %span.form-require 必須
             = f.password_field :password_confirmation, placeholder: "7文字以上", class: "form-group__input"
