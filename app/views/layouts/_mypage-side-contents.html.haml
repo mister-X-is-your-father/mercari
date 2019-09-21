@@ -2,7 +2,7 @@
   %nav.my-side
     %ul.my-side__list
       %li.my-side__list__detail
-        = link_to '', class: "my-side__list__detail__link active" do
+        = link_to mypage_top_path, class: "my-side__list__detail__link active" do
           マイページ
           = fa_icon 'angle-right' , class: 'my-side-icon'
       %li.my-side__list__detail
@@ -20,7 +20,7 @@
           いいね!一覧
           = fa_icon 'angle-right' , class: 'my-side-icon'
       %li.my-side__list__detail
-        = link_to '', class: "my-side__list__detail__link" do
+        = link_to new_item_path, class: "my-side__list__detail__link" do
           出品する
           = fa_icon 'angle-right' , class: 'my-side-icon'
       %li.my-side__list__detail
@@ -96,6 +96,6 @@
           電話番号の確認
           = fa_icon 'angle-right' , class: 'my-side-icon'
       %li.my-side__list__detail
-        = link_to '', class: "my-side__list__detail__link" do
+        = link_to mypage_mypage_logout_path, class: "my-side__list__detail__link" do
           ログアウト
           = fa_icon 'angle-right' , class: 'my-side-icon'

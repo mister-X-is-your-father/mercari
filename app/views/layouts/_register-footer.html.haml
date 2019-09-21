@@ -2,13 +2,12 @@
   %nav
     %ul
       %li
-        = link_to "プライバシーポリシー", "#"
+        = link_to "プライバシーポリシー", "#", class: "register-footer__link"
       %li
-        = link_to "メルカリ利用規約", "#"
+        = link_to "メルカリ利用規約", "#", class: "register-footer__link"
       %li
-        = link_to "特定商取引に関する表記", "#"
-  = link_to "#"
-    = image_tag "footer/logo-gray.svg", size: "80x35"
+        = link_to "特定商取引に関する表記", "#", class: "register-footer__link"
+  = link_to root_path, class: "register-footer__icon" do
+    = image_tag "footer/logo-gray.svg", size: "80x65"
   %p
-    %small
-      c 2019 Mercari
+    %small © 2019 Mercari

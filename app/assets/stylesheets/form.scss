@@ -9,6 +9,9 @@
 	&__narrow {
 		max-width: 320px;
 	}
+	&__wide {
+		max-width: 572px;
+	}
 }
 
 .form-group {
@@ -29,8 +32,14 @@
 	border-radius: 2px;
 	color: #fff;
 	font-size: 12px;
+	vertical-align: top;
+	border-style: solid;
 	line-height: 12px;
 	font-weight: normal;
+	&-not {
+		background-color: #ccc;
+		color: #fff;
+	}
 	&__optional {
 		//任意の入力欄用.form-require.form-require__optionalと書くと適用
 		background-color: #CCCCCC;
