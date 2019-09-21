@@ -45,7 +45,6 @@ class SignupController < ApplicationController
     session[:address_phone_number] = user_params[:address_phone_number]
     @user = User.new
     render :card, layout: "free-layout"
-
   end
 
   def create
