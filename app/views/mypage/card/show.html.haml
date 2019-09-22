@@ -13,7 +13,7 @@
               %li
                 = image_tag 'registration/visa.svg', size: '49x15'
               .btn-delete.font__size-14px
-                = link_to("削除する", '#', {class: ""})
+                = link_to("削除する", mypage_card_path(@card.id), method: :delete)
           .margin__top-8px.font__size-14px
             ************8693
           .margin__top-8px.font__size-14px

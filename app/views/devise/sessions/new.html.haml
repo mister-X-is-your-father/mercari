@@ -8,9 +8,9 @@
           = link_to "新規会員登録", "#", class: "btn-color__blue btn margin__top-8px square-btn"
       .contents__main.margin__top-24px
         .main__list.margin__top-32px
-          = link_to "Facebookでログイン", "#", class: "btn-facebook btn"
+          = link_to "Facebookでログイン", user_facebook_omniauth_authorize_path, class: "btn-facebook btn"
         .main__list
-          = link_to "Googleでログイン", "#", class: "btn-google btn"
+          = link_to "Googleでログイン", user_google_oauth2_omniauth_authorize_path, class: "btn-google btn"
 
           .margin__top-58px
             = form_with(local: true) do |f|
