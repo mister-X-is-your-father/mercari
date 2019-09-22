@@ -2,8 +2,8 @@ class ItemsController < ApplicationController
 
   def index
     @parent_categories = Category.roots
-    
-    # ビューでの子要素の取り出しは 
+
+    # ビューでの子要素の取り出しは
     # - parents.children.each do |child|
       # = child.name
     # 孫要素の取り出しは
@@ -15,6 +15,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     # @comments = @item.comments
     @images = @item.images
+    @region = Region
   end
 
   def new
@@ -50,10 +51,10 @@ class ItemsController < ApplicationController
   end
 
   private
-  def item_params 
+  def item_params
     params.require(:item).permit(
       :name,
-      :description, 
+      :description,
       :product_condition,
       :category_id,
       :region_id,

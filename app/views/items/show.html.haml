@@ -6,7 +6,7 @@
       .is-photo__portion
         .is-photo__up
           -# = image_tag asset_path('index/benchpress.jpg')
-          = image_tag 
+          = image_tag @item.images.first.image.url
           .is-photo__down
 
       .is-photo__down__portion
@@ -14,10 +14,6 @@
         .is-photo-my.move
         .owl-dot
         .owl-dot
-      .number-likes
-        現在、
-        %span 8人
-        がこの商品にいいね!しています
 
     %table.is-detail-table
       %tbody
@@ -53,27 +49,75 @@
         
         %tr.is-tables
           %th 商品の状態
-          %td 目立った傷や汚れなし
+          %td
+            - case @item.sold_condition
+              - when 1 then
+                新品、未使用
+              - when 2 then
+                未使用に近い
+              - when 3 then
+                目立った傷や汚れなし
+              - when 4 then
+                やや傷や汚れあり
+              - when 5 then
+                傷や汚れあり
+              - when 6 then
+                全体的に状態が悪い
 
         %tr.is-tables
           %th 配送料の負担
-          %td 配送料込み(出品者負担)
+          %td
+            - case @item.delivery_payee
+              - when 1 then
+                送料込み(出品者負担)
+              - when 2 then
+                着払い(購入者負担)
 
         %tr.is-tables
           %th 配送の方法
-          %td 未定
+          %td
+            - case @item.delivery_method
+              - when 1 then
+                未定
+              - when 2 then
+                らくらくメルカリ便
+              - when 3 then
+                ゆうメール
+              - when 4 then
+                レターパック普通郵便（定形、定形外）
+              - when 5 then
+                クロネコヤマト
+              - when 6 then
+                ゆうパック
+              - when 7 then
+                クリックポスト
+              - when 8 then
+                ゆうパケット
+              - when 9 then
+                徒歩
 
         %tr.is-tables
           %th 配送元地域
           %td
-            = link_to "大阪府", "#"
-
+            = link_to "#" do
+              - @region.find(@item.user.region).region
         %tr.is-tables
           %th 配送日の目安
-          %td 2~3日で発送
+          %td
+            - case @item.delivery_time
+              - when 1 then
+                1~2日で発送
+              - when 2 then
+                2~3日で発送
+              - when 3 then
+                4~7日で発送
+              - when 4 then
+                今年中に発送
+              - when 5 then
+                発送しない
 
   .is-price-box.text-center
-    %span.is-price ¥4,500
+    %span.is-price ¥#{@item.price.to_s(:delimited, delimiter: ',')}
     %span.is-tax (税込)
     %span.is-shipping-fee 送料込み
 
@@ -81,7 +125,7 @@
 
   .is-message
     %p.is-description-inner
-      パソコン便利。最近毎日使ってる。壊れないでね。
+      =@item.description
 
   .is-button-container
     .is-button-left
