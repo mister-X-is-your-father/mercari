@@ -20,9 +20,7 @@ Rails.application.routes.draw do
     resources :user_addresses, only: [:new, :create, :edit, :update]
   end
   resources :items do 
-    collection do
-      get ':id/purchase', to: 'items#purchase', as: :purchase
-    end
+    resources :purchase, only: [:index]
   end
   resources :item_comments, only: :create
   resources :categories, only: [:index, :show]
