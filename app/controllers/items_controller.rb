@@ -49,6 +49,9 @@ class ItemsController < ApplicationController
   def destroy
   end
 
+  def search
+  end
+
   private
   def item_params 
     params.require(:item).permit(

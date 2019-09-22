@@ -29,6 +29,9 @@ Rails.application.routes.draw do
   end
   resources :items do 
     resources :purchase, only: [:index]
+    collection do
+      get 'search'
+    end
   end
   resources :item_comments, only: :create
   resources :categories, only: [:index, :show]
