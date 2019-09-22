@@ -27,6 +27,6 @@ class Item < ApplicationRecord
 
   def self.search(search)
     return Item.order(created_at: "DESC").limit(24) unless search
-    Item.where(['content LIKE ?', "%#{search}%"])
+    Item.where(['name LIKE ?', "%#{search}%"])
   end
 end

@@ -1,3 +1,12 @@
 %main.search-contents
   .search-left
   .search-right
+    %section.search-item-container
+      %h2.search-result-text
+        - if params[:search] == ""
+          新着商品
+        - else
+          = "#{params[:search]}の検索結果"
+      .search-result-items
+        - @items.each do |item|
+          
