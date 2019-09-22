@@ -2,26 +2,32 @@ crumb :root do
   link "メルカリ", root_path
 end
 
-crumb :user do
-  link "マイページ", user_path
+crumb :mypage do
+  link "マイページ", mypage_top_path
 end
 
-# crumb :user_profile do
-#   link "プロフィール", user_profile_path
-#   parent :user
+crumb :mypage_profile do
+  link "プロフィール", mypage_edit_profile_path
+  parent :mypage
+end
+
+crumb :mypage_logout do
+  link "ログアウト", mypage_mypage_logout_path
+  parent :mypage
+end
+
+
+# crumb :categories do
+#   link "カテゴリー一覧", categories_path
 # end
 
-crumb :categories do
-  link "カテゴリー一覧", categories_path
-end
+# crumb :brands do
+#   link "ブランド一覧", brands_path
+# end
 
-crumb :brands do
-  link "ブランド一覧", brands_path
-end
-
-crumb :item do |item|
-  link item.name, item_path(item)
-end
+# crumb :item do |item|
+#   link item.name, item_path(item)
+# end
 
 
 # crumb :project do |project|
