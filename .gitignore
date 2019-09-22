@@ -27,4 +27,5 @@
 /config/master.key
 vendor/bundle/*
 /public/images/*
+/public/uploads/*
 # config/credentials.yml.enc
