@@ -6,7 +6,7 @@
       = link_to '', class: "my-main-header__detail" do
         %figure
           = image_tag asset_path('header/userimage_if_noimage.png'), class: "my-userimage", size: '60x60'
-        %h2.my-main-header__detail__name 
+        %h2.my-main-header__detail__name
           = current_user.nickname
         .my-main-header__detail__number
           .my-main-header__detail__number__text

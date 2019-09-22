@@ -1,2 +1,5 @@
-.logout-block
-  = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "next-btn btn"
+= render "layouts/breadcrumbs"
+%main.my-contents.clearfix
+  = render "layouts/mypage-side-contents"
+  .logout-block
+    = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "next-btn btn"

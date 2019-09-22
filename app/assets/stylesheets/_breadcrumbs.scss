@@ -5,8 +5,10 @@
   background: #fff;
   &__text {
     width : 1020px;
+    overflow: visible;
     margin: 0 auto;
     padding: 16px 0;
+    white-space: normal;
     & span.current {
       font-weight: 600;
     }

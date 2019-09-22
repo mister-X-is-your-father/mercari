@@ -1,0 +1,29 @@
+.logo-header__sub
+  %h1.new-user
+    = link_to root_path do
+      = image_tag 'header/mercari-logo.svg', size: "185x49", class: "abc"
+  %nav.progress-bar
+    %ol.clearfix
+      %li.through
+        会員情報
+        .progress-status.progress-status__red
+        %i.fa.fa-horizontal-rule.progress-statusbar-right.progress-statusbar-right__red
+      %li.through
+        電話番号認証
+        .progress-status.progress-status__red
+        %i.fa.fa-horizontal-rule.progress-statusbar-right.progress-statusbar-right__red
+        %i.fa.fa-horizontal-rule.progress-statusbar-left.progress-statusbar-left__red
+      %li.through
+        お届け先住所入力
+        .progress-status.progress-status__red
+        %i.fa.fa-horizontal-rule.progress-statusbar-right.progress-statusbar-right__red
+        %i.fa.fa-horizontal-rule.progress-statusbar-left.progress-statusbar-left__red
+      %li.through.through__red
+        支払い方法
+        .progress-status.progress-status__red
+        %i.fa.fa-horizontal-rule.progress-statusbar-right.progress-statusbar-right__gray
+        %i.fa.fa-horizontal-rule.progress-statusbar-left.progress-statusbar-left__red
+      %li.through
+        完了
+        .progress-status
+        %i.fa.fa-horizontal-rule.progress-statusbar-left.progress-statusbar-left__gray

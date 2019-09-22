@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
   # devise_for :users, :skip => [:omniauth_callbacks]
-  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
+  devise_for :users, controllers: { 
+    omniauth_callbacks: 'omniauth_callbacks',
+    sessions: 'users/sessions'
+   }
 
   # devise_scope :user do
   #   match '/signup/auth/facebook' => 'omniauth_callbacks#passthru', via: [:get, :post]
@@ -24,7 +27,9 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :show, :edit, :update, :create_address] do
     resources :user_addresses, only: [:new, :create, :edit, :update]
   end
-  resources :items
+  resources :items do 
+    resources :purchase, only: [:index]
+  end
   resources :item_comments, only: :create
   resources :categories, only: [:index, :show]
   resources :brands, only: [:index, :show]
