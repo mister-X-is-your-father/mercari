@@ -2,13 +2,26 @@ class ItemsController < ApplicationController
 
   def index
     @parent_categories = Category.roots
-    
-    # ビューでの子要素の取り出しは 
+    # ビューでの子要素の取り出しは
     # - parents.children.each do |child|
       # = child.name
     # 孫要素の取り出しは
-    # - child.children.each do |grandchild|
-      # = grandchild.name
+    ladies = Category.find_by(name: "レディース").subtree
+    @ladies_items = Item.where(category_id: ladies).limit(10).includes(:images)
+    mens = Category.find_by(name: "メンズ").subtree
+    @mens_items = Item.where(category_id: mens).limit(10).includes(:images)
+    canon = Category.find_by(name: "家電・スマホ・カメラ").subtree
+    @canon_items = Item.where(category_id: canon ).limit(10).includes(:images)
+    toy = Category.find_by(name: "おもちゃ・ホビー・グッズ").subtree
+    @toy_items = Item.where(category_id: toy).limit(10).includes(:images)
+    chanel = Brand.find_by(name: "シャネル")
+    @chanel_items = Item.where(brand_id: chanel).limit(10).includes(:images)
+    vuitton = Brand.find_by(name: "ルイ ヴィトン")
+    @vuitton_items = Item.where(brand_id: vuitton).limit(10).includes(:images)
+    car = Brand.find_by(name: "アイ")
+    @car_items = Item.where(brand_id: car).limit(10).includes(:images)
+    nike = Brand.find_by(name: "ナイキ")
+    @nike_items = Item.where(brand_id: nike).limit(10).includes(:images)
   end
 
   def show
@@ -50,10 +63,10 @@ class ItemsController < ApplicationController
   end
 
   private
-  def item_params 
+  def item_params
     params.require(:item).permit(
       :name,
-      :description, 
+      :description,
       :product_condition,
       :category_id,
       :region_id,

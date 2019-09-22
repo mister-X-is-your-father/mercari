@@ -25,104 +25,45 @@
           = link_to '', class: "in-search-for-more" do
             もっと見る
             = fa_icon 'chevron-right'
+
         .in-category-new__block__all
           .in-category-new__block__all__items
-            .in-category-new__block__all__items__each
-              = link_to '', class:"in-item" do
-                %figure.in-item__detail
-                  %figcaption.in-item__detail__description
-                    %span.in-item__detail__description__text ベンチプレスベンチプレスベンチプレスベンチプレス
-                  .in-item__detail__img
-                    %span.in-item__detail__img__price ¥50,000
-                    = image_tag asset_path('index/benchpress.jpg'), class: "in-item__detail__img__img"
-            .in-category-new__block__all__items__each
-              = link_to '', class:"in-item" do
-                %figure.in-item__detail
-                  %figcaption.in-item__detail__description
-                    %span.in-item__detail__description__text 筋肉筋肉筋肉筋肉筋肉筋肉筋肉筋肉筋肉筋肉筋肉筋肉
-                  .in-item__detail__img
-                    %span.in-item__detail__img__price ¥50,000
-                    = image_tag asset_path('index/benchpress.jpg'), class: "in-item__detail__img__img"
-            .in-category-new__block__all__items__each
-              = link_to '', class:"in-item" do
-                %figure.in-item__detail
-                  %figcaption.in-item__detail__description
-                    %span.in-item__detail__description__text ベンチプレス
-                  .in-item__detail__img
-                    %span.in-item__detail__img__price ¥50,000
-                    = image_tag asset_path('index/benchpress.jpg'), class: "in-item__detail__img__img"
-            .in-category-new__block__all__items__each
-              = link_to '', class:"in-item" do
-                %figure.in-item__detail
-                  %figcaption.in-item__detail__description
-                    %span.in-item__detail__description__text ベンチプレス
-                  .in-item__detail__img
-                    %span.in-item__detail__img__price ¥50,000
-                    = image_tag asset_path('index/benchpress.jpg'), class: "in-item__detail__img__img"
-            .in-category-new__block__all__items__each
-              = link_to '', class:"in-item" do
-                %figure.in-item__detail
-                  %figcaption.in-item__detail__description
-                    %span.in-item__detail__description__text ベンチプレス
-                  .in-item__detail__img
-                    %span.in-item__detail__img__price ¥50,000
-                    = image_tag asset_path('index/benchpress.jpg'), class: "in-item__detail__img__img"
-            .in-category-new__block__all__items__each
-              = link_to '', class:"in-item" do
-                %figure.in-item__detail
-                  %figcaption.in-item__detail__description
-                    %span.in-item__detail__description__text 1975 MR.OLIMPIAポスター（シュワルツェネッガー）
-                  .in-item__detail__img
-                    %span.in-item__detail__img__price ¥500,000
-                    = image_tag asset_path('index/poster.jpg'), class: "in-item__detail__img__img"
-            .in-category-new__block__all__items__each
-              = link_to '', class:"in-item" do
-                %figure.in-item__detail
-                  %figcaption.in-item__detail__description
-                    %span.in-item__detail__description__text ベンチプレス
-                  .in-item__detail__img
-                    %span.in-item__detail__img__price ¥50,000
-                    = image_tag asset_path('index/benchpress.jpg'), class: "in-item__detail__img__img"
-            .in-category-new__block__all__items__each
-              = link_to '', class:"in-item" do
-                %figure.in-item__detail
-                  %figcaption.in-item__detail__description
-                    %span.in-item__detail__description__text 女性らしいラインをアピール☆ノースリーブシャツ
-                  .in-item__detail__img
-                    %span.in-item__detail__img__price ¥28,000
-                    = image_tag asset_path('index/tanktop.jpg'), class: "in-item__detail__img__img"
-            .in-category-new__block__all__items__each
-              = link_to '', class:"in-item" do
-                %figure.in-item__detail
-                  %figcaption.in-item__detail__description
-                    %span.in-item__detail__description__text ベンチプレス
-                  .in-item__detail__img
-                    %span.in-item__detail__img__price ¥50,000
-                    = image_tag asset_path('index/benchpress.jpg'), class: "in-item__detail__img__img"
-            .in-category-new__block__all__items__each
-              = link_to '', class:"in-item" do
-                %figure.in-item__detail
-                  %figcaption.in-item__detail__description
-                    %span.in-item__detail__description__text PrayStation2 超兄貴~聖なるプロテイン伝説~
-                  .in-item__detail__img
-                    %span.in-item__detail__img__price ¥82,000
-                    = image_tag asset_path('index/aniki.jpg'), class: "in-item__detail__img__img"
+            - @ladies_items.each do |item|
+              .in-category-new__block__all__items__each
+                = link_to '', class:"in-item" do
+                  %figure.in-item__detail
+                    %figcaption.in-item__detail__description
+                      %span.in-item__detail__description__text
+                        = item.name
+                    .in-item__detail__img
+                      %span.in-item__detail__img__price
+                        = item.price
+                      = image_tag item.images.first.image.url, class: "in-item__detail__img__img"
+
+    .in-category-new
       .in-category-new__block
         .in-category-new__block__top
           %h3.in-new-heading メンズ新着アイテム
           = link_to '', class: "in-search-for-more" do
             もっと見る
             = fa_icon 'chevron-right'
+
         .in-category-new__block__all
           .in-category-new__block__all__items
-            .in-category-new__block__all__items__each
-              = link_to '', class:"in-item" do
-                %figure.in-item__detail
-                  %figcaption.in-item__detail__description
-                    %span.in-item__detail__description__text ベンチプレス
-                  .in-item__detail__img
-                    %span.in-item__detail__img__price ¥50,000
-                    = image_tag asset_path('index/benchpress.jpg'), class: "in-item__detail__img__img"
+            - @mens_items.each do |item|
+              .in-category-new__block__all__items__each
+                = link_to '', class:"in-item" do
+                  %figure.in-item__detail
+                    %figcaption.in-item__detail__description
+                      %span.in-item__detail__description__text
+                        = item.name
+                    .in-item__detail__img
+                      %span.in-item__detail__img__price
+                        = item.price
+                      = image_tag item.images.first.image.url, class: "in-item__detail__img__img"
+
+
+
       .in-category-new__block
         .in-category-new__block__top
           %h3.in-new-heading 家電・スマホ・カメラ新着アイテム
@@ -131,14 +72,20 @@
             = fa_icon 'chevron-right'
         .in-category-new__block__all
           .in-category-new__block__all__items
-            .in-category-new__block__all__items__each
-              = link_to '', class:"in-item" do
-                %figure.in-item__detail
-                  %figcaption.in-item__detail__description
-                    %span.in-item__detail__description__text ベンチプレス
-                  .in-item__detail__img
-                    %span.in-item__detail__img__price ¥50,000
-                    = image_tag asset_path('index/benchpress.jpg'), class: "in-item__detail__img__img"    
+            - @canon_items.each do |item|
+              .in-category-new__block__all__items__each
+                = link_to '', class:"in-item" do
+                  %figure.in-item__detail
+                    %figcaption.in-item__detail__description
+                      %span.in-item__detail__description__text
+                        = item.name
+                    .in-item__detail__img
+                      %span.in-item__detail__img__price
+                        = item.price
+                      = image_tag item.images.first.image.url, class: "in-item__detail__img__img"
+
+
+
       .in-category-new__block
         .in-category-new__block__top
           %h3.in-new-heading おもちゃ・ホビー・グッズ新着アイテム
@@ -147,14 +94,20 @@
             = fa_icon 'chevron-right'
         .in-category-new__block__all
           .in-category-new__block__all__items
-            .in-category-new__block__all__items__each
-              = link_to '', class:"in-item" do
-                %figure.in-item__detail
-                  %figcaption.in-item__detail__description
-                    %span.in-item__detail__description__text ベンチプレス
-                  .in-item__detail__img
-                    %span.in-item__detail__img__price ¥50,000
-                    = image_tag asset_path('index/benchpress.jpg'), class: "in-item__detail__img__img"
+            - @toy_items.each do |item|
+              .in-category-new__block__all__items__each
+                = link_to '', class:"in-item" do
+                  %figure.in-item__detail
+                    %figcaption.in-item__detail__description
+                      %span.in-item__detail__description__text
+                        = item.name
+                    .in-item__detail__img
+                      %span.in-item__detail__img__price
+                        = item.price
+                      = image_tag item.images.first.image.url, class: "in-item__detail__img__img"
+
+
+
     .in-popular-brands
       %h2.in-popular-brands__head 人気のブランド
       .in-popular-brands__row
@@ -180,14 +133,21 @@
             = fa_icon 'chevron-right'
         .in-brand-new__block__all
           .in-brand-new__block__all__items
-            .in-brand-new__block__all__items__each
-              = link_to '', class:"in-item" do
-                %figure.in-item__detail
-                  %figcaption.in-item__detail__description
-                    %span.in-item__detail__description__text ベンチプレス
-                  .in-item__detail__img
-                    %span.in-item__detail__img__price ¥50,000
-                    = image_tag asset_path('index/benchpress.jpg'), class: "in-item__detail__img__img"
+            - @chanel_items.each do |item|
+              .in-category-new__block__all__items__each
+                = link_to '', class:"in-item" do
+                  %figure.in-item__detail
+                    %figcaption.in-item__detail__description
+                      %span.in-item__detail__description__text
+                        = item.name
+                    .in-item__detail__img
+                      %span.in-item__detail__img__price
+                        = item.price
+                      = image_tag item.images.first.image.url, class: "in-item__detail__img__img"
+
+
+
+
       .in-brand-new__block
         .in-brand-new__block__top
           %h3.in-new-heading ルイヴィトン新着アイテム
@@ -196,30 +156,41 @@
             = fa_icon 'chevron-right'
         .in-brand-new__block__all
           .in-brand-new__block__all__items
-            .in-brand-new__block__all__items__each
-              = link_to '', class:"in-item" do
-                %figure.in-item__detail
-                  %figcaption.in-item__detail__description
-                    %span.in-item__detail__description__text ベンチプレス
-                  .in-item__detail__img
-                    %span.in-item__detail__img__price ¥50,000
-                    = image_tag asset_path('index/benchpress.jpg'), class: "in-item__detail__img__img"
+            - @vuitton_items.each do |item|
+              .in-category-new__block__all__items__each
+                = link_to '', class:"in-item" do
+                  %figure.in-item__detail
+                    %figcaption.in-item__detail__description
+                      %span.in-item__detail__description__text
+                        = item.name
+                    .in-item__detail__img
+                      %span.in-item__detail__img__price
+                        = item.price
+                      = image_tag item.images.first.image.url, class: "in-item__detail__img__img"
+
+
       .in-brand-new__block
         .in-brand-new__block__top
-          %h3.in-new-heading シュプリーム新着アイテム
+          %h3.in-new-heading マツダ新着アイテム
           = link_to '', class: "in-search-for-more" do
             もっと見る
             = fa_icon 'chevron-right'
         .in-brand-new__block__all
           .in-brand-new__block__all__items
-            .in-brand-new__block__all__items__each
-              = link_to '', class:"in-item" do
-                %figure.in-item__detail
-                  %figcaption.in-item__detail__description
-                    %span.in-item__detail__description__text ベンチプレス
-                  .in-item__detail__img
-                    %span.in-item__detail__img__price ¥50,000
-                    = image_tag asset_path('index/benchpress.jpg'), class: "in-item__detail__img__img"    
+            - @car_items.each do |item|
+              .in-category-new__block__all__items__each
+                = link_to '', class:"in-item" do
+                  %figure.in-item__detail
+                    %figcaption.in-item__detail__description
+                      %span.in-item__detail__description__text
+                        = item.name
+                    .in-item__detail__img
+                      %span.in-item__detail__img__price
+                        = item.price
+                      = image_tag item.images.first.image.url, class: "in-item__detail__img__img"
+
+
+
       .in-brand-new__block
         .in-brand-new__block__top
           %h3.in-new-heading ナイキ新着アイテム
@@ -228,11 +199,14 @@
             = fa_icon 'chevron-right'
         .in-brand-new__block__all
           .in-brand-new__block__all__items
-            .in-brand-new__block__all__items__each
-              = link_to '', class:"in-item" do
-                %figure.in-item__detail
-                  %figcaption.in-item__detail__description
-                    %span.in-item__detail__description__text ベンチプレス
-                  .in-item__detail__img
-                    %span.in-item__detail__img__price ¥50,000
-                    = image_tag asset_path('index/benchpress.jpg'), class: "in-item__detail__img__img"
+            - @nike_items.each do |item|
+              .in-category-new__block__all__items__each
+                = link_to '', class:"in-item" do
+                  %figure.in-item__detail
+                    %figcaption.in-item__detail__description
+                      %span.in-item__detail__description__text
+                        = item.name
+                    .in-item__detail__img
+                      %span.in-item__detail__img__price
+                        = item.price
+                      = image_tag item.images.first.image.url, class: "in-item__detail__img__img"
