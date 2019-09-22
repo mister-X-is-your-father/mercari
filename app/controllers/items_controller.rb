@@ -49,6 +49,10 @@ class ItemsController < ApplicationController
   def destroy
   end
 
+  def purchase
+    render layout: "register-layout"
+  end
+
   private
   def item_params 
     params.require(:item).permit(

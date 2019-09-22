@@ -1,0 +1,150 @@
+.pur-contents {
+  width: 700px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.pur-title {
+  padding: 16px;
+  font-size: 22px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.pur-item {
+  margin: 0;
+  text-align: center;
+  padding: 24px 12.5% 0px;
+  border-top: 1px solid #f5f5f5;
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 320px;
+    margin: 0 auto;
+    &__img-box {
+      &__img {
+        width: 64px;
+      }
+    }
+    &__text {
+      width: calc(100% - 80px);
+      margin-left: 16px;
+      text-align: left;
+      font-size: 16px;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+  }
+}
+
+.pur-form {
+  width: 100%;
+  &__item-price {
+    margin-top: 8px;
+    line-height: 1.5;
+    font-size: 22px;
+    font-weight: 600;
+    &__shipping-fee {
+      margin-right: 8px;
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+  &__point {
+    margin-top: 16px;
+    background-color: #ccc;
+    &__box {
+      &__text {
+        cursor: default;
+        padding: 16px;
+        border: 1px solid #ccc;
+      }
+    }
+  }
+  &__purchase-price {
+    display: table;
+    // border-collapse: collapse;
+    width: 100%;
+    &__box {
+      border: 0;
+      font-size: 18px;
+      display: table-row;
+      font-weight: 600;
+      &__text {
+        text-align: left;
+        display: table-cell;
+        padding: 16px 0;
+      }
+      &__price {
+        display: table-cell;
+        padding: 16px 0;
+        text-align: right;
+        &__text {
+          font-size: 28px;
+        }
+      }
+    }
+  }
+}
+
+.btn-red.pur {
+  margin: 8px 0 0;
+}
+
+.pur-delivery {
+  margin: 40px 0 0;
+  padding: 24px 12.5% 0;
+  border-top: 1px solid #f5f5f5;
+  &__inner {
+    max-width: 320px;
+    margin: 0 auto;
+    &__title {
+      margin: 0;
+      font-size: 14px;
+    }
+    &__address {
+      display: block;
+      margin: 8px 0 0;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+  }
+}
+
+.pur-link {
+  margin-top: 8px;
+  display: block;
+  text-align: right;
+  color: #0099e8;
+  &__text {
+    vertical-align: middle;
+  }
+  &__icon {
+    vertical-align: middle;
+    margin-left: 8px;
+    font-size: 20px;
+  }
+}
+
+.pur-card {
+  margin-top: 40px;
+  padding: 24px 12.5% 40px;
+  border-top: 1px solid #f5f5f5;
+  &__inner {
+    max-width: 320px;
+    margin: 0 auto;
+    &__text {
+      margin: 0;
+      font-size: 14px;
+    }
+    &__card-info {
+      margin: 8px 0 0;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+  }
+}
+
+.card-icon {
+  margin: 0;
+}

@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   end
   resources :items do 
     collection do
-      get 'purchase', to: 'items#purchase'
+      get ':id/purchase', to: 'items#purchase', as: :purchase
     end
   end
   resources :item_comments, only: :create
