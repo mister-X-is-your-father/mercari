@@ -1,0 +1,10 @@
+- case params.values_at :controller, :action
+
+- when ['items', 'search']
+  - breadcrumb :search
+
+%nav.breadcrumbs.bc-bottom
+  - if params[:search] == ""
+    = breadcrumbs class: "breadcrumbs__text", separator: " &nbsp; "
+  - else
+    = breadcrumbs class: "breadcrumbs__text", separator: " &nbsp;&nbsp;&#12297;&nbsp; "

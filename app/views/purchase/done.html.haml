@@ -1,6 +1,6 @@
 %main.pur
   %section.pur-contents
-    %h2.pur-title 購入内容の確認
+    %h2.pur-title 購入が完了しました
     %section.pur-item
       .pur-item__inner
         .pur-item__inner__img-box
@@ -12,18 +12,7 @@
             = @item.price
             %span.pur-form__item-price__shipping-fee 
               送料込み
-          %ul.pur-form__point
-            %li.pur-form__point__box
-              .pur-form__point__box__text 
-                ポイントはありません
-          %ul.pur-form__purchase-price
-            %li.pur-form__purchase-price__box
-              .pur-form__purchase-price__box__text 
-                支払い金額
-              .pur-form__purchase-price__box__price
-                %span.pur-form__purchase-price__box__price__text
-                  = @item.price
-            = f.submit "購入する", class: "btn-red pur"
+
     %section.pur-delivery
       .pur-delivery__inner
         %h3.pur-delivery__inner__title 配送先
@@ -37,7 +26,6 @@
           %br/
           = current_user.nickname
         = link_to "#", class: "pur-link" do
-          %span.pur-link__text 変更する
           = fa_icon 'angle-right', class: 'pur-link__icon'
     %section.pur-card
       .pur-card__inner
@@ -51,5 +39,4 @@
         %figure.card-icon
           = image_tag asset_path('purchase/master-card.svg'), size: '34x20'
         = link_to "#", class: "pur-link" do
-          %span.pur-link__text 変更する
           = fa_icon 'angle-right', class: 'pur-link__icon'

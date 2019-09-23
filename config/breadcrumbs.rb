@@ -16,6 +16,9 @@ crumb :mypage_logout do
   parent :mypage
 end
 
+crumb :search do
+  link params[:search], search_items_path
+end
 
 # crumb :categories do
 #   link "カテゴリー一覧", categories_path
