@@ -8,10 +8,11 @@
   -#     .search-form__contents
   .search-right
     %section.search-item-container
-      %h3.search-result-text
-        - if params[:search] == ""
+      - if params[:search] == ""
+        %h3.search-result-text
           新着商品
-        - else
+      - else
+        %h2.search-result-text
           = "#{params[:search]}の検索結果"
       .search-result-items.search-clearfix
         - @items.each do |item|
@@ -30,4 +31,4 @@
                       = fa_icon "heart-o", class: ""
                       %span
                         = "#{item.likes}"
-= render "layouts/breadcrumbs-bottom", {search: params[:search]}
+= render "layouts/breadcrumbs-bottom"
