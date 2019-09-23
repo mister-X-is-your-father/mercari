@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :show, :edit, :update, :create_address] do
     resources :user_addresses, only: [:new, :create, :edit, :update]
   end
-  
+
   resources :items do 
     resources :purchase, only: [:index] do
       collection do
@@ -35,6 +35,8 @@ Rails.application.routes.draw do
         post 'pay', to: 'purchase#pay'
         get 'done', to: 'purchase#done'
       end
+    collection do
+      get 'search'
     end
   end
 

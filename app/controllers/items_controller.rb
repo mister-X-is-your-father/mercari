@@ -49,6 +49,9 @@ class ItemsController < ApplicationController
   def destroy
   end
 
+  def search
+  end
+
   private
   def item_params 
     params.require(:item).permit(
@@ -64,7 +67,7 @@ class ItemsController < ApplicationController
       :delivery_method,
       :price,
       images_attributes: [:image]
-    ).merge(user_id: 1)
+    ).merge(user_id: current_user.id)
   end
 
 end
