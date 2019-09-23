@@ -412,7 +412,6 @@ span {
 }
 
 
-
 .is-user-icon-box {
   height: 40px;
   width: 40px;
@@ -436,4 +435,12 @@ span {
 
 .comments li:firstchild {
   margin: 1.5em 0 0;
+}
+
+.is-message-user {
+  float: left;
+  position: relative;
+  top: -20px;
+  display: inline-block;
+  color: #333;
 }
