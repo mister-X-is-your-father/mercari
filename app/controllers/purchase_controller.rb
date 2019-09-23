@@ -19,7 +19,7 @@ class PurchaseController < ApplicationController
       :customer => @card.customer_id,
       :currency => 'jpy'
     )
-    redirect_to done_item_purchase_index_path(@item.id)
+    redirect_to done_item_purchase_index_path(@item)
   end
 
   def done
