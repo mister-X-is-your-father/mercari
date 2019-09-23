@@ -411,6 +411,8 @@ span {
   }
 }
 
+
+
 .is-user-icon-box {
   height: 40px;
   width: 40px;
@@ -426,4 +428,12 @@ span {
   content: '';
   display: block;
   clear: both;
+}
+
+.is-clearfix {
+  margin: 60px 0 0;
+}
+
+.comments li:firstchild {
+  
 }
