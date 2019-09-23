@@ -121,7 +121,7 @@ span {
 
 .is-tables {
   font-size: 	12px;
-  
+
   th {
     width: 117px;
     padding: 8px;
@@ -131,7 +131,7 @@ span {
     background: #fafafa;
     border: solid #f5f5f5 1px;
   }
-} 
+}
 
 .is-user-ratings{
 	width: 32px;
@@ -216,7 +216,7 @@ span {
 
 
 .is-button-like{
-	width: 118px;
+	width: 130px;
 	height: 33px;
 	color: #333;
   border: 1px solid #f5f5f5;
@@ -257,13 +257,6 @@ span {
 
 }
 
-.message-container{
-	width: 700px;
-  height: 282px;
-  display: flex;
-  justify-content: space-between;
-}
-
 .message-content{
 	width: 700px;
 	height: 282px;
@@ -274,6 +267,17 @@ span {
 .message-form{
 	width: 652px;
 	height: 220px;
+}
+
+.message-body{
+  float: right;
+  position: relative;
+  width: calc(100% - 56px);
+  padding: 16px;
+  background: #eef0f4;
+  border-radius: 15px;
+  line-height: 1.5;
+  word-break: break-all;
 }
 
 .message-form p{
@@ -408,6 +412,35 @@ span {
 }
 
 
+.is-user-icon-box {
+  height: 40px;
+  width: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+  &__icon {
+    height: 100%;
+    width: 100%;
+  }
+}
 
+.layout-modify {
+  content: '';
+  display: block;
+  clear: both;
+}
 
+.is-clearfix {
+  margin: 60px 0 0;
+}
 
+.comments li:firstchild {
+  margin: 1.5em 0 0;
+}
+
+.is-message-user {
+  float: left;
+  position: relative;
+  top: -20px;
+  display: inline-block;
+  color: #333;
+}

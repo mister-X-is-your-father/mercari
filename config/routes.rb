@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   # devise_for :users, :skip => [:omniauth_callbacks]
-  devise_for :users, controllers: { 
+  devise_for :users, controllers: {
     omniauth_callbacks: 'omniauth_callbacks',
     sessions: 'users/sessions'
    }
@@ -28,7 +28,8 @@ Rails.application.routes.draw do
     resources :user_addresses, only: [:new, :create, :edit, :update]
   end
 
-  resources :items do 
+
+  resources :items do
     resources :purchase, only: [:index] do
       collection do
         get 'index', to: 'purchase#index'
