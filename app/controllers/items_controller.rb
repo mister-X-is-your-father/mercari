@@ -1,15 +1,14 @@
 class ItemsController < ApplicationController
 
   def index
-    @parent_categories = Category.roots
-
-    # ビューでの子要素の取り出しは 
+    @parent_categories = Category.roots 
     # ビューでの子要素の取り出しは
     # - parents.children.each do |child|
       # = child.name
     # 孫要素の取り出しは
     # - child.children.each do |grandchild|
       # = grandchild.name
+
     ladies = Category.find_by(name: "レディース").subtree
     @ladies_items = Item.where(category_id: ladies).limit(10).includes(:images)
     mens = Category.find_by(name: "メンズ").subtree

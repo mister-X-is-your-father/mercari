@@ -27,12 +27,20 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :show, :edit, :update, :create_address] do
     resources :user_addresses, only: [:new, :create, :edit, :update]
   end
+
   resources :items do 
-    resources :purchase, only: [:index]
+    resources :purchase, only: [:index] do
+      collection do
+        get 'index', to: 'purchase#index'
+        post 'pay', to: 'purchase#pay'
+        get 'done', to: 'purchase#done'
+      end
+    end
     collection do
       get 'search'
     end
   end
+
   resources :item_comments, only: :create
   resources :categories, only: [:index, :show]
   resources :brands, only: [:index, :show]
@@ -74,10 +82,15 @@ Rails.application.routes.draw do
     patch 'profile', to: 'profile#update', as: :update_profile
     # get 'delivery_address', to: 'delivery_address#edit', as: :edit_delivery_address
     # patch 'delivery_address', to: 'delivery_address#update', as: :update_delivery_address
-    get 'card', to: 'card#edit', as: :edit_card
-    get 'card', to: 'card#new', as: :new_card
-    post 'card', to: 'card#create', as: :create_card
-    delete 'card', to: 'card#destroy', as: :destroy_card
+
+    resources :card, only: [:new, :show, :destroy]
+    # get 'card', to: 'card#edit', as: :edit_card
+    # get 'card', to: 'card#new', as: :new_card
+    post 'card/new', to: 'card#pay', as: :pay_card
+    # get 'card', to: 'card#show', as: :show_card
+    # delete 'card', to: 'card#destroy', as: :destroy_card
+
+
     # get 'email_password', to: 'email_password#edit', as: :edit_email_password
     # patch 'email_password', to: 'email_password#update', as: :update_email_password
     # get 'identification', to: 'identification#new', as: :new_identification
