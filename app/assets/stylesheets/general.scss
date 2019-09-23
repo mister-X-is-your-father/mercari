@@ -14,8 +14,10 @@
   &__size-24px {
     font-size: 24px;
   }
+  &__bold {
+    font-weight: 600;
+  }
 }
-
 .padding {
   &__entire-64px {
     padding: 64px;

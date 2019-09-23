@@ -141,16 +141,51 @@
           不適切な商品の報告
     .is-button-right
       = link_to "#" do
-        %i.icon-lock
-        %span あんしん・あんぜんへの取り組み
+        %i.material-icons
+          lock
+          %span あんしん・あんぜんへの取り組み
 
 .is-detail-message
-  .message-container
-    .message-content
-      = form_with url: "", method: :post, local: true, class: "message-form" do |f|
-        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        = f.text_field :comment, class: "textarea-default"
-        = f.submit "コメントする", class: "message-submit btn-default"
+  .message-content
+    %ul.comments
+    /以下アイテムコメント
+    -# - @item.item_comments.each do |comments|
+    -#   %li.a_comment
+    -#     = link_to registration_signup_index_path, class: "is-user-icon-box__icon" do
+    -#       %figure
+    -#         .is-user-icon-box
+    -#           = image_tag @item.images.first.image.url
+    -#         %figcaption.font__bold
+    -#           = comments.user.nickname
+    -#     .message-body
+    -#       .message-body__text
+    -#         = comments.comment
+
+    %li.clearfix
+      %a.message-user{:href => "https://www.mercari.com/jp/u/519192701/"}
+        %figure
+          %div
+            %img{:alt => "", :src => "//static.mercdn.net/thumb/members/519192701.jpg?1527154439"}/
+          %figcaption.bold
+            こうチャン
+      .message-body
+        .message-body-text こんにちは！値引きは可能ですか？
+        .message-icons.clearfix
+          %time.message-icon-left
+            %i.icon-time
+            %span 66 日前
+          .message-icon-right
+            %form{:action => "https://www.mercari.com/jp/comment/report/m48018000318/2231730604/", :method => "POST"}
+              %button{:type => "submit"}
+                %i.icon-flag
+              %input{:name => "redirect_url_key", :type => "hidden", :value => "item_detail"}/
+        %i.icon-balloon
+
+      .layout-modify
+    = form_with url: "", method: :post, local: true, class: "message-form" do |f|
+      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      = f.text_field :comment, class: "textarea-default"
+      = f.submit "コメントする", class: "message-submit btn-default"
 
 .is-nav
   %li.is-nav__prev
@@ -174,12 +209,11 @@
     %li
       = link_to "https://www.pinterest.jp/login/?next=/pin/create/button/%3Furl%3Dhttps%253A%252F%252Fitem.mercari.com%252Fjp%252Fm80792844653%252F%26media%3Dhttps%253A%252F%252Fstatic.mercdn.net%252Fitem%252Fdetail%252Forig%252Fphotos%252Fm80792844653_1.jpg%253F1567944428%26description%3D%25E3%2583%25A1%25E3%2583%25AB%25E3%2582%25AB%25E3%2583%25AA%25E5%2595%2586%25E5%2593%2581%253A%2520%25E3%2583%2598%25E3%2582%25A2%25E3%2582%25A2%25E3%2582%25AF%25E3%2582%25BB%2520%2523%25E3%2583%25A1%25E3%2583%25AB%25E3%2582%25AB%25E3%2583%25AA", class: "share-btn" do
         = fa_icon "fa-pinterset"
-      
 .is-in-user
   %section.is-container
     %h2.is-items-head
       = link_to "#" do
-        -# = @user.name
+        = @item.user.nickname
         さんのその他の出品
 
     .is-content
@@ -193,7 +227,7 @@
             .is-content__num
               .is-content__price
                 ¥600
-      
+
       %section.is-content__card
         = link_to "#" do
           .is-content__photo
