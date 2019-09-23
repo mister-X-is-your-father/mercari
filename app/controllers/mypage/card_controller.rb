@@ -1,9 +1,8 @@
 class Mypage::CardController < ApplicationController
   require 'payjp'
+  before_action :set_card, only: [:new, :destroy, :show]
 
   def new
-    binding.pry
-    @card = Card.where(user_id: current_user.id)
     redirect_to mypage_card_path(@card.ids) if @card.exists?
   end
 
@@ -26,19 +25,17 @@ class Mypage::CardController < ApplicationController
   end
 
   def destroy
-    card = Card.where(user_id: current_user.id).first
-    if card.blank?
+    if @card.blank?
     else
       Payjp.api_key = Rails.application.credentials.PAYJP_PRIVATE_KEY
-      customer = Payjp::Customer.retrieve(card.customer_id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
       customer.delete
-      card.delete
+      @card.delete
     end
       redirect_to new_mypage_card_path
   end
 
   def show
-    @card = Card.where(user_id: current_user.id).first
     if @card.blank?
       redirect_to new_mypage_card_path
     else
@@ -46,5 +43,10 @@ class Mypage::CardController < ApplicationController
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @default_card_information = customer.cards.retrieve(@card.card_id)
     end
+  end
+
+  private
+  def set_card
+    @card = Card.find_by(user_id: current_user.id)
   end
 end
