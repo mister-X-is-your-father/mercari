@@ -1,6 +1,11 @@
 %main.search-contents
-  .search-left
-    = form_with url: "", method: :get, local: true, class: ""
+  -# .search-left
+  -#   = form_with url: "", method: :get, local: true, class: "search-form" do |f|
+  -#     .search-form__sort
+  -#       .search-form-group
+  -#         .select-box
+  -#           = fa_icon "angle-down", class: "search-icon"
+  -#     .search-form__contents
   .search-right
     %section.search-item-container
       %h3.search-result-text
@@ -16,7 +21,7 @@
                 = image_tag item.images.first.image.url, class: "search-item-box__image-box__image"
               .search-item-box__text-box
                 %h3.search-item-box__text-box__text
-                  = "#{item.description}"
+                  = "#{item.name}"
                 .search-item-box__text-box__num
                   .search-item-box__text-box__num__price
                     = "¥#{item.price}"

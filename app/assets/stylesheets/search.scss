@@ -102,3 +102,39 @@
   }
 }
 
+.search-form {
+  position: relative;
+  &__sort {
+    opacity: 1;
+    position: static;
+    width: auto;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    margin: 0 auto;
+  }
+}
+
+.search-form-group {
+  margin: 40px 0 0;
+  &:first-child {
+    margin: 0;
+  }
+}
+
+.select-box {
+  background: #fff;
+  text-align: left;
+  margin: 0;
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+    right: 16px;
+    top: 50%;
+    z-index: 2;
+    color: #888;
+    font-size: 8px;
+    transform: translate(0, -50%);
+}
