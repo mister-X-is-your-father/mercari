@@ -2,6 +2,7 @@ class Mypage::CardController < ApplicationController
   require 'payjp'
 
   def new
+    binding.pry
     @card = Card.where(user_id: current_user.id)
     redirect_to mypage_card_path(@card.ids) if @card.exists?
   end

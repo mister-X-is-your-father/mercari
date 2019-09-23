@@ -15,9 +15,11 @@
               .btn-delete.font__size-14px
                 = link_to("削除する", mypage_card_path(@card.id), method: :delete)
           .margin__top-8px.font__size-14px
-            ************8693
+            = "**** **** **** " + @default_card_information.last4
           .margin__top-8px.font__size-14px
-            11/19
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
 
         .contents__main__only-border.margin__top-32px.margin__bottom-40px
 

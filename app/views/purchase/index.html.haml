@@ -4,11 +4,12 @@
     %section.pur-item
       .pur-item__inner
         .pur-item__inner__img-box
-          = image_tag asset_path('index/benchpress.jpg'), class: "pur-item__inner__img-box__img"
-        %p.pur-item__inner__text ベンチプレス
-        = form_with model: @item, method: :post, local: true, class: "pur-form" do |f|
+          = image_tag @item.images.first.image.url, class: "pur-item__inner__img-box__img"
+        %p.pur-item__inner__text
+          = @item.name
+        = form_with url: pay_item_purchase_index_path(@item.id), method: :post, local: true, class: "pur-form" do |f|
           %p.pur-form__item-price 
-            ¥50,000
+            = @item.price
             %span.pur-form__item-price__shipping-fee 
               送料込み
           %ul.pur-form__point
@@ -21,19 +22,20 @@
                 支払い金額
               .pur-form__purchase-price__box__price
                 %span.pur-form__purchase-price__box__price__text
-                  ¥50,000
-          = f.submit "購入する", class: "btn-red pur"
+                  = @item.price
+            = f.submit "購入する", class: "btn-red pur"
     %section.pur-delivery
       .pur-delivery__inner
         %h3.pur-delivery__inner__title 配送先
         %address.pur-delivery__inner__address
-          〒117-1129
+          = current_user.postal_code
           %br/
-          筋肉都 大胸筋市
-          上部区弾鐘跳1丁目171番地129
-          Pump Up 1号室
+          = current_user.region
+          = current_user.city
+          = current_user.block
+          = current_user.buildings
           %br/
-          山本 義徳 
+          = current_user.nickname
         = link_to "#", class: "pur-link" do
           %span.pur-link__text 変更する
           = fa_icon 'angle-right', class: 'pur-link__icon'
@@ -41,9 +43,11 @@
       .pur-card__inner
         %h3.pur-card__inner__text 支払い方法
         %p.pur-card__inner__card-info
-          ************1129
+          = "**** **** **** " + @default_card_information.last4
           %br/
-          11/29
+          - exp_month = @default_card_information.exp_month.to_s
+          - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+          = exp_month + " / " + exp_year
         %figure.card-icon
           = image_tag asset_path('purchase/master-card.svg'), size: '34x20'
         = link_to "#", class: "pur-link" do
