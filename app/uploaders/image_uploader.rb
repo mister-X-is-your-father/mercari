@@ -7,13 +7,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   # storage :file
 
   # ローカル環境ならfile、本番環境ならS3へ保存する(morita)
-  if Rails.env.development? || Rails.env.test?
-    storage :file
-  else
-    storage :fog
-  end
+  # if Rails.env.development? || Rails.env.test?
+  #   storage :file
+  # else
+  #   storage :fog
+  # end
 
-  # storage :fog
+  storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:

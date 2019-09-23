@@ -1,12 +1,28 @@
 %main.search-contents
   .search-left
+    = form_with url: "", method: :get, local: true, class: ""
   .search-right
     %section.search-item-container
-      %h2.search-result-text
+      %h3.search-result-text
         - if params[:search] == ""
           新着商品
         - else
           = "#{params[:search]}の検索結果"
-      .search-result-items
+      .search-result-items.search-clearfix
         - @items.each do |item|
-          
+          %section.search-item-box
+            = link_to item_path(item.id) do
+              %figure.search-item-box__image-box
+                = image_tag item.images.first.image.url, class: "search-item-box__image-box__image"
+              .search-item-box__text-box
+                %h3.search-item-box__text-box__text
+                  = "#{item.description}"
+                .search-item-box__text-box__num
+                  .search-item-box__text-box__num__price
+                    = "¥#{item.price}"
+                  - if item.likes ==! ""
+                    .search-item-box__text-box__num__likes
+                      = fa_icon "heart-o", class: ""
+                      %span
+                        = "#{item.likes}"
+
