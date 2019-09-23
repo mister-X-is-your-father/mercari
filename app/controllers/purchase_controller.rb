@@ -1,16 +1,14 @@
 class PurchaseController < ApplicationController
 
   before_action :set_item, only: [:index, :pay, :done]
-  before_action :set_card, only: [:index, :pay]
+  before_action :set_card, only: [:index, :pay, :done]
 
   def index
     if @card.blank?
       redirect_to controller: "card", action: "new"
     else
-      Payjp.api_key = Rails.application.credentials.PAYJP_PRIVATE_KEY
-      customer = Payjp::Customer.retrieve(@card.customer_id)
-      @default_card_information = customer.cards.retrieve(@card.card_id)
-    end
+      set_payjp
+   end
     render layout: "register-layout"
   end
 
@@ -25,7 +23,9 @@ class PurchaseController < ApplicationController
   end
 
   def done
-    @@item.update_attribute(:condition, 3)
+    @item.update_attribute(:sold_condition, 3)
+    set_payjp
+    render layout: "register-layout"
   end
 
   private
@@ -34,7 +34,13 @@ class PurchaseController < ApplicationController
     @item = Item.find(params[:item_id])
   end
 
-  def set_catd
+  def set_card
     @card = Card.where(user_id: current_user.id).first
+  end
+
+  def set_payjp
+    Payjp.api_key = Rails.application.credentials.PAYJP_PRIVATE_KEY
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    @default_card_information = customer.cards.retrieve(@card.card_id)
   end
 end
