@@ -94,6 +94,7 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'dropzonejs-rails'
 gem 'active_hash'
+gem 'listen', '~> 3.1.5'
 
 group :development, :test do
   gem 'pry-rails'
