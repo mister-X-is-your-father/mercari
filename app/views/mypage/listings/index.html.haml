@@ -1,0 +1,51 @@
+%main.my-contents.clearfix
+  = render 'layouts/mypage-side-contents'
+  .l-content
+    %section.mypage-tab-container
+      %h2.mypage-tab-head
+        出品した商品
+      %ul.listing-tabs
+        %li.active
+          %h3
+            = link_to "#" do
+              出品
+        %li
+          %h3
+            = link_to "#" do
+              取引中
+        %li
+          %h3
+            = link_to "#" do
+              売却済み
+      .tab-content
+        %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
+          - if @items.present?
+            - @items.each do |item|
+              %li
+                = link_to "#", class: "mypage-item-link" do
+                  %figure
+                    = image_tag item.images.first.image.url, class: "is-higher-width lazyloaded"
+                  .mypage-item-body.show-stock-item
+                    .mypage-item-text
+                      = item.name
+                    %div.listing-items
+                      %span.listing-item-count
+                        = fa_icon 'heart-o'
+                        0
+                      %span.listing-item-count
+                        = fa_icon 'message'
+                        0
+                      .mypage-item-status.bold.awaiting
+                        出品中
+                  .right-arrow-signal
+                    = fa_icon 'angle-right'
+          - else
+            %li.mypage-item-not-found.bold
+              出品中の商品がありません
+    %ul.mypage-history.pager
+      %li.pager-prev.pager-cell
+        = link_to "#" do
+          = fa_icon 'angle-left'
+      %li.pager-next.pager-cell
+        = link_to "#" do
+          = fa_icon 'angle-right'
