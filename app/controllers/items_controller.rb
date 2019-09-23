@@ -2,9 +2,11 @@ class ItemsController < ApplicationController
 
   def index
     @parent_categories = Category.roots
+
     # ビューでの子要素の取り出しは
 
     # ビューでの子要素の取り出しは 
+
     # - parents.children.each do |child|
       # = child.name
     # 孫要素の取り出しは
@@ -28,8 +30,9 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @comments = @item.comments
+    @comments = @item.item_comments
     @images = @item.images
+    @region = Region
   end
 
   def new
