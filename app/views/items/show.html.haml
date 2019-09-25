@@ -145,9 +145,9 @@
           lock
           %span あんしん・あんぜんへの取り組み
 
-.is-detail-message
-  .message-content
-    %ul.comments
+-# .is-detail-message
+  -# .message-content
+    -# %ul.comments
     /以下アイテムコメント
     -# - @item.item_comments.each do |comments|
     -#   %li.a_comment
@@ -161,31 +161,36 @@
     -#       .message-body__text
     -#         = comments.comment
 
-    %li.is-clearfix
-      %a.is-message-user{:href => "https://www.mercari.com/jp/u/519192701/"}
-        %figure
-          %div
-            %img{:alt => "", :src => "//static.mercdn.net/thumb/members/519192701.jpg?1527154439"}/
-          %figcaption.bold
-            こうチャン
-      .message-body
-        .message-body-text こんにちは！値引きは可能ですか？
-        .message-icons.clearfix
-          %time.message-icon-left
-            %i.icon-time
-            %span 66 日前
-          .message-icon-right
-            %form{:action => "https://www.mercari.com/jp/comment/report/m48018000318/2231730604/", :method => "POST"}
-              %button{:type => "submit"}
-                %i.icon-flag
-              %input{:name => "redirect_url_key", :type => "hidden", :value => "item_detail"}/
-        %i.icon-balloon
+    -# .message-body
+    -#   .message-body__left
+    -#   .message-body__right
+    -#     .message-body__right__name-box
+    -#     .message-body__right__content
+    -#     .message-body__right__balloon
 
-      .layout-modify
-    = form_with url: "", method: :post, local: true, class: "message-form" do |f|
-      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      = f.text_field :comment, class: "textarea-default"
-      = f.submit "コメントする", class: "message-submit btn-default"
+      -#   %figure
+      -#     .is-user-icon-box
+      -#       = image_tag @item.images.first.image.url, class: "is-user-icon-box__icon"
+      -#     %figcaption.font__bold.layout-modify
+      -#       こうチャン
+      -# .is-message-body
+      -#   .message-body-text こんにちは！値引きは可能ですか？
+      -#   .message-icons.clearfix
+      -#     %time.message-icon-left
+      -#       %i.icon-time
+      -#       %span 66 日前
+      -#     .message-icon-right
+      -#       %form{:action => "https://www.mercari.com/jp/comment/report/m48018000318/2231730604/", :method => "POST"}
+      -#         %button{:type => "submit"}
+      -#           %i.icon-flag
+      -#         %input{:name => "redirect_url_key", :type => "hidden", :value => "item_detail"}/
+      -#   %i.icon-balloon
+
+      -# .layout-modify
+    -# = form_with url: "", method: :post, local: true, class: "message-form" do |f|
+    -#   %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    -#   = f.text_field :comment, class: "textarea-default"
+    -#   = f.submit "コメントする", class: "message-submit btn-default"
 
 .is-nav
   %li.is-nav__prev
