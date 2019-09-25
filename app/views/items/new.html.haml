@@ -1,116 +1,129 @@
 %main.new-user-main
   %section.iu-item-container
-    #iu-container
-      .iucontainer__inner
-        %h2.l-single-head 商品の情報を入力
-        = form_with model: @item, method: :post, local: true, class: "form" do |f|
-          .iu-container__inner
-            %h3.iu-upload-head
-              出品画像
-              %span.form-require 必須
-            %p 最大10枚までアップロードできます
-            .iu-upload-drop-box
-              = f.fields_for :images do |i|
-                = i.file_field :image
-                %pre.visible-pc
-                  .dropzone-msg-title ドラッグアンドドロップ
-                  .dropzone-msg-text またはクリックしてファイルをアップロード
-          .iu-content
+    .iu-container
+      %h2.l-single-head 商品の情報を入力
+      = form_with model: @item, method: :post, local: true, class: "form", id: "item-new" do |f|
+        .iu-content
+          %h3.iu-image__head
+            出品画像
+            %span.form-require 必須
+          %p 最大10枚までアップロードできます
+          = f.fields_for :images do |i|
+            .iu-image__container.clearfix
+              .iu-image__container__image-area
+                .iu-image__container__image-area__images.have-image-0
+                  %ul
+                    -# .iu-image__container__image-area__images__image
+              .iu-image__container__drop-area.have-image-0
+                = i.label :image, class: "iu-image__container__drop-area__label" do
+                  = i.file_field :image, class: "iu-image__container__drop-area__label__file", style: "display: none;"
+                  %pre.visible-pc
+                    ドラッグアンドドロップ
+                    またはクリックしてファイルをアップロード
+                  -# = fa_icon "camera"
+              .iu-image__container__drop-area.drop-area-second.have-image-0
+                = i.label :image, class: "iu-image__container__drop-area__label" do
+                  = i.file_field :image, class: "iu-image__container__drop-area__label__file", style: "display: none;"
+                  %pre.visible-pc
+                    ドラッグアンドドロップ
+                    またはクリックしてファイルをアップロード
+                  -# = fa_icon "camera"
+        .iu-content
+          .form-group
+            = f.label "商品名"
+            %span.form-require 必須
+            = f.text_field :name, class: "input-default", placeholder: "商品名 (必須 40文字まで)"
+          .form-group
+            = f.label "商品の説明"
+            %span.form-require 必須
+            = f.text_area :description, class: "textarea-default", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        .iu-content.iu-flex
+          %h3.iu-sub-head 商品の詳細
+          .iu-form-box
             .form-group
-              = f.label "商品名"
+              = f.label "カテゴリー"
               %span.form-require 必須
-              = f.text_field :name, class: "input-default", placeholder: "商品名 (必須 40文字まで)"
+              %div
+                .select-wrap
+                  = f.select :category_id, options_for_select(@parent_categories_array), include_blank: '---'
+                .select-wrap
+                  = f.select :category_id, options_for_select(@child_categories_array), include_blank: '---'
+                .select-wrap
+                  = f.collection_select :category_id, @grandchild_categories, :id, :name, include_blank: '---'
             .form-group
-              = f.label "商品の説明"
+              = f.label "サイズ"
               %span.form-require 必須
-              = f.text_area :description, class: "textarea-default", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
-          .iu-content.iu-flex
-            %h3.iu-sub-head 商品の詳細
-            .iu-form-box
-              .form-group
-                = f.label "カテゴリー"
-                %span.form-require 必須
-                %div
-                  .select-wrap
-                    = f.select :category_id, options_for_select(@parent_categories_array), include_blank: '---'
-                  .select-wrap
-                    = f.select :category_id, options_for_select(@child_categories_array), include_blank: '---'
-                  .select-wrap
-                    = f.collection_select :category_id, @grandchild_categories, :id, :name, include_blank: '---'
-              .form-group
-                = f.label "サイズ"
-                %span.form-require 必須
-                %div
-                  .select-wrap
-                    = f.collection_select :size_id, @sizes, :id, :name, include_blank: '---'
-              .form-group
-                = f.label "ブランド"
-                %span.form-require-not 任意
-                %div
-                  .select-wrap
-                    = f.collection_select :brand_id, @brands, :id, :name, include_blank: '---'
-                    -# = f.text_field :brand_id, placeholder: "例) シャネル", class: "input-brand"
-              .form-group
-                = f.label "商品の状態"
-                %span.form-require 必須
-                %div
-                  .select-wrap
-                    = f.collection_select :product_condition, Product_Conditions.all, :id, :name, include_blank: '---'
-          .iu-content.iu-flex
-            %h3.iu-sub-head 配送について
-            .iu-form-box
-              .form-group
-                = f.label "配送料の負担"
-                %span.form-require 必須
+              %div
                 .select-wrap
-                  = f.collection_select :delivery_payee, Delivery_Payee.all, :id, :name, include_blank: '---'
-              .form-group
-                = f.label "配送の方法"
-                %span.form-require 必須
+                  = f.collection_select :size_id, @sizes, :id, :name, include_blank: '---'
+            .form-group
+              = f.label "ブランド"
+              %span.form-require-not 任意
+              %div
                 .select-wrap
-                  = f.collection_select :delivery_method, Delivery_Method_If_Seller.all, :id, :name, include_blank: '---'
-              .form-group
-                = f.label "配送元の地域"
-                %span.form-require 必須
+                  -# = f.collection_select :brand_id, @brands, :id, :name, include_blank: '---'
+                  = f.text_field :brand_id, placeholder: "例) シャネル", class: "input-brand"
+            .form-group
+              = f.label "商品の状態"
+              %span.form-require 必須
+              %div
                 .select-wrap
-                  = f.collection_select :region_id, @regions, :id, :region, include_blank: '---'
-              .form-group
-                = f.label "配送までの日数"
-                %span.form-require 必須
-                .select-wrap
-                  = f.collection_select :delivery_time, Delivery_Time.all, :id, :name, include_blank: '---'
-          .iu-content.iu-flex
-            %h3.iu-sub-head 販売価格(300~9,999,999)
-            .iu-form-box
-              %ul.iu-price
-                %li.form-group
-                  .iu-flex
-                    = f.label :price, class: "iu-half" do
-                      価格
-                      %span.form-require 必須
-                    .iu-half.iu-price-input
-                      ¥
-                      = f.text_field :price, placeholder: "例) 300", class: "input-price"
-                %li.iu-flex
-                  .iu-half 販売手数料 (10%)
-                  .iu-half.right -
-                %li.iu-flex.bold
-                  .iu-half 販売利益
-                  .iu-half.right -
-          .iu-content.iu-btn-box
-            %div
-              %p
-                = link_to "禁止されている出品", "#", class: "iu-sell-link"
-                、
-                = link_to "行為", "#", class: "iu-sell-link"
-                を必ずご確認ください。
-              %p
-                またブランド品でシリアルナンバー等がある場合はご記載ください。
-                = link_to "偽ブランドの販売", "#", class: "iu-sell-link"
-                は犯罪であり処罰される可能性があります。
-              %p
-                また、出品を持ちまして
-                = link_to "加盟店規約", "#", class: "iu-sell-link"
-                に同意したことになります。
-            = f.submit "出品する", class: "btn-red"
-            = link_to "もどる", :back, class: "btn-gray"
+                  = f.collection_select :product_condition, Product_Conditions.all, :id, :name, include_blank: '---'
+        .iu-content.iu-flex
+          %h3.iu-sub-head 配送について
+          .iu-form-box
+            .form-group
+              = f.label "配送料の負担"
+              %span.form-require 必須
+              .select-wrap
+                = f.collection_select :delivery_payee, Delivery_Payee.all, :id, :name, include_blank: '---'
+            .form-group
+              = f.label "配送の方法"
+              %span.form-require 必須
+              .select-wrap
+                = f.collection_select :delivery_method, Delivery_Method_If_Seller.all, :id, :name, include_blank: '---'
+            .form-group
+              = f.label "配送元の地域"
+              %span.form-require 必須
+              .select-wrap
+                = f.collection_select :region_id, @regions, :id, :region, include_blank: '---'
+            .form-group
+              = f.label "配送までの日数"
+              %span.form-require 必須
+              .select-wrap
+                = f.collection_select :delivery_time, Delivery_Time.all, :id, :name, include_blank: '---'
+        .iu-content.iu-flex
+          %h3.iu-sub-head 販売価格(300~9,999,999)
+          .iu-form-box
+            %ul.iu-price
+              %li.form-group
+                .iu-flex
+                  = f.label :price, class: "iu-half" do
+                    価格
+                    %span.form-require 必須
+                  .iu-half.iu-price-input
+                    ¥
+                    = f.text_field :price, placeholder: "例) 300", class: "input-price"
+              %li.iu-flex
+                .iu-half 販売手数料 (10%)
+                .iu-half.right -
+              %li.iu-flex.bold
+                .iu-half 販売利益
+                .iu-half.right -
+        .iu-content.iu-btn-box
+          %div
+            %p
+              = link_to "禁止されている出品", "#", class: "iu-sell-link"
+              、
+              = link_to "行為", "#", class: "iu-sell-link"
+              を必ずご確認ください。
+            %p
+              またブランド品でシリアルナンバー等がある場合はご記載ください。
+              = link_to "偽ブランドの販売", "#", class: "iu-sell-link"
+              は犯罪であり処罰される可能性があります。
+            %p
+              また、出品を持ちまして
+              = link_to "加盟店規約", "#", class: "iu-sell-link"
+              に同意したことになります。
+          = f.submit "出品する", class: "btn-red"
+          = link_to "もどる", :back, class: "btn-gray"
