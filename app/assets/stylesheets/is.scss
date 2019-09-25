@@ -349,10 +349,6 @@ span {
   margin: 0 auto;
 }
 
-.is-container {
-
-}
-
 .is-items-head {
   font-size: 22px;
   margin: 24px 0 8px;
@@ -375,8 +371,11 @@ span {
     overflow: hidden;
     background-color: #fff;
     img {
-      position: abusolute;
-      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   }
   &__body {
