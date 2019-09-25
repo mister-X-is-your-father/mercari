@@ -75,6 +75,20 @@
         cursor: pointer;
       }
     }
+    &__drop-area-second {
+      display: none;
+      width: 100%;
+      margin-left: 0;
+      float: right;
+      padding: 40px;
+      position: relative;
+      min-height: 162px;
+      background: #f5f5f5;
+      border: 1px dashed #ccc;
+      font-size: 0;
+      text-align: center;
+      cursor: pointer;
+    }
   }
 }
 
@@ -127,10 +141,6 @@
 
 .visible-pc {
   padding: 60px 0;
-}
-
-.drop-area-second {
-  display: none;
 }
 
 .iu-flex {

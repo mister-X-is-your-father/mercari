@@ -15,7 +15,7 @@ $(function(){
   };
 
   let DropArea1 = '.iu-image__container__drop-area'
-  let DropArea2 = '.drop-area-second'
+  let DropArea2 = '.iu-image__container__drop-area-second'
   let PreviewArea = '.iu-image__container__preview-area__images ul'
   let images_array = []
 
@@ -30,19 +30,34 @@ $(function(){
         let fileReader = new FileReader();
         fileReader.onload = function(e) {
         var loadedImageUrl = e.target.result;
-        $(buildImage(loadedImageUrl,)).appendTo(PreviewArea).trigger("create");
+        $(buildImage(loadedImageUrl)).appendTo(PreviewArea).trigger("create");
         };
         fileReader.readAsDataURL(images[i]);
       }
 
-      if (images_array.length >= 5) {
-        $(DropArea2).css({
-          'display': 'block'
+      if (images_array.length == 10) {
+        $(DropArea1).css({
+          'display': 'none'
         })
       }
-
+      
     },
   });
+
+  // $(DropArea1).on('change', 'input[type="file"]', function(e){
+  //   e.preventDefault();
+  //   let images = e.originalEvent.dataTransfer.files;
+  //     for (let i = 0; i < images.length; i++) { 
+  //       images_array.push(images[i]);
+  //       let fileReader = new FileReader();
+  //       fileReader.onload = function(e) {
+  //       var loadedImageUrl = e.target.result;
+  //       $(buildImage(loadedImageUrl)).appendTo(PreviewArea).trigger("create");
+  //       };
+  //       fileReader.readAsDataURL(images[i]);
+  //     }
+  //   },
+  // );
 
   $('#item-new').on('submit', function(e){
     e.preventDefault();
