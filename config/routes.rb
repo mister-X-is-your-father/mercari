@@ -68,7 +68,7 @@ Rails.application.routes.draw do
     # get 'notification', to: 'notification#index', as: :notification
     # get 'todo', to: 'todo#index', as: :todo
     # get 'like/history', to: 'like#index', as: :like_history
-    # get 'listings/listing', to: 'listings#listings', as: :listings_listing
+    get 'listings/listing', to: 'listings#index', as: :listings_listing
     # get 'listings/in_progress', to: 'listings#in_progress', as: :listings_in_progress
     # get 'listings/completed', to: 'listings#completed', as: :listings_completed
     # get 'purchase', to: 'purchase#index', as: :purchase

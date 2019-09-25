@@ -1,0 +1,154 @@
+.l-content {
+  height: 466x;
+  width: 700px;
+  background-color: #ffffff;
+  margin: 0 auto;
+  float: right;
+}
+
+.mypage-tab-container {
+  background: #fff;
+
+}
+
+.mypage-tab-head {
+  height: 72px;
+  width: 700px;
+  padding: 0 16px;
+  background: #fafafa;
+  font-size: 16px;
+  line-height: 72px;
+}
+
+.listing-tabs {
+  border: 0;
+  background: #eee;
+  display: flex;
+  li {
+    width: 33.3%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+  }
+  a {
+    position: relative;
+    display: block;
+    color: #333;
+    font-size: 16px;
+    line-height: 72px;
+  }
+}
+
+.active {
+  background: #fff;
+}
+
+.tab-content {
+  display: block;
+}
+
+.mypage-item-list {
+  border-bottom: 1px solid #eee;
+  li {
+    position: relative;
+  }
+  img {
+    width: auto;
+    left: 50%;
+    right: auto;
+    height: 100%;
+    z-index: 1;
+  }
+}
+
+.mypage-item-link {
+  display: block;
+  min-height: 80px;
+  padding: 16px;
+  color: #333;
+  figure {
+    position: relative;
+    overflow: hidden;
+    float: left;
+    width: 48px;
+    height: 48px;
+  }
+}
+
+.mypage-item-body {
+  margin-right: 100px;
+  margin: 0 40px 0 68px;
+}
+
+.listing-items {
+  display: flex;
+}
+
+.mypage-item-text {
+  overflow: hidden;
+  max-height: 4.4em;
+  line-height: 1.5;
+}
+
+.listing-item-count {
+  margin: 0 6px 0 0;
+  line-height: 36px;
+}
+
+.mypage-item-status {
+  margin: 4px 0;
+  background: #0099e8;
+  padding: 5px 6px;
+  border-radius: 2px;
+  font-size: 12px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.right-arrow-signal {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+}
+
+.mypage-item-not-found {
+  padding: 160px 0 60px;
+  background: url("/jp/assets/img/common/common/logo-gray-icon.svg?84767044");
+  background-position: center 40px;
+  background-size: 78px 85px;
+  text-align: center;
+  font-size: 16px;
+  color: #ccc;
+}
+
+.pager {
+  position: absolute;
+  text-align: center;
+  width: 700px;
+  margin: 40px 0 0;
+  height: 44px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pager-cell {
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  background: #fff;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  line-height: 42px;
+}
+
+.page-prev {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.page-next {
+  position: relative;
+  top: 0;
+  right: 0;
+}

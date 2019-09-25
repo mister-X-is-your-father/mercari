@@ -3,7 +3,7 @@ class Mypage::CardController < ApplicationController
   before_action :set_card, only: [:new, :destroy, :show]
 
   def new
-    redirect_to mypage_card_path(@card) if @card.exists?
+    redirect_to mypage_card_path(@card) if @card.present?
   end
 
   def pay
