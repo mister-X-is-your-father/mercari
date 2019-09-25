@@ -10,10 +10,19 @@
           %p 最大10枚までアップロードできます
           = f.fields_for :images do |i|
             .iu-image__container.clearfix
-              .iu-image__container__image-area
-                .iu-image__container__image-area__images.have-image-0
+              .iu-image__container__preview-area
+                .iu-image__container__preview-area__images
                   %ul
-                    -# .iu-image__container__image-area__images__image
+                -# .iu-image__container__preview-area__images.have-image-1
+                -#   %ul  
+                -#     %li.iu-preview-box
+                -#       %figure.iu-preview-box__image
+                -#         = image_tag 'header/grapes.jpg'
+                -#       .iu-preview-box__text
+                -#         = link_to "" do
+                -#           編集
+                -#         = link_to "" do
+                -#           削除  
               .iu-image__container__drop-area.have-image-0
                 = i.label :image, class: "iu-image__container__drop-area__label" do
                   = i.file_field :image, class: "iu-image__container__drop-area__label__file", style: "display: none;"
