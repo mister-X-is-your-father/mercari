@@ -1,1 +1,35 @@
-カテゴリ一覧
+.visible-pc
+  .gray
+    %h2 カテゴリー一覧
+  .category-list-nav.slide-nav-prent.text-center.clearfix
+    - @parents.each do |parent|
+      = link_to "#category-#{parent.id}", class: "white category-root-category-link-name" do
+        %div
+          = parent.name
+          
+  .category-list-box
+    - @parents.each do |parent|
+      .category-list-individual-box.white.clearfix
+        %div{class: "category-list-individual-box-root-category-name", id: "category-#{parent.id}"}
+          %h3
+            = parent.name
+        .category-list-individual-box-inner-box
+          %p
+            = link_to category_path(parent) do
+              すべて
+          - parent.children.each do |child|
+            .category-list-individual-box-sub-category-name
+              %h4
+                = child.name
+            .clearfix.category-list-individual-box-sub-sub-category-box
+              .category-list-individual-box-sub-sub-category-name
+                %p
+                  = link_to category_path(child) do
+                    すべて
+              - child.children.each do |grand_child|
+                .category-list-individual-box-sub-sub-category-name
+                  %p
+                    = link_to category_path(grand_child) do
+                      = grand_child.name
+                
+

@@ -1,0 +1,25 @@
+%main.l-container
+  .l-content
+    %ul.parts-nav
+  %section.items-box-container
+    %h1.items-box-head
+      = @category.name
+      の商品一覧
+    .items-box-content.category-brand-list
+      - @items.each do |item|
+        %section.search-item-box
+          = link_to item_path(item.id) do
+            %figure.search-item-box__image-box
+              = image_tag item.images.first.image.url, class: "search-item-box__image-box__image"
+            .search-item-box__text-box
+              %h3.search-item-box__text-box__text
+                = "#{item.name}"
+              .search-item-box__text-box__num
+                .search-item-box__text-box__num__price
+                  = "¥#{item.price}"
+                - if item.likes ==! ""
+                  .search-item-box__text-box__num__likes
+                    = fa_icon "heart-o", class: ""
+                    %span
+                      = "#{item.likes}"
+        
