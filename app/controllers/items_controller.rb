@@ -59,6 +59,10 @@ class ItemsController < ApplicationController
 
   def edit
     @sold_condition = Sold_Condition.all
+    @item = Item.find(params[:id])
+    @comments = @item.item_comments
+    @images = @item.images
+    @region = Region
   end
 
   def update
