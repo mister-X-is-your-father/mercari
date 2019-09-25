@@ -50,10 +50,12 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save
-      redirect_to root_path
-    else
-      render :new
+    respond_to do |format|
+      if @item.save
+        format.html{ redirect_to root_path }
+      else
+        format.html{render :new}
+      end
     end
   end
 
