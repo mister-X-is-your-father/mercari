@@ -29,8 +29,8 @@ $(function(){
         images_array.push(images[i]);
         let fileReader = new FileReader();
         fileReader.onload = function(e) {
-        var loadedImageUrl = e.target.result;
-        $(buildImage(loadedImageUrl)).appendTo(PreviewArea).trigger("create");
+          let loadedImageUrl = e.target.result;
+          $(buildImage(loadedImageUrl)).appendTo(PreviewArea).trigger('create');
         };
         fileReader.readAsDataURL(images[i]);
       }
@@ -80,4 +80,5 @@ $(function(){
       alert('出品に失敗しました！');
     });
   })
+  
 });
