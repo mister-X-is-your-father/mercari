@@ -7,8 +7,8 @@ $(function(){
         <img src=${loadedImageUrl}>
       </figure>
       <div class="iu-preview-box__text">
-        <a>編集</a>
-        <a>削除</a>
+        <a class="iu-preview-box__text__edit">編集</a>
+        <a class="iu-preview-box__text__delete">削除</a>
       </div>
     </li>`
     return html
@@ -34,14 +34,23 @@ $(function(){
         };
         fileReader.readAsDataURL(images[i]);
       }
-
       if (images_array.length == 10) {
         $(DropArea1).css({
-          'display': 'none'
+          'display' : 'none'
         })
       }
-      
     },
+  });
+
+  //プレビュー画像の削除機能
+  $(document).on('click', '.iu-preview-box__text__delete', function(e){
+    e.preventDefault();
+    //clickした要素が何番目かを取得
+    let index = $(".iu-preview-box__text__delete").index(this);
+    //spliceメソッドで画像配列の中からindex-1番目の画像を1つ削除する
+    images_array.splice(index - 1, 1);
+    //削除ボタンの親の親(li)を削除する
+    $(this).parent().parent().remove();
   });
 
   // $(DropArea1).on('change', 'input[type="file"]', function(e){
@@ -80,5 +89,5 @@ $(function(){
       alert('出品に失敗しました！');
     });
   })
-  
+
 });
