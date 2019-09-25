@@ -65,6 +65,9 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    item = Item.find(params[:id]).destroy
+    redirect_to mypage_top_path
+
   end
 
   def search
