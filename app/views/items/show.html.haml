@@ -221,6 +221,42 @@
         = @item.user.nickname
         さんのその他の出品
 
+    - @item.user.items.each do |item|
+      .is-content
+        %section.is-content__card
+          = link_to "#" do
+            .is-content__photo
+              = image_tag item.images.first.image.url
+            .is-content__body
+              %h3.is-content__name
+                = item.name
+              .is-content__num
+                .is-content__price
+                  ¥#{@item.price.to_s(:delimited, delimiter: ',')}
+                %i.fa.fa-heart-o
+                  いいね!
+                  = @item.likes.length
+
+
+
+    .in-category-new__block__all
+      .in-category-new__block__all__items
+        - @item.user.items.each do |item|
+          .in-category-new__block__all__items__each
+            = link_to '', class:"in-item" do
+              %figure.in-item__detail
+                %figcaption.in-item__detail__description
+                  %span.in-item__detail__description__text
+                    = item.name
+                .in-item__detail__img
+                  %span.in-item__detail__img__price
+                    = item.price
+                  = image_tag item.images.first.image.url, class: "in-item__detail__img__img"
+
+
+
+
+
     .is-content
       %section.is-content__card
         = link_to "#" do
