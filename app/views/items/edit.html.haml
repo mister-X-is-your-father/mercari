@@ -8,7 +8,6 @@
         .dl-photo
           .dl-photo__portion
             .dl-photo__up
-              -# = image_tag asset_path('index/benchpress.jpg')
               = image_tag @item.images.first.image.url
               .dl-photo__down
 
@@ -123,8 +122,6 @@
         %span.dl-price ¥#{@item.price.to_s(:delimited, delimiter: ',')}
         %span.dl-tax (税込)
         %span.dl-shipping-fee 送料込み
-
-      -# = link_to "購入画面に進む", "#", class: "dl-buy-btn"
 
       .dl-message
         %p.dl-description-inner
