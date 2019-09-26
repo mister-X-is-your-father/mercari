@@ -44,7 +44,8 @@
               %span.form-require 必須
               %div.select-wraps
                 .select-wrap.iu-parent
-                  = f.select :category_id, options_for_select(@parent_categories_array), {include_blank: '---'}, {id: 'parent-categories'}
+                  -# = f.select :category_id, options_for_select(@parent_categories_array), {include_blank: '---'}, {id: 'parent-categories'}
+                  = f.collection_select :category_id, @parent_categories, :id, :name, {include_blank: '---'}, {id: 'parent-categories'}
                 -# .select-wrap.iu-child
                 -#   = f.select :category_id, options_for_select(@child_categories_array), {include_blank: '---'}, {id: 'child-categories'}
                 -# .select-wrap
