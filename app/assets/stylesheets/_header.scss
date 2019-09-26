@@ -192,7 +192,7 @@ header {
   }
 }
 
-.abc {
+.logo-clearlance {
   margin-top: 30px;
 }
 
@@ -206,6 +206,11 @@ header {
   &__red {
     color: #ea352d;
     font-weight: bold;
+    min-width: 65px;
+    font-size: 12px;
+    z-index: 1;
+    position: relative;
+    display: inline-block;
   }
 }
 
@@ -223,7 +228,7 @@ header {
     z-index: 1;
     display: inline-block;
     min-width: 40px;
-    margin: 0 5% 0 0;
+    margin-right: 14px;
     font-size: 12px;
     color: #888;
     }
