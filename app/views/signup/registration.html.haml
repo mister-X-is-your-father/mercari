@@ -40,7 +40,7 @@
               = f.password_field :password_confirmation, placeholder: "7文字以上", class: "form-group__input", value: "#{@user.password_confirmation}"
 
           .form-group
-            %h3.text-left.l-character-sub-head
+            .text-left.l-character-sub-head.font__size-16px
               本人確認
             %p.contents__text
               安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
@@ -65,26 +65,27 @@
             = f.label :birth_day, "生年月日"
             %span.form-require 必須
             %br
+
             .birthday-form
-              .birthday-form__year.birthday-form__default
-                = f.select :birth_day, [["1980", "1980"], ["1981", "1981"], ["1982", "1982"], ["1983", "1983"], ["1984", "1984"], ["1985", "1985"]], prompt: "--", class: "select-default"
+              .birthday-form__year
+                = f.select :birth_day, options_for_select(1900..2019), prompt: "--", class: "select-default"
                 .fa.fa-chevron-down.form-icon-position__normal
                 .contents__text.margin__side-2px
                   年
-              .birthday-form__month.birthday-form__default
-                = f.select :birth_day, [["1月", "1月"], ["2月", "2月"]], prompt: "--", class: "select-default"
+              .birthday-form__month
+                = f.select :birth_day, options_for_select(1..12), prompt: "--"
                 .fa.fa-chevron-down.form-icon-position__normal
                 .contents__text.margin__side-2px
                   月
-              .birthday-form__day.birthday-form__default
-                = f.select :birth_day, [["1日", "1日"], ["2日", "2日"]], prompt: "--", class: "select-default"
+              .birthday-form__day
+                = f.select :birth_day, options_for_select(1..31), prompt: "--"
                 .fa.fa-chevron-down.form-icon-position__normal
                 .contents__text.margin__side-2px
                   日
 
           %p.form-info-text.contents__text
             * 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-          
+
           .form-group
             %p.rule-text
               「次へ進む」のボタンを押すことにより、

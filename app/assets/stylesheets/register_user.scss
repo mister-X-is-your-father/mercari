@@ -70,6 +70,7 @@
 	display: flex;
 	&__year {
 		position: relative;
+		width: 105px;
 	}
 	&__month {
 		position: relative;
@@ -83,7 +84,7 @@
 	position: relative;
 }
 
-#birth_day {
+#user_birth_day {
 	height: 48px;
 	width: 76px;
 	padding: 0 10px;
@@ -97,14 +98,14 @@
 	cursor: pointer;
 	display: inline-block;
 	overflow: visible;
-	color: #888;
+	// color: #888;
 	-webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
 	-moz-appearance: none;	/* ベンダープレフィックス(Firefox用) */
 	appearance: none;	/* 標準のスタイルを無効にする */
 	font-weight: normal;
 }
 
-#region {
+#user_region {
 	padding: 0 10px;
 	position: relative;
 	z-index: 0;
@@ -136,25 +137,7 @@
 }
 
 .select-default {
-	height: 48px;
-	width: 100%;
-	padding: 0 16px;
-	position: relative;
-	z-index: 2;
-	border-radius: 4px;
-	border: 1px solid #ccc;
-	background: 0;
-	font-size: 16px;
-	line-height: 1.5;
-	cursor: pointer;
-	display: inline-block;
-	text-shadow: none;
-	overflow: visible;
-	color: #888;
-	-webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
-	-moz-appearance: none;	/* ベンダープレフィックス(Firefox用) */
-	appearance: none;	/* 標準のスタイルを無効にする */
-	font-weight: normal;
+	color: black;
 }
 
 .form-info-text {
