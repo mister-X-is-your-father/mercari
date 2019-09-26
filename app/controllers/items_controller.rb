@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item, only: [:show, :edit, :destroy]
+  before_action :set_item, only: [:show, :edit, :destroy, :edit_item, :update]
 
   def index
     @parent_categories = Category.roots
@@ -31,7 +31,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @comments = @item.item_comments
     @images = @item.images
   end
@@ -64,7 +63,6 @@ class ItemsController < ApplicationController
   end
 
   def edit_item
-    @item = Item.find_by(id: params[:id])
     @images = @item.images
     @sizes = Size.all
     @brands = Brand.all
@@ -78,7 +76,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
     respond_to do |format|
       if @item.update(item_params)
         format.html{ redirect_to root_path }
@@ -103,11 +100,11 @@ class ItemsController < ApplicationController
   end
 
   def get_child_categories
-    @child_categories = Category.find_by(id: params[:parent_category]).children
+    @child_categories = Category.find(params[:parent_category]).children
   end
 
   def get_grandchild_categories
-    @grandchild_categories = Category.find_by(id: params[:child_category]).children
+    @grandchild_categories = Category.find(params[:child_category]).children
   end
 
   private
