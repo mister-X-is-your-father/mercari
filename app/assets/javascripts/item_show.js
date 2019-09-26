@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
   $('.owl-dot').click(function(){
     $('.owl-dot').removeClass('active');
     $(this).addClass('active');
