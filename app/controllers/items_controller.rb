@@ -41,7 +41,6 @@ class ItemsController < ApplicationController
     @images = @item.images.build
     @sizes = Size.all
     @brands = Brand.all
-
     @parent_categories_array = Category.where(ancestry: nil).pluck(:name)
     @child_categories_array = Category.where.not(ancestry: nil).pluck(:name)
     @grandchild_categories = Category.where.not(ancestry: nil)
@@ -51,6 +50,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    binding.pry
     respond_to do |format|
       if @item.save
         format.html{ redirect_to root_path }
@@ -82,6 +82,14 @@ class ItemsController < ApplicationController
 
   def search
     @items = Item.search(params[:search])
+  end
+
+  def get_child_categories
+    @child_categories = Category.find_by(name: params[:parent_category]).children
+  end
+
+  def get_grandchild_categories
+    @grandchild_categories = Category.find_by(name: params[:child_category]).children
   end
 
   private

@@ -39,6 +39,8 @@ Rails.application.routes.draw do
     end
     collection do
       get 'search'
+      get 'get_child_categories', defaults: { format: 'json' }
+      get 'get_grandchild_categories', defaults: { format: 'json' }
     end
   end
 
