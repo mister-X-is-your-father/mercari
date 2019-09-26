@@ -102,7 +102,7 @@
               %th 配送元地域
               %td
                 = link_to "#" do
-                  - @region.find(@item.user.region).region
+                  = @item.region.region
             %tr.dl-tables
               %th 配送日の目安
               %td
