@@ -207,49 +207,8 @@ header {
     color: #ea352d;
     font-weight: bold;
   }
-  .progress-status {
-    width: 12px;
-    height: 12px;
-    margin: 6px auto 0;
-    background: #ccc;
-    border-radius: 50%;
-    &__red {
-      background-color: #ea352d;
-    }
-  }
-  .progress-statusbar-right {
-    left: 50%;
-    position: absolute;
-    bottom: 5px;
-    z-index: -1;
-    display: block;
-    content:'';
-    width: 100%;
-    height: 2px;
-    &__gray {
-      background: #ccc;
-    }
-    &__red {
-      background: #ea352d;
-    }
-  }
-  .progress-statusbar-left {
-    right: 50%;
-    position: absolute;
-    bottom: 5px;
-    z-index: -1;
-    display: block;
-    content:'';
-    width: 100%;
-    height: 2px;
-    &__gray {
-      background: #ccc;
-    }
-    &__red {
-      background: #ea352d;
-    }
-  }
 }
+
 
 .progress-bar {
   padding: 40px 0 0 44px;
@@ -273,7 +232,42 @@ header {
 .progress-status {
   width: 12px;
   height: 12px;
-  margin: 8px auto 0;
+  margin: 6px auto 0;
   background: #ccc;
   border-radius: 50%;
+  &__red {
+    background-color: #ea352d;
+  }
+}
+  .progress-statusbar-right {
+    left: 50%;
+    position: absolute;
+    bottom: 5px;
+    z-index: -1;
+    display: block;
+    content:'';
+    width: 100%;
+    height: 2px;
+    &__gray {
+      background: #ccc;
+    }
+    &__red {
+      background: #ea352d;
+    }
+}
+.progress-statusbar-left {
+  right: 50%;
+  position: absolute;
+  bottom: 5px;
+  z-index: -1;
+  display: block;
+  content:'';
+  width: 100%;
+  height: 2px;
+  &__gray {
+    background: #ccc;
+  }
+  &__red {
+    background: #ea352d;
+  }
 }
