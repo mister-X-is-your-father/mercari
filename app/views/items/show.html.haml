@@ -220,38 +220,18 @@
       = link_to "#" do
         = @item.user.nickname
         さんのその他の出品
-
-    .is-content
-      %section.is-content__card
-        = link_to "#" do
-          .is-content__photo
-            = image_tag asset_path('index/benchpress.jpg'), class: "is-content__height"
-          .is-content__body
-            %h3.is-content__name
-              ダンベル
-            .is-content__num
-              .is-content__price
-                ¥600
-
-      %section.is-content__card
-        = link_to "#" do
-          .is-content__photo
-            = image_tag asset_path('index/benchpress.jpg'), class: "is-content__height"
-          .is-content__body
-            %h3.is-content__name
-              ダンベル
-            .is-content__num
-              .is-content__price
-                ¥600
-
-      %section.is-content__card
-        = link_to "#" do
-          .is-content__photo
-            = image_tag asset_path('index/benchpress.jpg'), class: "is-content__height"
-          .is-content__body
-            %h3.is-content__name
-              ダンベル
-            .is-content__num
-              .is-content__price
-                ¥600
-
+      .is-content
+        - @item.user.items.each do |item|
+          %section.is-content__card
+            = link_to "#{}" do
+              .is-content__photo
+                = image_tag item.images.first.image.url
+              .is-content__body
+                %h3.is-content__name
+                  = item.name
+                .is-content__num
+                  .is-content__price
+                    ¥#{item.price.to_s(:delimited, delimiter: ',')}
+                  %i.fa.fa-heart-o
+                    いいね!
+                    = item.likes.length
