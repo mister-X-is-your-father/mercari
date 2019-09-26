@@ -1,4 +1,4 @@
-.visible-pc
+.visible-pc2
   .gray
     %h2 カテゴリー一覧
   .category-list-nav.slide-nav-prent.text-center.clearfix
@@ -9,7 +9,7 @@
           
   .category-list-box
     - @parents.each do |parent|
-      .category-list-individual-box.white.clearfix
+      .category-list-individual-box.white
         %div{class: "category-list-individual-box-root-category-name", id: "category-#{parent.id}"}
           %h3
             = parent.name
