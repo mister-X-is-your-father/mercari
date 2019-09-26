@@ -1,7 +1,9 @@
 class ItemsController < ApplicationController
 
+  before_action :set_item, only: [:show, :edit, :destroy]
+
   def index
-    @parent_categories = Category.roots 
+    @parent_categories = Category.roots
     # ビューでの子要素の取り出しは
 
     # - parents.children.each do |child|
@@ -30,7 +32,6 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @all_item = Item.all
     @comments = @item.item_comments
     @images = @item.images
     @region = Region
@@ -62,12 +63,22 @@ class ItemsController < ApplicationController
 
   def edit
     @sold_condition = Sold_Condition.all
+    @comments = @item.item_comments
+    @images = @item.images
+    @region = Region
   end
 
   def update
   end
 
   def destroy
+    if @item.user_id == current_user.id
+        @item.destroy
+        redirect_to mypage_top_path
+    else
+      redirect_to root_path
+    end
+
   end
 
   def search
@@ -90,6 +101,10 @@ class ItemsController < ApplicationController
       :price,
       images_attributes: [:image]
     ).merge(user_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 end
