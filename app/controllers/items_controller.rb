@@ -41,10 +41,7 @@ class ItemsController < ApplicationController
     @images = @item.images.build
     @sizes = Size.all
     @brands = Brand.all
-    # @parent_categories_array = Category.where(ancestry: nil).pluck(:name)
     @parent_categories = Category.where(ancestry: nil)
-    @child_categories_array = Category.where.not(ancestry: nil).pluck(:name)
-    @grandchild_categories = Category.where.not(ancestry: nil)
     @regions = Region.all
     render layout: "register-layout"
   end
