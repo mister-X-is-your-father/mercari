@@ -34,7 +34,6 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @comments = @item.item_comments
     @images = @item.images
-    @region = Region
   end
 
   def new
@@ -65,7 +64,6 @@ class ItemsController < ApplicationController
     @sold_condition = Sold_Condition.all
     @comments = @item.item_comments
     @images = @item.images
-    @region = Region
   end
 
   def update
