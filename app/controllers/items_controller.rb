@@ -78,6 +78,14 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @item = Item.find(params[:id])
+    respond_to do |format|
+      if @item.update(item_params)
+        format.html{ redirect_to root_path }
+      else
+        format.html{render :edit_item}
+      end
+    end
   end
 
   def destroy

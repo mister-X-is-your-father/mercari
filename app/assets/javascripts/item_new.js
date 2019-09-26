@@ -76,6 +76,7 @@ $(function(){
   //   },
   // );
 
+  //商品出品機能
   $('#item-new').on('submit', function(e){
     e.preventDefault();
     let formData = new FormData($(this).get(0));
@@ -83,7 +84,6 @@ $(function(){
      formData.append(`item[images_attributes][${i}][image]`, image)
     });
     let url = $(this).attr('action')
-    console.log(url)
     $.ajax({
       url:         url,
       type:        'POST',
@@ -99,6 +99,30 @@ $(function(){
       alert('出品に失敗しました！');
     });
   })
+
+    //商品編集機能
+    $('#item-update').on('submit', function(e){
+      e.preventDefault();
+      let formData = new FormData($(this).get(0));
+      images_array.forEach(function(image, i){
+       formData.append(`item[images_attributes][${i}][image]`, image)
+      });
+      let url = $(this).attr('action') + '/edit_item'
+      $.ajax({
+        url:         url,
+        type:        'POST',
+        data:        formData,
+        contentType: false,
+        processData: false,
+        dataType:   'html'
+      })
+      .done(function(data){
+        window.location = '/'
+      })
+      .fail(function(){
+        alert('編集に失敗しました！');
+      });
+    })
 
 ///////////////////////////////////////////////////////////////////////////////////
 
