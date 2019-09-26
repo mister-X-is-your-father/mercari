@@ -10,14 +10,14 @@
           .form-group
             = f.label :kanji, "お名前"
             %span.form-require 必須
-            = f.text_field :kan_familyname, placeholder: "例)山田", class: "form-group__input"
-            = f.text_field :kan_firstname, placeholder: "例)彩", class: "form-group__input"
+            = f.text_field :kan_familyname, placeholder: "例)山田", class: "form-group__input", value: "#{session[:kan_familyname]}"
+            = f.text_field :kan_firstname, placeholder: "例)彩", class: "form-group__input", value: "#{session[:kan_firstname]}"
 
           .form-group.margin__top-32px
             = f.label :kana, "お名前カナ"
             %span.form-require 必須
-            = f.text_field :kana_familyname, placeholder: "例)ヤマダ", class: "form-group__input"
-            = f.text_field :kana_firstname, placeholder: "例)アヤ", class: "form-group__input"
+            = f.text_field :kana_familyname, placeholder: "例)ヤマダ", class: "form-group__input", value: "#{session[:kana_familyname]}"
+            = f.text_field :kana_firstname, placeholder: "例)アヤ", class: "form-group__input", value: "#{session[:kana_firstname]}"
 
           .form-group.margin__top-32px
             = f.label :postal_code, "郵便番号"
