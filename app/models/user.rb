@@ -30,7 +30,6 @@ class User < ApplicationRecord
         SnsCredential.create(
           uid: uid,
           provider: provider
-          # user_id: user.id
         )
       end
     end
