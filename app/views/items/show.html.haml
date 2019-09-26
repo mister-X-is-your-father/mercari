@@ -5,7 +5,6 @@
     .is-photo
       .is-photo__portion
         .is-photo__up
-          -# = image_tag asset_path('index/benchpress.jpg')
           = image_tag @item.images.first.image.url, class:"change-image"
           .is-photo__down
 
@@ -32,7 +31,7 @@
               .is-user-ratings
                 = fa_icon "fa-frown-open"
                 %span 0
-        
+
         %tr.is-tables
           %th カテゴリー
           %td
@@ -46,7 +45,7 @@
               - if @item.brand.present?
                 = @item.brand.name
               - else
-        
+
         %tr.is-tables
           %th 商品の状態
           %td
