@@ -1,4 +1,3 @@
-
 %section.dl-box
   .dl-main-all
     .dl-main-up
@@ -10,13 +9,11 @@
             .is-photo__up
               = image_tag @item.images.first.image.url
               .dl-photo__down
-
           .dl-photo__down__portion
             .owl-dot
             .dl-photo-my.move
             .owl-dot
             .owl-dot
-
         %table.dl-detail-table
           %tbody
             %tr.dl-tables
@@ -129,13 +126,13 @@
 
     .dl-third-btn
       %a.dl-btn-various
-        = form_with(local: true,) do |f|
+        = form_with url: item_edit_items_path(@item), method: :get, local: true do |f|
           = f.submit "商品の編集", class: "dl-btn-various__edit"
         %p.dl-or
           or
-        = form_with(local: true,) do |f|
+        = form_with local: true do |f|
           = f.submit "出品を再開する", class: "dl-btn-various__start"
-        = form_with(url: item_path(@item), local: true, method: :delete) do |f|
+        = form_with url: item_path(@item), local: true, method: :delete do |f|
           = f.submit "この商品を削除する", class: "dl-btn-various__delete"
 
     .dl-detail-message

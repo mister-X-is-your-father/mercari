@@ -83,6 +83,7 @@ $(function(){
      formData.append(`item[images_attributes][${i}][image]`, image)
     });
     let url = $(this).attr('action')
+    console.log(url)
     $.ajax({
       url:         url,
       type:        'POST',

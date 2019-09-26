@@ -63,6 +63,20 @@ class ItemsController < ApplicationController
     @images = @item.images
   end
 
+  def edit_item
+    @item = Item.find_by(id: params[:id])
+    @images = @item.images
+    @sizes = Size.all
+    @brands = Brand.all
+    @parent_categories = Category.where(ancestry: nil)
+    @parent_category = Category.find_by(id: @item.category_id).root.id 
+    @child_categories = Category.find_by(id: @item.category_id).root.children
+    @child_category = Category.find_by(id: @item.category_id).parent.id
+    @grandchild_categories = Category.find_by(id: @item.category_id).parent.children
+    @regions = Region.all
+    render layout: "register-layout"
+  end
+
   def update
   end
 

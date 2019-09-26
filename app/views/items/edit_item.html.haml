@@ -2,7 +2,7 @@
   %section.iu-item-container
     .iu-container
       %h2.l-single-head 商品の情報を入力
-      = form_with model: @item, method: :post, local: true, class: "form", id: "item-new" do |f|
+      = form_with model: @item, method: :update, local: true, class: "form", id: "item-new" do |f|
         .iu-content
           %h3.iu-image__head
             出品画像
@@ -18,15 +18,15 @@
                   = i.file_field :image, class: "iu-image__container__drop-area__label__file", style: "display: none;"
                   %pre.visible-pc
                     ドラッグアンドドロップ
-                    またはクリックしてファイルをアップロード
+                    -# またはクリックしてファイルをアップロード
                   -# = fa_icon "camera"
-              .iu-image__container__drop-area-second
-                = i.label :image, class: "iu-image__container__drop-area__label" do
-                  = i.file_field :image, class: "iu-image__container__drop-area__label__file", style: "display: none;"
-                  %pre.visible-pc
-                    ドラッグアンドドロップ
-                    またはクリックしてファイルをアップロード
-                  -# = fa_icon "camera"
+              -# .iu-image__container__drop-area-second
+              -#   = i.label :image, class: "iu-image__container__drop-area__label" do
+              -#     = i.file_field :image, class: "iu-image__container__drop-area__label__file", style: "display: none;"
+              -#     %pre.visible-pc
+              -#       ドラッグアンドドロップ
+              -#       -# またはクリックしてファイルをアップロード
+              -#     -# = fa_icon "camera"
         .iu-content
           .form-group
             = f.label "商品名"
@@ -42,13 +42,13 @@
             .form-group
               = f.label "カテゴリー"
               %span.form-require 必須
-              %div
-                .select-wrap
-                  = f.select :category_id, options_for_select(@parent_categories_array), include_blank: '---'
-                .select-wrap
-                  = f.select :category_id, options_for_select(@child_categories_array), include_blank: '---'
-                .select-wrap
-                  = f.collection_select :category_id, @grandchild_categories, :id, :name, include_blank: '---'
+              %div.select-wraps
+                .select-wrap.iu-parent
+                  = f.collection_select :category_id, @parent_categories, :id, :name, {include_blank: '---', selected: @parent_category}, {id: 'parent-categories'}
+                .select-wrap.iu-child
+                  = f.collection_select :category_id, @child_categories, :id, :name, {include_blank: '---', selected: @child_category}, {id: 'child-categories'}
+                .select-wrap.iu-grandchild
+                  = f.collection_select :category_id, @grandchild_categories, :id, :name, {include_blank: '---', selected: @item.category_id}, {id: 'grandchild-categories'}
             .form-group
               = f.label "サイズ"
               %span.form-require 必須
@@ -124,5 +124,5 @@
               また、出品を持ちまして
               = link_to "加盟店規約", "#", class: "iu-sell-link"
               に同意したことになります。
-          = f.submit "出品する", class: "btn-red"
+          = f.submit "変更する", class: "btn-red"
           = link_to "もどる", :back, class: "btn-gray"
