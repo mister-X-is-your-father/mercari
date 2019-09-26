@@ -18,15 +18,15 @@
                   = i.file_field :image, class: "iu-image__container__drop-area__label__file", style: "display: none;"
                   %pre.visible-pc
                     ドラッグアンドドロップ
-                    -# またはクリックしてファイルをアップロード
+                    またはクリックしてファイルをアップロード
                   -# = fa_icon "camera"
-              -# .iu-image__container__drop-area-second
-              -#   = i.label :image, class: "iu-image__container__drop-area__label" do
-              -#     = i.file_field :image, class: "iu-image__container__drop-area__label__file", style: "display: none;"
-              -#     %pre.visible-pc
-              -#       ドラッグアンドドロップ
-              -#       -# またはクリックしてファイルをアップロード
-              -#     -# = fa_icon "camera"
+              .iu-image__container__drop-area-second
+                = i.label :image, class: "iu-image__container__drop-area__label" do
+                  = i.file_field :image, class: "iu-image__container__drop-area__label__file", style: "display: none;"
+                  %pre.visible-pc
+                    ドラッグアンドドロップ
+                    またはクリックしてファイルをアップロード
+                  -# = fa_icon "camera"
         .iu-content
           .form-group
             = f.label "商品名"
@@ -42,9 +42,13 @@
             .form-group
               = f.label "カテゴリー"
               %span.form-require 必須
-              %div.select-wraps
-                .select-wrap.iu-parent
-                  = f.collection_select :category_id, @parent_categories, :id, :name, {include_blank: '---'}, {id: 'parent-categories'}
+              %div
+                .select-wrap
+                  = f.select :category_id, options_for_select(@parent_categories_array), include_blank: '---'
+                .select-wrap
+                  = f.select :category_id, options_for_select(@child_categories_array), include_blank: '---'
+                .select-wrap
+                  = f.collection_select :category_id, @grandchild_categories, :id, :name, include_blank: '---'
             .form-group
               = f.label "サイズ"
               %span.form-require 必須
