@@ -61,7 +61,6 @@ Rails.application.routes.draw do
     end
   end
 
-
   get 'mypage', to: 'mypage/mypage#index', as: :mypage_top
 
   namespace :mypage do

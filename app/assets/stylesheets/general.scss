@@ -17,6 +17,9 @@
   &__bold {
     font-weight: 600;
   }
+  &__gray {
+    color: #888888;
+  }
 }
 .padding {
   &__entire-64px {
@@ -28,4 +31,9 @@
   &__right{
     float: right;
   }
+}
+
+.black-inline {
+  display: inline-block;
+  color: black;
 }

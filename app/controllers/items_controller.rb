@@ -31,6 +31,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
     @comments = @item.item_comments
     @images = @item.images
     @region = Region
