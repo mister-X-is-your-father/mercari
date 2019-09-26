@@ -40,6 +40,7 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    resources :editor, only: [:edit], to: 'editor#edit'
   end
 
   resources :item_comments, only: :create
