@@ -16,16 +16,28 @@
             = f.label :email, "メールアドレス"
             %span.form-require 必須
             = f.email_field :email, placeholder: "PC・携帯どちらでも可", class: "form-group__input reg-email"
-                   
-          .form-group.reg-pass
-            = f.label :password, "パスワード"
-            %span.form-require 必須
-            = f.password_field :password, placeholder: "7文字以上", class: "form-group__input"
+          
+          - unless @user.email
+            .form-group.reg-pass
+              = f.label :password, "パスワード"
+              %span.form-require 必須
+              = f.password_field :password, placeholder: "7文字以上", class: "form-group__input"
 
-          .form-group.reg-pass-conf
-            = f.label :password, "パスワード (確認)"
-            %span.form-require 必須
-            = f.password_field :password_confirmation, placeholder: "7文字以上", class: "form-group__input"
+            .form-group.reg-pass-conf
+              = f.label :password, "パスワード (確認)"
+              %span.form-require 必須
+              = f.password_field :password_confirmation, placeholder: "7文字以上", class: "form-group__input"
+
+          - else
+            .form-group.reg-pass{style: "display: none;"}
+              = f.label :password, "パスワード"
+              %span.form-require 必須
+              = f.password_field :password, placeholder: "7文字以上", class: "form-group__input", value: "#{@user.password}"
+
+            .form-group.reg-pass-conf{style: "display: none;"}
+              = f.label :password, "パスワード (確認)"
+              %span.form-require 必須
+              = f.password_field :password_confirmation, placeholder: "7文字以上", class: "form-group__input", value: "#{@user.password_confirmation}"
 
           .form-group
             %h3.text-left.l-character-sub-head

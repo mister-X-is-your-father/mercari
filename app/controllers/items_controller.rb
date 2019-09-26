@@ -13,21 +13,21 @@ class ItemsController < ApplicationController
       # = grandchild.name
 
     ladies = Category.find_by(name: "レディース").subtree
-    @ladies_items = Item.where(category_id: ladies).limit(10).includes(:images)
+    @ladies_items = Item.where(category_id: ladies).limit(10).order("created_at DESC").includes(:images)
     mens = Category.find_by(name: "メンズ").subtree
-    @mens_items = Item.where(category_id: mens).limit(10).includes(:images)
+    @mens_items = Item.where(category_id: mens).limit(10).order("created_at DESC").includes(:images)
     canon = Category.find_by(name: "家電・スマホ・カメラ").subtree
-    @canon_items = Item.where(category_id: canon ).limit(10).includes(:images)
+    @canon_items = Item.where(category_id: canon ).limit(10).order("created_at DESC").includes(:images)
     toy = Category.find_by(name: "おもちゃ・ホビー・グッズ").subtree
-    @toy_items = Item.where(category_id: toy).limit(10).includes(:images)
+    @toy_items = Item.where(category_id: toy).limit(10).order("created_at DESC").includes(:images)
     chanel = Brand.find_by(name: "シャネル")
-    @chanel_items = Item.where(brand_id: chanel).limit(10).includes(:images)
+    @chanel_items = Item.where(brand_id: chanel).limit(10).order("created_at DESC").includes(:images)
     vuitton = Brand.find_by(name: "ルイ ヴィトン")
-    @vuitton_items = Item.where(brand_id: vuitton).limit(10).includes(:images)
+    @vuitton_items = Item.where(brand_id: vuitton).limit(10).order("created_at DESC").includes(:images)
     car = Brand.find_by(name: "アイ")
-    @car_items = Item.where(brand_id: car).limit(10).includes(:images)
+    @car_items = Item.where(brand_id: car).limit(10).order("created_at DESC").includes(:images)
     nike = Brand.find_by(name: "ナイキ")
-    @nike_items = Item.where(brand_id: nike).limit(10).includes(:images)
+    @nike_items = Item.where(brand_id: nike).limit(10).order("created_at DESC").includes(:images)
   end
 
   def show
