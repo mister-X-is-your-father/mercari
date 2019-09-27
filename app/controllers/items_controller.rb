@@ -77,7 +77,7 @@ class ItemsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @item.update(item_params)
+      if @item.update(edit_params)
         format.html{ redirect_to root_path }
       else
         format.html{render :edit_item}
@@ -124,6 +124,24 @@ class ItemsController < ApplicationController
       images_attributes: [:image]
     ).merge(user_id: current_user.id)
   end
+
+  def edit_params
+    params.require(:item).permit(
+      :name,
+      :description,
+      :product_condition,
+      :category_id,
+      :region_id,
+      :brand_id,
+      :size_id,
+      :delivery_payee,
+      :delivery_time,
+      :delivery_method,
+      :price,
+      images_attributes: [:image, :_destory, :id]
+    ).merge(user_id: current_user.id)
+  end
+
 
   def set_item
     @item = Item.find(params[:id])
