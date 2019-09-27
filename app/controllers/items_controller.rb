@@ -31,13 +31,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    if user_signed_in?
-      @sold_condition = Sold_Condition.all
-      @comments = @item.item_comments
-      @images = @item.images
-    else
-      redirect_to root_path
-    end
+    @sold_condition = Sold_Condition.all
+    @comments = @item.item_comments
+    @images = @item.images
   end
 
   def new
@@ -50,7 +46,7 @@ class ItemsController < ApplicationController
       @regions = Region.all
       render layout: "register-layout"
     else
-      redirect_to root_path
+      redirect_to user_session_path
     end
   end
 

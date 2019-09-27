@@ -1,18 +1,22 @@
 class PurchaseController < ApplicationController
 
   before_action :set_item, only: [:index, :pay, :done]
-  before_action :set_card, only: [:index, :pay, :done]
+  before_action :set_card, only: [:pay, :done]
 
   def index
     @region = Region.all
+
+    return redirect_to user_session_path unless user_signed_in?
+
     if @item.user_id == current_user.id
       redirect_to root_path
       return
-    end
-    if @item.sold_condition == 3
+    elsif @item.sold_condition == 3
       redirect_to item_path(@item)
       return
     end
+    
+    set_card
     if @card.blank?
       redirect_to controller: "mypage/card", action: "new"
     else
