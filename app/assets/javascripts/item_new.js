@@ -26,7 +26,7 @@ $(function(){
     images_array.push()
   });
 
-  //ドロップダウン機能
+  //ドロップダウン投稿機能
   $(DropArea1).on({'dragenter dragover' :function(e){
       e.preventDefault();
     },
@@ -56,6 +56,22 @@ $(function(){
     },
   });
 
+  //クリック投稿機能
+  $(DropArea1).on('change', 'input[type="file"]', function(e){
+    e.preventDefault();
+    let images = $(this).prop('files')
+      for (let i = 0; i < images.length; i++) { 
+        images_array.push(images[i]);
+        let fileReader = new FileReader();
+        fileReader.onload = function(e) {
+        var loadedImageUrl = e.target.result;
+        $(buildImage(loadedImageUrl)).appendTo(PreviewArea).trigger("create");
+        };
+        fileReader.readAsDataURL(images[i]);
+      }
+    },
+  );
+
   //プレビュー画像の削除機能
   //動的に追加された要素に対してはdocumentを指定して一旦全ページを読み込ませる
   $(document).on('click', '.iu-preview-box__text__delete', function(e){
@@ -68,20 +84,7 @@ $(function(){
     $(this).parent().parent().remove();
   });
 
-  // $(DropArea1).on('change', 'input[type="file"]', function(e){
-  //   e.preventDefault();
-  //   let images = e.originalEvent.dataTransfer.files;
-  //     for (let i = 0; i < images.length; i++) { 
-  //       images_array.push(images[i]);
-  //       let fileReader = new FileReader();
-  //       fileReader.onload = function(e) {
-  //       var loadedImageUrl = e.target.result;
-  //       $(buildImage(loadedImageUrl)).appendTo(PreviewArea).trigger("create");
-  //       };
-  //       fileReader.readAsDataURL(images[i]);
-  //     }
-  //   },
-  // );
+
 
   //商品出品機能
   $('#item-new').on('submit', function(e){
