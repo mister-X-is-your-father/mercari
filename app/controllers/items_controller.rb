@@ -34,6 +34,11 @@ class ItemsController < ApplicationController
     @sold_condition = Sold_Condition.all
     @comments = @item.item_comments
     @images = @item.images
+    @parent_categories = Category.where(ancestry: nil)
+    @parent_category = Category.find_by(id: @item.category_id).root
+    @child_categories = Category.find_by(id: @item.category_id).root.children
+    @child_category = Category.find_by(id: @item.category_id).parent
+    @grandchild_categories = Category.find_by(id: @item.category_id).parent.children
   end
 
   def new
@@ -66,7 +71,7 @@ class ItemsController < ApplicationController
     @sizes = Size.all
     @brands = Brand.all
     @parent_categories = Category.where(ancestry: nil)
-    @parent_category = Category.find_by(id: @item.category_id).root.id 
+    @parent_category = Category.find_by(id: @item.category_id).root.id
     @child_categories = Category.find_by(id: @item.category_id).root.children
     @child_category = Category.find_by(id: @item.category_id).parent.id
     @grandchild_categories = Category.find_by(id: @item.category_id).parent.children
