@@ -19,6 +19,13 @@ $(function(){
   let PreviewArea = '.iu-image__container__preview-area__images ul'
   let images_array = []
 
+  //編集画面時に既存の画像をimages_arrayへ代入
+  $(window).load(function(e){
+    e.preventDefault();
+    let old_images = $('.iu-preview-box__image').children('img').attr('src');
+    images_array.push()
+  });
+
   //ドロップダウン機能
   $(DropArea1).on({'dragenter dragover' :function(e){
       e.preventDefault();
@@ -76,6 +83,7 @@ $(function(){
   //   },
   // );
 
+  //商品出品機能
   $('#item-new').on('submit', function(e){
     e.preventDefault();
     let formData = new FormData($(this).get(0));
@@ -98,6 +106,30 @@ $(function(){
       alert('出品に失敗しました！');
     });
   })
+
+    //商品編集機能
+    $('#item-update').on('submit', function(e){
+      e.preventDefault();
+      let formData = new FormData($(this).get(0));
+      images_array.forEach(function(image, i){
+       formData.append(`item[images_attributes][${i}][image]`, image)
+      });
+      let url = $(this).attr('action')
+      $.ajax({
+        url:         url,
+        type:        'POST',
+        data:        formData,
+        contentType: false,
+        processData: false,
+        dataType:   'html'
+      })
+      .done(function(data){
+        window.location = '/'
+      })
+      .fail(function(){
+        alert('編集に失敗しました！');
+      });
+    })
 
 ///////////////////////////////////////////////////////////////////////////////////
 
