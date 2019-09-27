@@ -4,12 +4,13 @@ class PurchaseController < ApplicationController
   before_action :set_card, only: [:index, :pay, :done]
 
   def index
+    @region = Region.all
     if @card.blank?
-      redirect_to controller: "card", action: "new"
+      redirect_to controller: "mypage/card", action: "new"
     else
       set_payjp
-   end
-    render layout: "register-layout"
+      render layout: "register-layout"
+    end
   end
 
   def pay
@@ -23,6 +24,7 @@ class PurchaseController < ApplicationController
   end
 
   def done
+    @region = Region.all
     @item.update_attribute(:sold_condition, 3)
     set_payjp
     render layout: "register-layout"
