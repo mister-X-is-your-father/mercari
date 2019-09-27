@@ -27,7 +27,7 @@ class User < ApplicationRecord
           password: password,
           password_confirmation: password
         )
-        SnsCredential.create(
+        SnsCredential.new(
           uid: uid,
           provider: provider
         )
