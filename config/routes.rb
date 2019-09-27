@@ -39,8 +39,6 @@ Rails.application.routes.draw do
     end
     collection do
       get 'search'
-      get '/:id/edit_item', to: 'items#edit_item', as: :item_edit
-      patch '/:id/edit_item', to: 'items#update'
       get 'get_child_categories', defaults: { format: 'json' }
       get 'get_grandchild_categories', defaults: { format: 'json' }
     end

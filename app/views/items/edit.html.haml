@@ -1,142 +1,137 @@
-%section.dl-box
-  .dl-main-all
-    .dl-main-up
-      %h1.dl-name
-        = @item.name
-      .dl-main
-        .dl-photo
-          .is-photo__portion
-            .is-photo__up
-              = image_tag @item.images.first.image.url
-              .dl-photo__down
-          .dl-photo__down__portion
-            .owl-dot
-            .dl-photo-my.move
-            .owl-dot
-            .owl-dot
-        %table.dl-detail-table
-          %tbody
-            %tr.dl-tables
-              %th 出品者
-              %td
-                = link_to "#" do
-                  = @item.user.nickname
-                %div
-                  .dl-user-ratings
-                    = fa_icon "fa-grin"
-                    %span 80
-                  .dl-user-ratings
-                    = fa_icon "fa-meh"
-                    %span 8
-                  .dl-user-ratings
-                    = fa_icon "fa-frown-open"
-                    %span 0
-
-            %tr.dl-tables
-              %th カテゴリー
-              %td
-                = link_to "#" do
-                  = @item.category.name
-
-            %tr.dl-tables
-              %th ブランド
-              %td
-                = link_to "#" do
-                  - if @item.brand.present?
-                    = @item.brand.name
-                  - else
-
-            %tr.dl-tables
-              %th 商品の状態
-              %td
-                - case @item.sold_condition
-                  - when 1 then
-                    新品、未使用
-                  - when 2 then
-                    未使用に近い
-                  - when 3 then
-                    目立った傷や汚れなし
-                  - when 4 then
-                    やや傷や汚れあり
-                  - when 5 then
-                    傷や汚れあり
-                  - when 6 then
-                    全体的に状態が悪い
-
-            %tr.dl-tables
-              %th 配送料の負担
-              %td
-                - case @item.delivery_payee
-                  - when 1 then
-                    送料込み(出品者負担)
-                  - when 2 then
-                    着払い(購入者負担)
-
-            %tr.dl-tables
-              %th 配送の方法
-              %td
-                - case @item.delivery_method
-                  - when 1 then
-                    未定
-                  - when 2 then
-                    らくらくメルカリ便
-                  - when 3 then
-                    ゆうメール
-                  - when 4 then
-                    レターパック普通郵便（定形、定形外）
-                  - when 5 then
-                    クロネコヤマト
-                  - when 6 then
-                    ゆうパック
-                  - when 7 then
-                    クリックポスト
-                  - when 8 then
-                    ゆうパケット
-                  - when 9 then
-                    徒歩
-
-            %tr.dl-tables
-              %th 配送元地域
-              %td
-                = link_to "#" do
-                  = @item.region.region
-            %tr.dl-tables
-              %th 配送日の目安
-              %td
-                - case @item.delivery_time
-                  - when 1 then
-                    1~2日で発送
-                  - when 2 then
-                    2~3日で発送
-                  - when 3 then
-                    4~7日で発送
-                  - when 4 then
-                    今年中に発送
-                  - when 5 then
-                    発送しない
-
-      .dl-price-box.text-center
-        %span.dl-price ¥#{@item.price.to_s(:delimited, delimiter: ',')}
-        %span.dl-tax (税込)
-        %span.dl-shipping-fee 送料込み
-
-      .dl-message
-        %p.dl-description-inner
-          =@item.description
-
-    .dl-third-btn
-      %a.dl-btn-various
-        = form_with url: item_edit_items_path(@item), method: :get, local: true do |f|
-          = f.submit "商品の編集", class: "dl-btn-various__edit"
-        %p.dl-or
-          or
-        = form_with local: true do |f|
-          = f.submit "出品を再開する", class: "dl-btn-various__start"
-        = form_with url: item_path(@item), local: true, method: :delete do |f|
-          = f.submit "この商品を削除する", class: "dl-btn-various__delete"
-
-    .dl-detail-message
-      = form_with url: "", method: :post, local: true, class: "dl-message-form" do |f|
-        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        = f.text_field :comment, class: "dl-textarea-default"
-        = f.submit "コメントする", class: "dl-message-submit-btn-default"
+%main.new-user-main
+  %section.iu-item-container
+    .iu-container
+      %h2.l-single-head 商品の情報を入力
+      = form_with model: @item, local: true, class: "form", id: "item-update" do |f|
+        .iu-content
+          %h3.iu-image__head
+            出品画像
+            %span.form-require 必須
+          %p 最大10枚までアップロードできます
+          .iu-image__container.clearfix
+            .iu-image__container__preview-area
+              .iu-image__container__preview-area__images
+                %ul
+                  - @item.images.each do |image|
+                    %li.iu-preview-box
+                      %figure.iu-preview-box__image
+                        = image_tag image.image.url
+                      .iu-preview-box__text
+                        = link_to "", class: "iu-preview-box__text__edit" do
+                          編集
+                        = link_to "", class: "iu-preview-box__text__delete" do
+                          削除  
+            .iu-image__container__drop-area
+              = f.fields_for :images do |i|
+                = i.label :image, class: "iu-image__container__drop-area__label" do
+                  = i.file_field :image, class: "iu-image__container__drop-area__label__file", style: "display: none;"
+                  %pre.visible-pc
+                    ドラッグアンドドロップ
+                    -# またはクリックしてファイルをアップロード
+                  -# = fa_icon "camera"
+              -# .iu-image__container__drop-area-second
+              -#   = i.label :image, class: "iu-image__container__drop-area__label" do
+              -#     = i.file_field :image, class: "iu-image__container__drop-area__label__file", style: "display: none;"
+              -#     %pre.visible-pc
+              -#       ドラッグアンドドロップ
+              -#       -# またはクリックしてファイルをアップロード
+              -#     -# = fa_icon "camera"
+        .iu-content
+          .form-group
+            = f.label "商品名"
+            %span.form-require 必須
+            = f.text_field :name, class: "input-default", placeholder: "商品名 (必須 40文字まで)"
+          .form-group
+            = f.label "商品の説明"
+            %span.form-require 必須
+            = f.text_area :description, class: "textarea-default", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        .iu-content.iu-flex
+          %h3.iu-sub-head 商品の詳細
+          .iu-form-box
+            .form-group
+              = f.label "カテゴリー"
+              %span.form-require 必須
+              %div.select-wraps
+                .select-wrap.iu-parent
+                  = f.collection_select :category_id, @parent_categories, :id, :name, {include_blank: '---', selected: @parent_category}, {id: 'parent-categories'}
+                .select-wrap.iu-child
+                  = f.collection_select :category_id, @child_categories, :id, :name, {include_blank: '---', selected: @child_category}, {id: 'child-categories'}
+                .select-wrap.iu-grandchild
+                  = f.collection_select :category_id, @grandchild_categories, :id, :name, {include_blank: '---', selected: @item.category_id}, {id: 'grandchild-categories'}
+            .form-group
+              = f.label "サイズ"
+              %span.form-require 必須
+              %div
+                .select-wrap
+                  = f.collection_select :size_id, @sizes, :id, :name, include_blank: '---'
+            .form-group
+              = f.label "ブランド"
+              %span.form-require-not 任意
+              %div
+                .select-wrap
+                  -# = f.collection_select :brand_id, @brands, :id, :name, include_blank: '---'
+                  = f.text_field :brand_id, placeholder: "例) シャネル", class: "input-brand"
+            .form-group
+              = f.label "商品の状態"
+              %span.form-require 必須
+              %div
+                .select-wrap
+                  = f.collection_select :product_condition, Product_Conditions.all, :id, :name, include_blank: '---'
+        .iu-content.iu-flex
+          %h3.iu-sub-head 配送について
+          .iu-form-box
+            .form-group
+              = f.label "配送料の負担"
+              %span.form-require 必須
+              .select-wrap
+                = f.collection_select :delivery_payee, Delivery_Payee.all, :id, :name, include_blank: '---'
+            .form-group
+              = f.label "配送の方法"
+              %span.form-require 必須
+              .select-wrap
+                = f.collection_select :delivery_method, Delivery_Method_If_Seller.all, :id, :name, include_blank: '---'
+            .form-group
+              = f.label "配送元の地域"
+              %span.form-require 必須
+              .select-wrap
+                = f.collection_select :region_id, @regions, :id, :region, include_blank: '---'
+            .form-group
+              = f.label "配送までの日数"
+              %span.form-require 必須
+              .select-wrap
+                = f.collection_select :delivery_time, Delivery_Time.all, :id, :name, include_blank: '---'
+        .iu-content.iu-flex
+          %h3.iu-sub-head 販売価格(300~9,999,999)
+          .iu-form-box
+            %ul.iu-price
+              %li.form-group
+                .iu-flex
+                  = f.label :price, class: "iu-half" do
+                    価格
+                    %span.form-require 必須
+                  .iu-half.iu-price-input
+                    ¥
+                    = f.text_field :price, placeholder: "例) 300", class: "input-price"
+              %li.iu-flex
+                .iu-half 販売手数料 (10%)
+                .iu-half.right -
+              %li.iu-flex.bold
+                .iu-half 販売利益
+                .iu-half.right -
+        .iu-content.iu-btn-box
+          %div
+            %p
+              = link_to "禁止されている出品", "#", class: "iu-sell-link"
+              、
+              = link_to "行為", "#", class: "iu-sell-link"
+              を必ずご確認ください。
+            %p
+              またブランド品でシリアルナンバー等がある場合はご記載ください。
+              = link_to "偽ブランドの販売", "#", class: "iu-sell-link"
+              は犯罪であり処罰される可能性があります。
+            %p
+              また、出品を持ちまして
+              = link_to "加盟店規約", "#", class: "iu-sell-link"
+              に同意したことになります。
+          = f.submit "変更する", class: "btn-red"
+          = link_to "もどる", :back, class: "btn-gray"

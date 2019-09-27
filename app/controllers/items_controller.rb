@@ -31,6 +31,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @sold_condition = Sold_Condition.all
     @comments = @item.item_comments
     @images = @item.images
   end
@@ -57,12 +58,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @sold_condition = Sold_Condition.all
-    @comments = @item.item_comments
-    @images = @item.images
-  end
-
-  def edit_item
     @images = @item.images
     @sizes = Size.all
     @brands = Brand.all
@@ -141,7 +136,6 @@ class ItemsController < ApplicationController
       images_attributes: [:image, :_destory, :id]
     ).merge(user_id: current_user.id)
   end
-
 
   def set_item
     @item = Item.find(params[:id])
