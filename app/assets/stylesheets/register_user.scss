@@ -136,6 +136,46 @@
 	font-weight: normal;
 }
 
+#exp_month {
+	height: 48px;
+	width: 131.5px;
+	padding: 0 16px;
+	position: relative;
+	z-index: 2;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	background: 0;
+	font-size: 16px;
+	line-height: 1.5;
+	cursor: pointer;
+	display: inline-block;
+	overflow: visible;
+	-webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
+	-moz-appearance: none;	/* ベンダープレフィックス(Firefox用) */
+	appearance: none;	/* 標準のスタイルを無効にする */
+	font-weight: normal;
+}
+
+#exp_year {
+	height: 48px;
+	width: 131.5px;
+	padding: 0 16px;
+	position: relative;
+	z-index: 2;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	background: 0;
+	font-size: 16px;
+	line-height: 1.5;
+	cursor: pointer;
+	display: inline-block;
+	overflow: visible;
+	-webkit-appearance: none;/* ベンダープレフィックス(Google Chrome、Safari用) */
+	-moz-appearance: none;	/* ベンダープレフィックス(Firefox用) */
+	appearance: none;	/* 標準のスタイルを無効にする */
+	font-weight: normal;
+}
+
 .select-default {
 	color: black;
 }
