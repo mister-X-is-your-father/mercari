@@ -296,3 +296,15 @@ time {
 		position: relative;
 	}
 }
+
+.icon {
+	&__good {
+		color: #ef5185;
+	}
+	&__normal {
+		color: #fba933;
+	}
+	&__bad {
+		color: #6ab5d8;
+	}
+}

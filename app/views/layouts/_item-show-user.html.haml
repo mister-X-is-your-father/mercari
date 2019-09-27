@@ -10,6 +10,9 @@
               .is-photo__up
                 = image_tag @item.images.first.image.url, class:"change-image"
                 .is-photo__down
+                  - if @item.sold_condition == 3
+                    .sold-tag
+                      %div SOLD
 
             .is-photo__down__portion
               .owl-dots
@@ -25,20 +28,29 @@
                   = @item.user.nickname
                 %div
                   .dl-user-ratings
-                    = fa_icon "fa-grin"
-                    %span 80
-                  .dl-user-ratings
-                    = fa_icon "fa-meh"
+                    %i.fa.fa-laugh-squint.icon__good
                     %span 8
                   .dl-user-ratings
-                    = fa_icon "fa-frown-open"
+                    %i.fa.fa-meh.icon__normal
+                    %span 1
+                  .dl-user-ratings
+                    %i.fa.fa-dizzy.icon__bad
                     %span 0
 
             %tr.dl-tables
               %th カテゴリー
               %td
-                = link_to "#" do
-                  = @item.category.name
+                .blue-color-link
+                  = link_to "/categories/#{@parent_category.id}" do
+                    = @parent_category.name
+                    %br
+                  %i.fa.fa-chevron-right
+                  = link_to "/categories/#{@child_category.id}" do
+                    = @child_category.name
+                    %br
+                  %i.fa.fa-chevron-right
+                  = link_to "/categories/#{@item.category.id}" do
+                    = @item.category.name
 
             %tr.dl-tables
               %th ブランド
