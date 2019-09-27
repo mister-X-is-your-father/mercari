@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item, only: [:show, :edit, :destroy, :edit_item, :update]
+  before_action :set_item, only: [:show, :edit, :destroy, :update]
 
   def index
     @parent_categories = Category.roots

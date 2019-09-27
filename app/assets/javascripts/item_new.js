@@ -21,9 +21,8 @@ $(function(){
 
   //編集画面時に既存の画像をimages_arrayへ代入
   $(window).load(function(e){
-    e.preventDefault();                 //いる？
+    e.preventDefault();
     let old_images = $('.iu-preview-box__image').children('img').attr('src');
-    console.log(old_images)
     images_array.push()
   });
 
