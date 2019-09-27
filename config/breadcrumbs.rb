@@ -11,6 +11,11 @@ crumb :mypage_profile do
   parent :mypage
 end
 
+crumb :mypage_item_list do
+  link "出品した商品 - 出品中", mypage_listings_listing_path
+  parent :mypage
+end
+
 crumb :mypage_logout do
   link "ログアウト", mypage_mypage_logout_path
   parent :mypage
