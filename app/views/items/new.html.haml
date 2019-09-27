@@ -8,12 +8,12 @@
             出品画像
             %span.form-require 必須
           %p 最大10枚までアップロードできます
-          = f.fields_for :images do |i|
-            .iu-image__container.clearfix
-              .iu-image__container__preview-area
-                .iu-image__container__preview-area__images
-                  %ul
-              .iu-image__container__drop-area
+          .iu-image__container.clearfix
+            .iu-image__container__preview-area
+              .iu-image__container__preview-area__images
+                %ul
+            .iu-image__container__drop-area
+              = f.fields_for :images do |i|
                 = i.label :image, class: "iu-image__container__drop-area__label" do
                   = i.file_field :image, class: "iu-image__container__drop-area__label__file", style: "display: none;"
                   %pre.visible-pc

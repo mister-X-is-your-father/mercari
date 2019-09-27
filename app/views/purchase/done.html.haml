@@ -9,7 +9,8 @@
           = @item.name
         = form_with url: pay_item_purchase_index_path(@item.id), method: :post, local: true, class: "pur-form" do |f|
           %p.pur-form__item-price 
-            = @item.price
+            ¥
+            = @item.price.to_s(:delimited, delimiter: ',')
             %span.pur-form__item-price__shipping-fee 
               送料込み
 
@@ -19,7 +20,7 @@
         %address.pur-delivery__inner__address
           = current_user.postal_code
           %br/
-          = current_user.region
+          = @region.find(current_user.region).region
           = current_user.city
           = current_user.block
           = current_user.buildings

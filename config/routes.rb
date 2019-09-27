@@ -42,7 +42,6 @@ Rails.application.routes.draw do
       get 'get_child_categories', defaults: { format: 'json' }
       get 'get_grandchild_categories', defaults: { format: 'json' }
     end
-    resources :editor, only: [:edit], to: 'editor#edit'
   end
 
   resources :item_comments, only: :create
