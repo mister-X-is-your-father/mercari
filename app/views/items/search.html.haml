@@ -28,7 +28,7 @@
                     = "¥#{item.price.to_s(:delimited, delimiter: ',')}"
                   - if item.likes ==! ""
                     .search-item-box__text-box__num__likes
-                      = fa_icon "heart-o", class: ""
+                      %i.far.fa-heart
                       %span
                         = "#{item.likes}"
 = render "layouts/breadcrumbs-bottom"

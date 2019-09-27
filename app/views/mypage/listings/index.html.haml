@@ -31,10 +31,10 @@
                       = item.name
                     %div.listing-items
                       %span.listing-item-count
-                        = fa_icon 'heart-o'
-                        0
+                        %i.far.fa-heart
+                        = item.likes.length
                       %span.listing-item-count
-                        = fa_icon 'message'
+                        %i.far.fa-comment-alt
                         0
                       .mypage-item-status.bold.awaiting
                         出品中

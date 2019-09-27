@@ -34,6 +34,8 @@ class ItemsController < ApplicationController
     @sold_condition = Sold_Condition.all
     @comments = @item.item_comments
     @images = @item.images
+    @parent_category = Category.find_by(id: @item.category_id).root
+    @child_category = Category.find_by(id: @item.category_id).parent
   end
 
   def new
