@@ -25,7 +25,7 @@
                   = "#{item.name}"
                 .search-item-box__text-box__num
                   .search-item-box__text-box__num__price
-                    = "¥#{item.price}"
+                    = "¥#{item.price.to_s(:delimited, delimiter: ',')}"
                   - if item.likes ==! ""
                     .search-item-box__text-box__num__likes
                       = fa_icon "heart-o", class: ""

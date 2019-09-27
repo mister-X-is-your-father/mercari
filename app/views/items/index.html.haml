@@ -37,7 +37,7 @@
                         = item.name
                     .in-item__detail__img
                       %span.in-item__detail__img__price
-                        = "¥#{item.price}"
+                        = "¥#{item.price.to_s(:delimited, delimiter: ',')}"
                       = image_tag item.images.first.image.url, class: "in-item__detail__img__img"
 
     .in-category-new
@@ -59,7 +59,7 @@
                         = item.name
                     .in-item__detail__img
                       %span.in-item__detail__img__price
-                        = "¥#{item.price}"
+                        = "¥#{item.price.to_s(:delimited, delimiter: ',')}"
                       = image_tag item.images.first.image.url, class: "in-item__detail__img__img"
 
 
@@ -81,7 +81,7 @@
                         = item.name
                     .in-item__detail__img
                       %span.in-item__detail__img__price
-                        = "¥#{item.price}"
+                        = "¥#{item.price.to_s(:delimited, delimiter: ',')}"
                       = image_tag item.images.first.image.url, class: "in-item__detail__img__img"
 
 
@@ -103,7 +103,7 @@
                         = item.name
                     .in-item__detail__img
                       %span.in-item__detail__img__price
-                        = "¥#{item.price}"
+                        = "¥#{item.price.to_s(:delimited, delimiter: ',')}"
                       = image_tag item.images.first.image.url, class: "in-item__detail__img__img"
 
 
@@ -142,7 +142,7 @@
                         = item.name
                     .in-item__detail__img
                       %span.in-item__detail__img__price
-                        = "¥#{item.price}"
+                        = "¥#{item.price.to_s(:delimited, delimiter: ',')}"
                       = image_tag item.images.first.image.url, class: "in-item__detail__img__img"
 
 
@@ -165,7 +165,7 @@
                         = item.name
                     .in-item__detail__img
                       %span.in-item__detail__img__price
-                        = "¥#{item.price}"
+                        = "¥#{item.price.to_s(:delimited, delimiter: ',')}"
                       = image_tag item.images.first.image.url, class: "in-item__detail__img__img"
 
 
@@ -186,7 +186,7 @@
                         = item.name
                     .in-item__detail__img
                       %span.in-item__detail__img__price
-                        = "¥#{item.price}"
+                        = "¥#{item.price.to_s(:delimited, delimiter: ',')}"
                       = image_tag item.images.first.image.url, class: "in-item__detail__img__img"
 
 
@@ -208,5 +208,5 @@
                         = item.name
                     .in-item__detail__img
                       %span.in-item__detail__img__price
-                        = "¥#{item.price}"
+                        = "¥#{item.price.to_s(:delimited, delimiter: ',')}"
                       = image_tag item.images.first.image.url, class: "in-item__detail__img__img"
