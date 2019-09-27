@@ -81,10 +81,14 @@ class ItemsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @item.update(edit_params)
-        format.html{ redirect_to root_path }
-      else
-        format.html{render :edit_item}
+      if @item.images.first == nil
+        format.html{render :edit}
+      else    
+        if @item.update(edit_params)
+          format.html{ redirect_to root_path }
+        else
+          format.html{render :edit}
+        end
       end
     end
   end
