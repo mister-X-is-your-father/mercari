@@ -31,19 +31,27 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @sold_condition = Sold_Condition.all
-    @comments = @item.item_comments
-    @images = @item.images
+    if user_signed_in?
+      @sold_condition = Sold_Condition.all
+      @comments = @item.item_comments
+      @images = @item.images
+    else
+      redirect_to root_path
+    end
   end
 
   def new
-    @item = Item.new
-    @images = @item.images.build
-    @sizes = Size.all
-    @brands = Brand.all
-    @parent_categories = Category.where(ancestry: nil)
-    @regions = Region.all
-    render layout: "register-layout"
+    if user_signed_in?
+      @item = Item.new
+      @images = @item.images.build
+      @sizes = Size.all
+      @brands = Brand.all
+      @parent_categories = Category.where(ancestry: nil)
+      @regions = Region.all
+      render layout: "register-layout"
+    else
+      redirect_to root_path
+    end
   end
 
   def create
@@ -62,16 +70,20 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @images = @item.images
-    @sizes = Size.all
-    @brands = Brand.all
-    @parent_categories = Category.where(ancestry: nil)
-    @parent_category = Category.find_by(id: @item.category_id).root.id 
-    @child_categories = Category.find_by(id: @item.category_id).root.children
-    @child_category = Category.find_by(id: @item.category_id).parent.id
-    @grandchild_categories = Category.find_by(id: @item.category_id).parent.children
-    @regions = Region.all
-    render layout: "register-layout"
+    if @item.user_id == current_user.id
+      @images = @item.images
+      @sizes = Size.all
+      @brands = Brand.all
+      @parent_categories = Category.where(ancestry: nil)
+      @parent_category = Category.find_by(id: @item.category_id).root.id 
+      @child_categories = Category.find_by(id: @item.category_id).root.children
+      @child_category = Category.find_by(id: @item.category_id).parent.id
+      @grandchild_categories = Category.find_by(id: @item.category_id).parent.children
+      @regions = Region.all
+      render layout: "register-layout"
+    else
+      redirect_to root_path
+    end
   end
 
   def update
@@ -90,8 +102,8 @@ class ItemsController < ApplicationController
 
   def destroy
     if @item.user_id == current_user.id
-        @item.destroy
-        redirect_to mypage_top_path
+      @item.destroy
+      redirect_to mypage_top_path
     else
       redirect_to root_path
     end
