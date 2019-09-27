@@ -5,6 +5,14 @@ class PurchaseController < ApplicationController
 
   def index
     @region = Region.all
+    if @item.user_id == current_user.id
+      redirect_to root_path
+      return
+    end
+    if @item.sold_condition == 3
+      redirect_to item_path(@item)
+      return
+    end
     if @card.blank?
       redirect_to controller: "mypage/card", action: "new"
     else

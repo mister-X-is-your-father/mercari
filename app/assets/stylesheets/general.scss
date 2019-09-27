@@ -37,3 +37,28 @@
   display: inline-block;
   color: black;
 }
+
+.sold-tag {
+  border-width: 120px 120px 0 0;
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: #ea352d transparent transparent transparent;
+  div {
+    top: -95px;
+    font-size: 28px;
+    position: absolute;
+    left: 0;
+    z-index: 8;
+    color: #fff;
+    transform: rotate(-45deg);
+    letter-spacing: 2px;
+    font-weight: 550;
+  }
+}

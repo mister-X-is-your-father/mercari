@@ -2,17 +2,32 @@
   %h1.is-name
     = @item.name
   .is-main
-    .is-photo
-      .is-photo__portion
-        .is-photo__up
-          = image_tag @item.images.first.image.url, class:"change-image"
-          .is-photo__down
+    - if @item.sold_condition == 3
+      .is-photo
+        .is-photo__portion
+          .is-photo__up
+            = image_tag @item.images.first.image.url, class:"change-image"
+            .is-photo__down
+              .sold-tag
+                %div SOLD
 
-      .is-photo__down__portion
-        .owl-dots
-          - @images.each do |image|
-            .owl-dot
-              = image_tag image.image.url
+        .is-photo__down__portion
+          .owl-dots
+            - @images.each do |image|
+              .owl-dot
+                = image_tag image.image.url
+    - else
+      .is-photo
+        .is-photo__portion
+          .is-photo__up
+            = image_tag @item.images.first.image.url, class:"change-image"
+            .is-photo__down
+
+        .is-photo__down__portion
+          .owl-dots
+            - @images.each do |image|
+              .owl-dot
+                = image_tag image.image.url
 
     %table.is-detail-table
       %tbody
@@ -119,8 +134,10 @@
     %span.is-price ¥#{@item.price.to_s(:delimited, delimiter: ',')}
     %span.is-tax (税込)
     %span.is-shipping-fee 送料込み
-
-  = link_to "購入画面に進む", item_purchase_index_path(@item), class: "is-buy-btn"
+  - if @item.sold_condition == 3
+    %button.btn-buy-not-gray 売り切れました
+  - else
+    = link_to "購入画面に進む", item_purchase_index_path(@item), class: "is-buy-btn"
 
   .is-message
     %p.is-description-inner
