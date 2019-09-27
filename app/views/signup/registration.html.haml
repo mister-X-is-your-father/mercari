@@ -1,5 +1,15 @@
 = render 'layouts/register-header2'
 %main.new-user-main
+
+  - if @user.errors.any?
+    %h2
+      = @user.errors.count
+      件のエラーがあります。
+    %ul
+      - @user.errors.full_messages.each do |msg|
+        %li
+          = msg
+        
   %section.new-user-contents
     %h2.new-user-input
       会員情報入力
@@ -17,7 +27,7 @@
             %span.form-require 必須
             = f.email_field :email, placeholder: "PC・携帯どちらでも可", class: "form-group__input reg-email"
           
-          - unless @user.email
+          - if @user.email.blank? 
             .form-group.reg-pass
               = f.label :password, "パスワード"
               %span.form-require 必須
