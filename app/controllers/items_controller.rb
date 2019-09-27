@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :set_item, only: [:show, :edit, :destroy]
+  before_action :set_item, only: [:show, :edit, :destroy, :update]
 
   def index
     @parent_categories = Category.roots
@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    @sold_condition = Sold_Condition.all
     @comments = @item.item_comments
     @images = @item.images
   end
@@ -58,12 +58,26 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @sold_condition = Sold_Condition.all
-    @comments = @item.item_comments
     @images = @item.images
+    @sizes = Size.all
+    @brands = Brand.all
+    @parent_categories = Category.where(ancestry: nil)
+    @parent_category = Category.find_by(id: @item.category_id).root.id 
+    @child_categories = Category.find_by(id: @item.category_id).root.children
+    @child_category = Category.find_by(id: @item.category_id).parent.id
+    @grandchild_categories = Category.find_by(id: @item.category_id).parent.children
+    @regions = Region.all
+    render layout: "register-layout"
   end
 
   def update
+    respond_to do |format|
+      if @item.update(edit_params)
+        format.html{ redirect_to root_path }
+      else
+        format.html{render :edit_item}
+      end
+    end
   end
 
   def destroy
@@ -81,11 +95,11 @@ class ItemsController < ApplicationController
   end
 
   def get_child_categories
-    @child_categories = Category.find_by(id: params[:parent_category]).children
+    @child_categories = Category.find(params[:parent_category]).children
   end
 
   def get_grandchild_categories
-    @grandchild_categories = Category.find_by(id: params[:child_category]).children
+    @grandchild_categories = Category.find(params[:child_category]).children
   end
 
   private
@@ -103,6 +117,23 @@ class ItemsController < ApplicationController
       :delivery_method,
       :price,
       images_attributes: [:image]
+    ).merge(user_id: current_user.id)
+  end
+
+  def edit_params
+    params.require(:item).permit(
+      :name,
+      :description,
+      :product_condition,
+      :category_id,
+      :region_id,
+      :brand_id,
+      :size_id,
+      :delivery_payee,
+      :delivery_time,
+      :delivery_method,
+      :price,
+      images_attributes: [:image, :_destory, :id]
     ).merge(user_id: current_user.id)
   end
 
