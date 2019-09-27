@@ -5,15 +5,17 @@
         = @item.name
       .dl-main
         .dl-photo
-          .is-photo__portion
-            .is-photo__up
-              = image_tag @item.images.first.image.url
-              .dl-photo__down
-          .dl-photo__down__portion
-            .owl-dot
-            .dl-photo-my.move
-            .owl-dot
-            .owl-dot
+          .is-photo
+            .is-photo__portion
+              .is-photo__up
+                = image_tag @item.images.first.image.url, class:"change-image"
+                .is-photo__down
+
+            .is-photo__down__portion
+              .owl-dots
+                - @images.each do |image|
+                  .owl-dot
+                    = image_tag image.image.url
         %table.dl-detail-table
           %tbody
             %tr.dl-tables
