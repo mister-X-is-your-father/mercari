@@ -60,3 +60,16 @@
 	border: 1px solid #ea352d;
 	color: #ea352d;
 }
+
+.btn-buy-not-gray {
+	background: #888;
+	cursor: not-allowed;
+	font-size: 24px;
+	line-height: 60px;
+	display: block;
+	margin-top: 16px;
+	color: #fff;
+	text-align: #fff;
+	font-weight: 600;
+	width: 100%;
+}
