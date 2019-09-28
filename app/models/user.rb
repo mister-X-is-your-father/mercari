@@ -46,8 +46,6 @@ class User < ApplicationRecord
 
   validates :nickname,
             :email,
-            :password,
-            :password_confirmation,
             :kan_familyname,
             :kan_firstname,
             :kana_familyname,
@@ -58,5 +56,6 @@ class User < ApplicationRecord
   validates :email, :phone_number, uniqueness: true
   validates :kan_familyname, :kan_firstname, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
   validates :kana_familyname, :kana_firstname, format: { with: /\A[ァ-ヶー－]+\z/ }
-  validates :phone_number, format: { with: /\A\d{10,11}\z/ }, length: { in: 10..11 }
+  validates :phone_number, format: { with: /\A\d{10,11}\z/ }, length: { in: 10..13 }
+  validates :password, :password_confirmation, allow_nil: true, presence: true
 end
