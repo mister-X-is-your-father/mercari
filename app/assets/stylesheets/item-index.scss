@@ -30,11 +30,86 @@ a {
   top: 0px;
   width: 100vw;
   overflow: hidden;
-  background-image: image-url("banner/autumn-fes.jpg");
   background-size: auto;
-  background-position: center center;
+  background-position: center;
+  background-size: cover;
   cursor: pointer;
+  &__various {
+    background-image: image-url("banner/back.jpg");
+    overflow: hidden;
+    position: relative;
+    width: 750px;
+    height: 390px;
+    margin: 0 auto;
+  }
 }
+
+.in-dl-various{
+  width: 860px;
+  height: 360px;
+  padding: 20px 40px;
+  margin: auto;
+  &__message__big {
+    width: 780px;
+    height: 168px;
+    margin: 0 0 16px 0;
+    font-size: 60px;
+  }
+  &__message__small {
+    font-size: 18px;
+    margin: 0 0 24px;
+  }
+}
+
+
+.in-dl-various-left-top{
+  width: 340px;
+  height: 50px;
+  display: inline-block;
+  position: relative;
+  &__app-store {
+    display: block;
+    margin: 0;
+    position: absolute;
+  }
+  &__google-play{
+    float: right;
+    bottom: 30%;
+    display: block;
+  }
+}
+
+.in-dl-various-left-top-phone{
+  width: 440px;
+  height: 390px;
+  display: block;
+  position: absolute;
+  left: 80%;
+  bottom: 95%;
+}
+
+.in-dl__various__right{
+  width: 860px;
+  height: 360px;
+  position: relative;
+}
+
+
+
+.prev-arrow {
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  z-index: 1;
+}
+
+.next-arrow {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  z-index: 1;
+}
+
 
 .in-popular-categories, .in-popular-brands {
   padding: 56px 0px 30px;
