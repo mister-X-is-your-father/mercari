@@ -4,14 +4,6 @@ class ItemsController < ApplicationController
 
   def index
     @parent_categories = Category.roots
-    # ビューでの子要素の取り出しは
-
-    # - parents.children.each do |child|
-      # = child.name
-    # 孫要素の取り出しは
-    # - child.children.each do |grandchild|
-      # = grandchild.name
-
     ladies = Category.find_by(name: "レディース").subtree
     @ladies_items = Item.where(category_id: ladies).limit(10).order("created_at DESC").includes(:images)
     mens = Category.find_by(name: "メンズ").subtree
@@ -90,7 +82,11 @@ class ItemsController < ApplicationController
         format.html{render :edit}
       else    
         if @item.update(edit_params)
-          format.html{ redirect_to root_path }
+          if @item.images == nil
+            format.html{render :edit}
+          else 
+            format.html{ redirect_to root_path }
+          end
         else
           format.html{render :edit}
         end
@@ -105,7 +101,6 @@ class ItemsController < ApplicationController
     else
       redirect_to root_path
     end
-
   end
 
   def search
@@ -151,7 +146,7 @@ class ItemsController < ApplicationController
       :delivery_time,
       :delivery_method,
       :price,
-      images_attributes: [:image, :_destory, :id]
+      images_attributes: [:image, :_destroy, :id]
     ).merge(user_id: current_user.id)
   end
 
