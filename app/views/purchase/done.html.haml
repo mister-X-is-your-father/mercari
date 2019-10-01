@@ -8,10 +8,10 @@
         %p.pur-item__inner__text
           = @item.name
         = form_with url: pay_item_purchase_index_path(@item.id), method: :post, local: true, class: "pur-form" do |f|
-          %p.pur-form__item-price 
+          %p.pur-form__item-price
             ¥
             = @item.price.to_s(:delimited, delimiter: ',')
-            %span.pur-form__item-price__shipping-fee 
+            %span.pur-form__item-price__shipping-fee
               送料込み
 
     %section.pur-delivery

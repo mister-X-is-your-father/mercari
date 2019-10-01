@@ -1,7 +1,28 @@
 .in-main
   .in-main__contents
-    .in-banner
-      = link_to ''
+    .in-banner.slider
+      = link_to '' do
+        = image_tag "banner/autumn-fes.jpg"
+      .in-banner__various
+        .in-dl-various
+          %h1.in-dl-various__message__big
+            スマホで
+            かんたん
+            %br
+            フリマアプリ
+          %p.in-dl-various__message__small
+            メルカリはスマホからすぐに出品できる
+            %br
+              購入時も安心な独自システムのアプリです
+          .in-dl-various-left-top
+            = link_to 'https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8', class: "in-dl-various-left-top__app-store" do
+              = image_tag 'banner/app.svg', size: "170x50"
+            = link_to 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja', class: "in-dl-various-left-top__google-play" do
+              = image_tag 'banner/google.svg', size: "170x50"
+        %figure.in-dl__various__right
+          = image_tag 'banner/phone.png', class: "in-dl-various-left-top-phone"
+
+
     .in-popular-categories
       %h2.in-popular-categories__head 人気のカテゴリー
       .in-popular-categories__row

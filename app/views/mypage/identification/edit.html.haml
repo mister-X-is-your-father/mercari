@@ -5,9 +5,9 @@
       %main.register
         %section.contents
           .padding__8px
-            %h2.main__list.font__size-24px.register-head
+            %h2.main__list.text-center.font__size-24px
               本人情報の登録
-          = form_with(local: true) do |f|
+          = form_with model: @user, local: true, id: "user-update" do |f|
             .contents__main
               .form-content__wide.form-group.margin__top-60px
                 .contents__text
@@ -26,7 +26,7 @@
                         = current_user.kan_familyname
                         = current_user.kan_firstname
                       -else
-                        抹著・抹茶亜・末知恵酢都
+                        ログインしていません
                 .margin__top-40px
                   お名前カナ
                   .dummy.margin__top-8px
@@ -35,7 +35,7 @@
                         = current_user.kana_familyname
                         = current_user.kana_firstname
                       -else
-                        マッチョ・マッチャー・マッチェスト
+                        ログインしていません
                 .margin__top-40px
                   生年月日
                   .dummy.margin__top-8px
@@ -43,12 +43,12 @@
                       -if user_signed_in?
                         = current_user.birth_day
                       -else
-                        筋肉が創造されし日
+                        ログインしていません
 
                 .form-group.margin__top-40px
                   = f.label :postal_code, "郵便番号"
                   %span.form-require.form-require__optional 任意
-                  = f.email_field :postal_code, placeholder: "例)123-4567", class: "form-group__input"
+                  = f.text_field :postal_code, placeholder: "例)123-4567", class: "form-group__input"
 
                 .form-group.margin__top-32px
                   = f.label :region, "都道府県"
@@ -60,19 +60,19 @@
                 .form-group.margin__top-32px
                   = f.label :city, "市区町村"
                   %span.form-require.form-require__optional 任意
-                  = f.password_field :city, placeholder: "例)横浜市緑区", class: "form-group__input"
+                  = f.text_field :city, placeholder: "例)横浜市緑区", class: "form-group__input"
 
                 .form-group.margin__top-32px
                   = f.label :block, "番地"
                   %span.form-require.form-require__optional 任意
-                  = f.password_field :block, placeholder: "例)青山1-1-1", class: "form-group__input"
+                  = f.text_field :block, placeholder: "例)青山1-1-1", class: "form-group__input"
 
                 .form-group.margin__top-32px
                   = f.label :buildings, "建物名"
                   %span.form-require.form-require__optional 任意
-                  = f.password_field :password, placeholder: "例)柳ビル103", class: "form-group__input"
+                  = f.text_field :buildings, placeholder: "例)柳ビル103", class: "form-group__input"
 
-                  = f.submit "次へ進む", class: "next-btn btn square-btn contents__text margin__top-32px margin__bottom-60px"
+                  = f.submit "登録する", class: "next-btn btn square-btn contents__text margin__top-32px margin__bottom-60px"
                   .form-group.personal-register.margin__top-24px
                     %p
                       = link_to("本人情報の登録について", "#", {class: "blue-color-link"})

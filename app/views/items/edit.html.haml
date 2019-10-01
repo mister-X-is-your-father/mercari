@@ -20,14 +20,14 @@
                         = link_to "", class: "iu-preview-box__text__edit" do
                           編集
                         = link_to "", class: "iu-preview-box__text__delete" do
-                          削除  
+                          削除
             .iu-image__container__drop-area
               = f.fields_for :images do |i|
                 = i.label :image, class: "iu-image__container__drop-area__label" do
                   = i.file_field :image, class: "iu-image__container__drop-area__label__file", style: "display: none;"
                   %pre.visible-pc
                     ドラッグアンドドロップ
-                    -# またはクリックしてファイルをアップロード
+                    またはクリックしてファイルをアップロード
                   -# = fa_icon "camera"
               -# .iu-image__container__drop-area-second
               -#   = i.label :image, class: "iu-image__container__drop-area__label" do

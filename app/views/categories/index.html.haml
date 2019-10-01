@@ -6,7 +6,7 @@
       = link_to "#category-#{parent.id}", class: "white category-root-category-link-name" do
         %div
           = parent.name
-          
+
   .category-list-box
     - @parents.each do |parent|
       .category-list-individual-box.white
@@ -31,5 +31,3 @@
                   %p
                     = link_to category_path(grand_child) do
                       = grand_child.name
-                
-

@@ -26,23 +26,23 @@
           %ul.hd-right-list
             %li.hd-right-list__likelist
               =link_to '', class: "hd-likelist-link" do
-                = fa_icon 'heart-o', class: 'hd-likelist-link__logo'
+                %i.far.fa-heart.hd-likelist-link__logo
                 %span.hd-likelist-link__text いいね!一覧
             %li.hd-right-list__news
               =link_to '', class: "hd-news-link" do
-                = fa_icon 'bell-o', class: 'hd-news-link__logo'
+                %i.far.fa-bell.hd-news-link__logo
                 %span.hd-news-link__text お知らせ
-              %ul 
+              %ul
             %li.hd-right-list__todolist
               =link_to '', class: "hd-todolist-link" do
-                = fa_icon 'check', class: 'hd-todolist-link__logo'  
+                = fa_icon 'check', class: 'hd-todolist-link__logo'
                 %span.hd-todolist-link__text やることリスト
               %ul
             %li.hd-right-list__mypage
               =link_to mypage_top_path, class: "hd-right-list__mypage__link" do
                 %figure.hd-right-list__mypage__link__image
                   %div.hd-right-list__mypage__link__image__div
-                    = image_tag 'header/userimage_if_noimage.png', size:'32x32', class: 'mypage-image' 
+                    = image_tag 'header/userimage_if_noimage.png', size:'32x32', class: 'mypage-image'
                 %span.hd-right-list__mypage__link__text マイページ
         - else
           %ul.hd-right-login

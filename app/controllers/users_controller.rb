@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :set_user, only: [:edit, :update]
+
   def new
   end
 
@@ -9,10 +11,15 @@ class UsersController < ApplicationController
   end
 
   def edit
-    # @user = User.find(params[:id])
   end
 
   def update
+    if @user.id == current_user.id
+    @user.update(user_params)
+    redirect_to mypage_edit_identification_path
+    else
+      redirect_to root_path
+    end
   end
 
   def create_address
@@ -34,9 +41,19 @@ class UsersController < ApplicationController
   def login#表示用に追加（森田）
   end
 
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   private
   def user_params
-    # params.require(:user).permit(:)
+    params.require(:user).permit(
+      :postal_code,
+      :region,
+      :city,
+      :block,
+      :buildings
+      )
   end
 
 end

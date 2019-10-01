@@ -2,26 +2,14 @@
   %h1.is-name
     = @item.name
   .is-main
-    - if @item.sold_condition == 3
-      .is-photo
-        .is-photo__portion
-          .is-photo__up
-            = image_tag @item.images.first.image.url, class:"change-image"
-            .is-photo__down
+    .is-photo
+      .is-photo__portion
+        .is-photo__up
+          = image_tag @item.images.first.image.url, class:"change-image"
+          .is-photo__down
+            - if @item.sold_condition == 3
               .sold-tag
                 %div SOLD
-
-        .is-photo__down__portion
-          .owl-dots
-            - @images.each do |image|
-              .owl-dot
-                = image_tag image.image.url
-    - else
-      .is-photo
-        .is-photo__portion
-          .is-photo__up
-            = image_tag @item.images.first.image.url, class:"change-image"
-            .is-photo__down
 
         .is-photo__down__portion
           .owl-dots
@@ -38,20 +26,29 @@
               = @item.user.nickname
             %div
               .is-user-ratings
-                = fa_icon "fa-grin"
-                %span 80
-              .is-user-ratings
-                = fa_icon "fa-meh"
+                %i.fas.fa-laugh-squint.icon__good
                 %span 8
               .is-user-ratings
-                = fa_icon "fa-frown-open"
+                %i.fas.fa-meh.icon__normal
+                %span 1
+              .is-user-ratings
+                %i.fas.fa-dizzy.icon__bad
                 %span 0
 
         %tr.is-tables
           %th カテゴリー
           %td
-            = link_to "#" do
-              = @item.category.name
+            .blue-color-link
+              = link_to "/categories/#{@parent_category.id}" do
+                = @parent_category.name
+                %br
+              %i.fa.fa-chevron-right
+              = link_to "/categories/#{@child_category.id}" do
+                = @child_category.name
+                %br
+              %i.fa.fa-chevron-right
+              = link_to "/categories/#{@item.category.id}" do
+                = @item.category.name
 
         %tr.is-tables
           %th ブランド
@@ -148,12 +145,12 @@
       %button{class: "is-button-like", type: "button"}
         -# %i.icon-like-border
         %span
-          %i.fa.fa-heart-o
+          %i.far.fa-heart
             いいね!
             = @item.likes.length
       %a.is-button_is-button-report
         %span
-          %i.fa.fa-flag-o
+          %i.far.fa-flag
           不適切な商品の報告
     .is-button-right
       = link_to "#" do
