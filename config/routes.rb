@@ -64,4 +64,6 @@ Rails.application.routes.draw do
     get 'logout', to: 'logout#logout', as: :mypage_logout
   end
 
+  get '*path', to: 'errors#not_found'
+
 end
