@@ -7,7 +7,6 @@ class UsersController < ApplicationController
 
 
   def show
-    # @user = User.find(params[:id])
   end
 
   def edit
@@ -23,22 +22,9 @@ class UsersController < ApplicationController
   end
 
   def create_address
-
   end
 
   def profile
-  end
-
-  def card#表示用に追加（森田）
-  end
-
-  def card2#表示用に追加（森田）
-  end
-
-  def card3#表示用に追加（森田）
-  end
-
-  def login#表示用に追加（森田）
   end
 
   def set_user
