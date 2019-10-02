@@ -78,12 +78,15 @@ $(function(){
   //動的に追加された要素に対してはdocumentを指定して一旦全ページを読み込ませる
   $(document).on('click', '.iu-preview-box__text__delete', function(e){
     e.preventDefault();
-    //clickした要素が何番目かを取得
-    let index = $(this).attr('data-id');
-    //spliceメソッドで画像配列の中からindex番目の画像を1つ削除する
-    images_array.splice(index, 1);
+    //clickした要素のdata-idを取得
+    let index = $(this).data('id');
+    //clickした要素のliがulのなかで何番目かを取得
+    let array_number = $(this).parent().parent().index();
     //削除ボタンの親の親(li)を削除する
     $(`a[data-id='${index}']`).parent().parent().remove();
+    //spliceメソッドで画像配列の中からarray_number番目の画像を1つ削除する
+    images_array.splice(array_number, 1);
+    //編集時に既存の画像に対してdestroyをつける
     $(`input[name='item[images_attributes][${index}][_destroy]']`).prop('checked', true)
   });
 
@@ -116,9 +119,10 @@ $(function(){
       e.preventDefault();
       let formData = new FormData($(this).get(0));
       //最後のdata-idを取得
-      let index = $('.iu-preview-box__text__delete').last().attr('data-id');
+      let index = parseInt($('.iu-preview-box__text__delete').last().attr('data-id'));
       images_array.forEach(function(image, i){
        formData.append(`item[images_attributes][${i + index + 1}][image]`, image)
+       console.log(i + index + 1)
       });
       let url = $(this).attr('action')
       $.ajax({
