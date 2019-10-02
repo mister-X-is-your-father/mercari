@@ -22,4 +22,14 @@
                     %i.far.fa-heart
                     %span
                       = item.likes
+
+    - if @info.present?
+      .info-description
+        .info-description-title
+          %h3
+            = @category.name
+        .info-description-text
+          %p
+            = @info
+
         
