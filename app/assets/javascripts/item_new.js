@@ -1,7 +1,6 @@
 $(function(){
 
   function buildImage(loadedImageUrl){
-    let counter = 0
     $('.iu-preview-box__text__delete').each(function () {
       counter++;
     });
@@ -22,6 +21,7 @@ $(function(){
   let DropArea2 = '.iu-image__container__drop-area-second'
   let PreviewArea = '.iu-image__container__preview-area__images ul'
   let images_array = []
+  let counter = 0
 
   //ドロップダウン投稿機能
   $(DropArea1).on({'dragenter dragover' :function(e){
@@ -122,7 +122,6 @@ $(function(){
       let index = parseInt($('.iu-preview-box__text__delete').last().attr('data-id'));
       images_array.forEach(function(image, i){
        formData.append(`item[images_attributes][${i + index + 1}][image]`, image)
-       console.log(i + index + 1)
       });
       let url = $(this).attr('action')
       $.ajax({
