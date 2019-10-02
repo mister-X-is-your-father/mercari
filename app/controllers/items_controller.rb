@@ -81,7 +81,7 @@ class ItemsController < ApplicationController
     respond_to do |format|
       if @item.images.first == nil
         format.html{render :edit}
-      else    
+      else
         if @item.update(edit_params)
           format.html{ redirect_to root_path }
         else
@@ -103,6 +103,10 @@ class ItemsController < ApplicationController
 
   def search
     @items = Item.search(params[:search])
+  end
+
+  def detailed_search
+    # @items = Item.search(params[:search])
   end
 
   def get_child_categories
