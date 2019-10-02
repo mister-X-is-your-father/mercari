@@ -4,7 +4,6 @@ class ItemsController < ApplicationController
 
   def index
     @parent_categories = Category.roots
-
     ladies = Category.find_by(name: "レディース").subtree
     @ladies_items = Item.where(category_id: ladies).limit(10).order("created_at DESC").includes(:images)
     mens = Category.find_by(name: "メンズ").subtree
@@ -79,15 +78,11 @@ class ItemsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @item.images.first == nil
+      if @item.update(edit_params)
+        format.html{ redirect_to root_path }
+      else
         format.html{render :edit}
-      else    
-        if @item.update(edit_params)
-          format.html{ redirect_to root_path }
-        else
-          format.html{render :edit}
-        end
-      end
+      end     
     end
   end
 
@@ -98,7 +93,6 @@ class ItemsController < ApplicationController
     else
       redirect_to root_path
     end
-
   end
 
   def search
@@ -144,7 +138,7 @@ class ItemsController < ApplicationController
       :delivery_time,
       :delivery_method,
       :price,
-      images_attributes: [:image, :_destory, :id]
+      images_attributes: [:image, :_destroy, :id]
     ).merge(user_id: current_user.id)
   end
 
