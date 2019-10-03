@@ -1,10 +1,10 @@
+= render "layouts/breadcrumbs"
 %main.my-contents.clearfix
   = render 'layouts/mypage-side-contents'
   %main.new-user-main.float__right
     %section.new-user-contents
       %h2.new-user-input.padding__8px
         クレジットカード情報入力
-
       = form_with(local: true, id: "charge-form") do |f|
         .contents__main
           .form-content.form-group
@@ -27,7 +27,6 @@
                 = image_tag 'registration/diners.svg', size: '32x20'
               %li
                 = image_tag 'registration/discover.svg', size: '32x20'
-
             .form-group
               = f.label :card, "有効期限"
               %span.form-require 必須
@@ -43,7 +42,6 @@
                   .fa.fa-chevron-down.form-icon-position__normal
                   .contents__text.margin__side-2px.margin__right-8px
                     年
-
             .form-group.margin__top-32px
               = f.label :cvc, "セキュリティコード"
               %span.form-require 必須
