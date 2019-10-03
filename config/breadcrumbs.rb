@@ -11,6 +11,21 @@ crumb :mypage_profile do
   parent :mypage
 end
 
+crumb :mypage_card do
+  link "支払い方法", new_mypage_card_path
+  parent :mypage
+end
+
+crumb :mypage_identification do
+  link "本人情報の登録", mypage_edit_identification_path
+  parent :mypage
+end
+
+crumb :mypage_logout do
+  link "ログアウト", mypage_mypage_logout_path
+  parent :mypage
+end
+
 crumb :mypage_itemList do
   link "出品した商品 - 出品中", mypage_listings_listing_path
   parent :mypage
@@ -21,10 +36,7 @@ crumb :mypage_itemList_item do
   parent :mypage_itemList
 end
 
-crumb :mypage_logout do
-  link "ログアウト", mypage_mypage_logout_path
-  parent :mypage
-end
+
 
 crumb :search do
   link params[:search], search_items_path
