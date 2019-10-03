@@ -31,7 +31,7 @@ crumb :search do
 end
 
 crumb :item do |item|
-  link item.name, item_path(item)
+  link item.name, item_path(item.id)
 end
 
 # crumb :categories do
