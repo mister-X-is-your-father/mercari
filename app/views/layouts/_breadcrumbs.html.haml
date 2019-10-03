@@ -10,7 +10,13 @@
   - breadcrumb :mypage_logout
 
 - when ['mypage/listings', 'index']
-  - breadcrumb :mypage_item_list
+  - breadcrumb :mypage_itemList
+
+- when ['items', 'show']
+  - breadcrumb :mypage_itemList_item
+  - breadcrumb :item
+
+
 
 %nav.breadcrumbs
   = breadcrumbs class: "breadcrumbs__text", separator: " &nbsp;&nbsp;&#12297;&nbsp; "
