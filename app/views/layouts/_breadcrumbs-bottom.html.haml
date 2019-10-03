@@ -3,6 +3,9 @@
 - when ['items', 'search']
   - breadcrumb :search
 
+- when ['items', 'show']
+  - breadcrumb :item, item
+
 %nav.breadcrumbs.bc-bottom
   - if params[:search] == ""
     = breadcrumbs class: "breadcrumbs__text", separator: " &nbsp; "
