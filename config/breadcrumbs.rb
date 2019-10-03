@@ -34,9 +34,9 @@ crumb :item do |item|
   link item.name, item_path(item.id)
 end
 
-# crumb :categories do
-#   link "カテゴリー一覧", categories_path
-# end
+crumb :categories do
+  link "カテゴリー一覧", categories_path
+end
 
 # crumb :brands do
 #   link "ブランド一覧", brands_path
