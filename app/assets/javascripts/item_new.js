@@ -17,8 +17,21 @@ $(function(){
     return html
   };
 
+  //画像が10個アップロードされたらドロップエリアを消す
+  function hideDropArea(){
+    if (images_array.length >= 10) {
+      $(DropArea1).css({
+        'display' : 'none'
+      })
+    }
+    else {
+      $(DropArea1).css({
+        'display' : 'block'
+      })
+    }
+  }
+
   let DropArea1 = '.iu-image__container__drop-area'
-  let DropArea2 = '.iu-image__container__drop-area-second'
   let PreviewArea = '.iu-image__container__preview-area__images ul'
   let images_array = []
   let counter = 0
@@ -43,13 +56,7 @@ $(function(){
         //画像ファイルの読み込みを行う
         fileReader.readAsDataURL(images[i]);
       }
-
-      //画像が10個アップロードされたらドロップエリアを消す
-      if (images_array.length == 10) {
-        $(DropArea1).css({
-          'display' : 'none'
-        })
-      }
+      hideDropArea();
     },
   });
 
@@ -66,12 +73,7 @@ $(function(){
         };
         fileReader.readAsDataURL(images[i]);
       }
-    //画像が10個アップロードされたらドロップエリアを消す　要リファクタリング
-    if (images_array.length == 10) {
-      $(DropArea1).css({
-        'display' : 'none'
-      })
-    }
+    hideDropArea();
   }),
 
   //プレビュー画像の削除機能
@@ -88,6 +90,7 @@ $(function(){
     images_array.splice(array_number, 1);
     //編集時に既存の画像に対してdestroyをつける
     $(`input[name='item[images_attributes][${index}][_destroy]']`).prop('checked', true)
+    hideDropArea();
   });
 
   //商品出品機能
