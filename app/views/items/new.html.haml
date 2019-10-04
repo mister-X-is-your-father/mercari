@@ -39,7 +39,7 @@
                   = f.collection_select :category_id, @parent_categories, :id, :name, {include_blank: '---'}, {id: 'parent-categories'}
             .form-group
               = f.label "サイズ"
-              %span.form-require 必須
+              %span.form-require-not 任意
               %div
                 .select-wrap
                   = f.collection_select :size_id, @sizes, :id, :name, include_blank: '---'
