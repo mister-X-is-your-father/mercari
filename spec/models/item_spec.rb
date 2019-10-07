@@ -7,7 +7,8 @@ describe Item do
     it "is valid with a nickname, email, password, password_confirmation" do
       user = create(:user)
       category = create(:category)
-      item = build(:item, user: user, category: category)
+      region = create(:region)
+      item = build(:item, user: user, category: category, region: region)
       expect(item).to be_valid
     end
 

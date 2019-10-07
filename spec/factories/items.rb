@@ -7,7 +7,7 @@ FactoryBot.define do
     description           {"レディースのロングコートです"}
     sold_condition        {"1"} #出品中
     category
-    region_id             {"13"} #東京都
+    region
     brand_id              {"5788"} #ユニクロ
     user
     buyer_id              {""}
