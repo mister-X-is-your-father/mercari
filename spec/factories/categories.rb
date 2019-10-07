@@ -1,5 +1,9 @@
 FactoryBot.define do
+
   factory :category do
-    name { Faker::Name.name }
+    id       {32}
+    name     {"ロングコート"}
+    ancestry {1/21}
   end
+
 end
