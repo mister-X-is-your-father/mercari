@@ -103,10 +103,14 @@ class ItemsController < ApplicationController
 
   def search
     @items = Item.search(params[:search])
-  end
-
-  def detailed_search
-    # @items = Item.search(params[:search])
+    # 下記詳細検索に使用
+    @keyword = params[:keyword]
+    sort = params[:sort] || "created_at DESC"
+    @products = Item.where('name LIKE(?) OR description LIKE(?)', "%#{@keyword}%", "%#{@keyword}%").order(sort)
+    @count = @products.count
+    if @count == 0
+      @products = Product.order(sort)
+    end
   end
 
   def get_child_categories

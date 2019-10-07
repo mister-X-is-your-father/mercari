@@ -1,5 +1,16 @@
 .ssb-contents
   .ssb-contents__soat
+    %select{name: :sort_order, classs: "sort_order"}
+      %option{value: "location.pathname", name: "location.pathname"}
+        並び替え
+      %option{value: "price_asc"}
+        価格の安い順
+      %option{value: "price_desc"}
+        価格の高い順
+      %option{value: "created_at_asc"}
+        出品の古い順
+      %option{value: "created_at_desc"}
+        出品の新しい順
   .ssb-contents__container
     .ssb-contents__box
       .sub-title
