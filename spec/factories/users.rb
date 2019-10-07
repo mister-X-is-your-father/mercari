@@ -5,7 +5,7 @@ FactoryBot.define do
 
     id                     {1}     
     nickname               {"ヤマハナ"}
-    email                  {"taro@example.com"}
+    email                  {Faker::Internet.email}
     password               {password}
     password_confirmation  {password}
     kan_familyname         {"山田"}
