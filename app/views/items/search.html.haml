@@ -1,34 +1,36 @@
-%main.search-contents
-  -# .search-left
-  -#   = form_with url: "", method: :get, local: true, class: "search-form" do |f|
-  -#     .search-form__sort
-  -#       .search-form-group
-  -#         .select-box
-  -#           = fa_icon "angle-down", class: "search-icon"
-  -#     .search-form__contents
-  .search-right
-    %section.search-item-container
-      - if params[:search] == ""
-        %h3.search-result-text
-          新着商品
-      - else
-        %h2.search-result-text
-          = "#{params[:search]}の検索結果"
-      .search-result-items.search-clearfix
-        - @items.each do |item|
-          %section.search-item-box
-            = link_to item_path(item.id) do
-              %figure.search-item-box__image-box
-                = image_tag item.images.first.image.url, class: "search-item-box__image-box__image"
-              .search-item-box__text-box
-                %h3.search-item-box__text-box__text
-                  = "#{item.name}"
-                .search-item-box__text-box__num
-                  .search-item-box__text-box__num__price
-                    = "¥#{item.price.to_s(:delimited, delimiter: ',')}"
-                  - if item.likes ==! ""
-                    .search-item-box__text-box__num__likes
-                      %i.far.fa-heart
-                      %span
-                        = "#{item.likes}"
-= render "layouts/breadcrumbs-bottom"
+%main.my-contents.clearfix
+  = render 'layouts/mypage-side-contents'
+  .search-contents
+    -# .search-left
+    -#   = form_with url: "", method: :get, local: true, class: "search-form" do |f|
+    -#     .search-form__sort
+    -#       .search-form-group
+    -#         .select-box
+    -#           = fa_icon "angle-down", class: "search-icon"
+    -#     .search-form__contents
+    .search-right
+      .search-item-container
+        - if params[:search] == ""
+          %h3.search-result-text
+            新着商品
+        - else
+          %h2.search-result-text
+            = "#{params[:search]}の検索結果"
+        .search-result-items.search-clearfix
+          - @items.each do |item|
+            %section.search-item-box
+              = link_to item_path(item.id) do
+                %figure.search-item-box__image-box
+                  = image_tag item.images.first.image.url, class: "search-item-box__image-box__image"
+                .search-item-box__text-box
+                  %h3.search-item-box__text-box__text
+                    = "#{item.name}"
+                  .search-item-box__text-box__num
+                    .search-item-box__text-box__num__price
+                      = "¥#{item.price.to_s(:delimited, delimiter: ',')}"
+                    - if item.likes ==! ""
+                      .search-item-box__text-box__num__likes
+                        %i.far.fa-heart
+                        %span
+                          = "#{item.likes}"
+  = render "layouts/breadcrumbs-bottom"
