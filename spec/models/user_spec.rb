@@ -56,20 +56,47 @@ describe User do
     expect(user.errors[:kana_firstname]).to include("can't be blank")
   end
 
+  it "is invalid without a postal_code" do
+    user = build(:user, postal_code: nil)
+    user.valid?
+    expect(user.errors[:postal_code]).to include("can't be blank")
+  end
+
+  it "is invalid without a region" do
+    user = build(:user, region: nil)
+    user.valid?
+    expect(user.errors[:region]).to include("can't be blank")
+  end
+
+  it "is invalid without a city" do
+    user = build(:user, city: nil)
+    user.valid?
+    expect(user.errors[:city]).to include("can't be blank")
+  end
+
+  it "is invalid without a block" do
+    user = build(:user, block: nil)
+    user.valid?
+    expect(user.errors[:block]).to include("can't be blank")
+  end
+
   describe "email uniqueness"
 
-  it "is invalid with a duplicate email address" do
-    user = create(:user)
-    another_user = build(:user, email: user.email)
-    another_user.valid?
-    expect(another_user.errors[:email]).to include("has already been taken")
+    it "is invalid with a duplicate email address" do
+      user = create(:user)
+      another_user = build(:user, email: user.email)
+      another_user.valid?
+      expect(another_user.errors[:email]).to include("has already been taken")
+    end
+
+    it "is invalid with a duplicate phone_number" do
+      user = create(:user)
+      another_user = build(:user, phone_number: user.phone_number)
+      another_user.valid?
+      expect(another_user.errors[:phone_number]).to include("has already been taken")
+    end
   end
 
-  it "is invalid with a duplicate phone_number" do
-    user = create(:user)
-    another_user = build(:user, phone_number: user.phone_number)
-    another_user.valid?
-    expect(another_user.errors[:phone_number]).to include("has already been taken")
-  end
-  end
+
+
 end
