@@ -11,8 +11,8 @@ FactoryBot.define do
     kan_firstname          {"花子"}
     kana_familyname        {"ヤマダ"}
     kana_firstname         {"ハナコ"}
-    birth_day              {20000131}
-    phone_number           {90912345678}
+    birth_day              {"20000131"}
+    phone_number           {"11122223333"}
     postal_code            {"542-0076"}
     region                 {"27"}
     city                   {"大阪市中央区"}
