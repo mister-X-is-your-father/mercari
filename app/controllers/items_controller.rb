@@ -102,14 +102,14 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @items = Item.search(params[:search])
-    # 下記詳細検索に使用
     @keyword = params[:keyword]
     sort = params[:sort] || "created_at DESC"
-    @products = Item.where('name LIKE(?) OR description LIKE(?)', "%#{@keyword}%", "%#{@keyword}%").order(sort)
-    @count = @products.count
+    @items = Item.search(params[:search]).order(sort)
+    # 下記詳細検索に使用
+    # @products = Item.where('name LIKE(?) OR description LIKE(?)', "%#{@keyword}%", "%#{@keyword}%").order(sort)
+    @count = @items.count
     if @count == 0
-      @products = Product.order(sort)
+      @Items = Item.order(sort)
     end
   end
 

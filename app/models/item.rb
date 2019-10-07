@@ -15,8 +15,8 @@ class Item < ApplicationRecord
               only_integer: true,
               greater_than_or_equal_to: 300,
               less_than_or_equal_to: 9999999,
-               } 
-  validates :product_condition, 
+               }
+  validates :product_condition,
             :category_id,
             :region_id,
             :sold_condition,
@@ -27,6 +27,6 @@ class Item < ApplicationRecord
 
   def self.search(search)
     return Item.order(created_at: "DESC").limit(24) unless search
-    Item.where(['name LIKE ?', "%#{search}%"])
+    Item.where(['name LIKE(?) OR description LIKE(?)', "%#{search}%", "%#{search}%"])
   end
 end
