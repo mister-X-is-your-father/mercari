@@ -47,14 +47,10 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     respond_to do |format|
-      if @item.images.first == nil
-        format.html{render :new}
+      if @item.save!
+        format.html{ redirect_to root_path }
       else
-        if @item.save
-          format.html{ redirect_to root_path }
-        else
-          format.html{render :new}
-        end
+        format.html{render :new}
       end
     end
   end
