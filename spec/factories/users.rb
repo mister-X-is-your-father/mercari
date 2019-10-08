@@ -3,7 +3,6 @@ FactoryBot.define do
   factory :user do
     password = "hanako1234"
 
-    id                     {1}     
     nickname               {"ヤマハナ"}
     email                  {Faker::Internet.email}
     password               {password}
@@ -13,7 +12,7 @@ FactoryBot.define do
     kana_familyname        {"ヤマダ"}
     kana_firstname         {"ハナコ"}
     birth_day              {"20000131"}
-    phone_number           {"11122223333"}
+    phone_number           {rand(1000000000..99999999999).to_s}
     postal_code            {"542-0076"}
     region                 {"27"}
     city                   {"大阪市中央区"}

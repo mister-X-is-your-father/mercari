@@ -4,11 +4,17 @@ describe Item do
 
   describe '#create' do
 
-    it "is valid with a nickname, email, password, password_confirmation" do
+    before do 
+
+    end
+
+    it "is valid with full fill" do
       user = create(:user)
       category = create(:category)
       region = create(:region)
-      item = build(:item, user: user, category: category, region: region)
+      # images = create(:image)
+      images = attributes_for(:image, {image: "test"})
+      item = create(:item, user: user, category: category, region: region, images: images)
       expect(item).to be_valid
     end
 

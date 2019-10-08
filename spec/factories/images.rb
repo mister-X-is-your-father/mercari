@@ -1,6 +1,8 @@
 FactoryBot.define do
-  factory :product_image do
-    images { [Faker::Name.name,Faker::Name.name,Faker::Name.name] }
-    product_id { 1 }
+
+  factory :image do
+    image    {Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/test.png'), 'image/png')}
+    # item_id  {1}
   end
+
 end
