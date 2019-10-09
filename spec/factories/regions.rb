@@ -1,5 +1,7 @@
 FactoryBot.define do
+
   factory :region do
-    region { '北海道' }
+    region {'大阪府'}
   end
+
 end
