@@ -2,19 +2,16 @@ require 'rails_helper'
 
 describe Item do
 
+  before(:each) do 
+    @user = create(:user)
+    @category = create(:category)
+    @region = create(:region)
+  end
+
   describe '#create' do
 
-    before do 
-
-    end
-
     it "is valid with full fill" do
-      user = create(:user)
-      category = create(:category)
-      region = create(:region)
-      # images = create(:image)
-      images = attributes_for(:image, {image: "test"})
-      item = create(:item, user: user, category: category, region: region, images: images)
+      item = build(:item, user: @user, category: @category, region: @region)
       expect(item).to be_valid
     end
 
