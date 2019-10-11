@@ -11,39 +11,76 @@
         出品の古い順
       %option{value: "created_at_desc"}
         出品の新しい順
-  .ssb-contents__container
+  .ssb-contents__container.margin__top-40px
     .ssb-contents__box
       .sub-title
+        詳細検索
       .sub-title__sub
+        キーワードを追加する
       = form_with url: search_items_path, method: :get, local: true, class: "" do |f|
-        .ssb-contents__box__keyword
-      .ssb-contents__box
-        .sub-title__sub
-        .ssb-contents__box__category
-      .ssb-contents__box
-        .sub-title__sub
-        .ssb-contents__box__brand
-      .ssb-contents__box
-        .sub-title__sub
-        .ssb-contents__box__size
-      .ssb-contents__box
-        .sub-title__sub
-        .ssb-contents__box__choose-price
-        .ssb-contents__flex-box
-          .ssb-contents__box__min-price
-          .ssb-contents__box__max-price
-      .ssb-contents__box
-        .sub-title__sub
-        .ssb-contents__box__inner
-          .ssb-contents__box__check-box
-      .ssb-contents__box
-        .sub-title__sub
-        .ssb-contents__box__inner
-          .ssb-contents__box__check-box
-      .ssb-contents__box
-        .sub-title__sub
-        .ssb-contents__box__inner
-          .ssb-contents__box__check-box
-        .ssb-contents__flex-box
-          .btn-gray
-          .btn-gray
+        = f.text_field :nickname, placeholder: "例）値下げ", class: "form-group__input"
+        .ssb-contents__box
+          .sub-title__sub
+            カテゴリーを選択する
+            -# カテゴリ表示JS
+          = f.text_field :nickname, placeholder: "例)メルカリ太郎", class: "form-group__input"
+        .ssb-contents__box
+          .sub-title__sub
+            ブランド名から探す
+          = f.text_field :nickname, placeholder: "例）シャネル", class: "form-group__input"
+        .ssb-contents__box
+          .sub-title__sub
+            サイズを指定する
+          = f.collection_select :size_id, @sizes, :id, :name, include_blank: 'すべて'
+        .ssb-contents__box
+          .sub-title__sub
+            価格
+          = f.select :birth_day, [["300~1000","300~1000"],["1000~5000","1000~5000"],["5000~10000","5000~10000"],["10000~30000","10000~30000"],["30000~50000","30000~50000"],["50000~","50000~"]], include_blank: '選択してください', class: "select-default"
+          .ssb-contents__flex-box
+            .ssb-contents__box__min-price
+              = f.text_field :nickname, placeholder: "¥ Min", class: "form-group__input"
+            .ssb-contents__box__max-price
+              = f.text_field :nickname, placeholder: "¥ Max", class: "form-group__input"
+        .ssb-contents__box
+          .sub-title__sub
+            商品の状態
+          .ssb-contents__box__inner
+            = f.check_box :nickname, class: "form-group__input"
+            = f.label :nickname, "すべて", class: "test-class"
+            = f.check_box :nickname, class: "form-group__input"
+            = f.label :nickname, "新品、未使用", class: "test-class"
+            = f.check_box :nickname, class: "form-group__input"
+            = f.label :nickname, "未使用に近い", class: "test-class"
+            = f.check_box :nickname, class: "form-group__input"
+            = f.label :nickname, "目立った傷や汚れなし", class: "test-class"
+            = f.check_box :nickname, class: "form-group__input"
+            = f.label :nickname, "やや傷や汚れあり", class: "test-class"
+            = f.check_box :nickname, class: "form-group__input"
+            = f.label :nickname, "傷や汚れあり", class: "test-class"
+            = f.check_box :nickname, class: "form-group__input"
+            = f.label :nickname, "全体的に状態が悪い", class: "test-class"
+        .ssb-contents__box
+          .sub-title__sub
+            配送料の負担
+          .ssb-contents__box__inner
+            = f.check_box :nickname, class: "form-group__input"
+            = f.label :nickname, "すべて", class: "test-class"
+            = f.check_box :nickname, class: "form-group__input"
+            = f.label :nickname, "着払い（購入者負担）", class: "test-class"
+            = f.check_box :nickname, class: "form-group__input"
+            = f.label :nickname, "送料込み（出品者負担）", class: "test-class"
+        .ssb-contents__box
+          .sub-title__sub
+            販売状況
+          .ssb-contents__box__inner
+            = f.check_box :nickname, class: "form-group__input"
+            = f.label :nickname, "すべて", class: "test-class"
+            = f.check_box :nickname, class: "form-group__input"
+            = f.label :nickname, "販売中", class: "test-class"
+            = f.check_box :nickname, class: "form-group__input"
+            = f.label :nickname, "売り切れ", class: "test-class"
+          .ssb-contents__flex-box
+            .btn-gray
+              クリア
+            .btn-gray
+              完了

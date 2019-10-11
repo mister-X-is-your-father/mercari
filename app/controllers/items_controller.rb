@@ -111,6 +111,7 @@ class ItemsController < ApplicationController
     if @count == 0
       @Items = Item.order(sort)
     end
+    @sizes = Size.all
   end
 
   def get_child_categories
