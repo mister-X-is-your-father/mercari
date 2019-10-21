@@ -38,9 +38,10 @@
           = f.select :birth_day, [["300~1000","300~1000"],["1000~5000","1000~5000"],["5000~10000","5000~10000"],["10000~30000","10000~30000"],["30000~50000","30000~50000"],["50000~","50000~"]], include_blank: '選択してください', class: "select-default"
           .ssb-contents__flex-box
             .ssb-contents__box__min-price
-              = f.text_field :nickname, placeholder: "¥ Min", class: "form-group__input"
+              = f.number_field :nickname, placeholder: "¥ Min", class: "form-group__input"
             .ssb-contents__box__max-price
-              = f.text_field :nickname, placeholder: "¥ Max", class: "form-group__input"
+              =f.label :price_lteq,"~"
+              = f.number_field :nickname, placeholder: "¥ Max", class: "form-group__input"
         .ssb-contents__box
           .sub-title__sub
             商品の状態

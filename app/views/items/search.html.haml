@@ -1,13 +1,6 @@
 %main.my-contents.clearfix
-  = render 'layouts/search-side-bar'
   .search-contents
-    -# .search-left
-    -#   = form_with url: "", method: :get, local: true, class: "search-form" do |f|
-    -#     .search-form__sort
-    -#       .search-form-group
-    -#         .select-box
-    -#           = fa_icon "angle-down", class: "search-icon"
-    -#     .search-form__contents
+    = render 'layouts/search-side-bar'
     .search-right
       .search-item-container
         - if params[:search] == ""
