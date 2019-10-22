@@ -10,5 +10,14 @@
   &__container {
     background-color: #fff;
   }
+  &__flex-box {
+    display: flex;
+    justify-content: space-between;
+    line-height: 60px;
+  }
+  &__each-checkbox {
+    display: inline-block;
+    width: 48%;
+    vertical-align: middle;
+  }
 }
-
