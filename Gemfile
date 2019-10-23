@@ -94,6 +94,7 @@ gem 'omniauth-facebook'
 gem 'dropzonejs-rails'
 gem 'active_hash'
 gem 'listen', '>= 3.0.5', '< 3.2'
+gem 'ransack'
 
 group :development, :test do
   gem 'pry-rails'
