@@ -63,7 +63,7 @@
               %span.form-require 必須
               %div
                 .select-wrap
-                  = f.collection_select :product_condition, Product_Conditions.all, :id, :name, include_blank: '---'
+                  = f.collection_select :product_condition, ProductCondition.all, :id, :name, include_blank: '---'
         .iu-content.iu-flex
           %h3.iu-sub-head 配送について
           .iu-form-box

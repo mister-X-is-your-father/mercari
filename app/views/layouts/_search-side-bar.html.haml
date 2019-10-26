@@ -35,8 +35,6 @@
         .ssb-contents__box
           .sub-title__sub
             価格
-            //ここでアクティブハッシュで、gteqやlteqも埋め込めたら埋め込む。それか、選択したらコントローラに選択した情報を送って、Aの選択なら300~1000の範囲でgteq、lteqかける
-          = f.select :price_cont, [["300~1000","300~1000"],["1000~5000","1000~5000"],["5000~10000","5000~10000"],["10000~30000","10000~30000"],["30000~50000","30000~50000"],["50000~","50000~"]], include_blank: '選択してください', class: "select-default"
           .ssb-contents__flex-box
             = f.number_field :price_gteq, placeholder: "¥ Min", class: "form-serch-price"
             = "~"
@@ -45,43 +43,24 @@
           .sub-title__sub
             商品の状態
           .ssb-contents__box__inner
+          = f.collection_check_boxes :product_condition_in, ProductCondition.all, :id, :name do |b|
             .ssb-contents__each-checkbox
-            -#   = f.check_box :all, class: ""
-            -#   = f.label :all, "すべて", class: "font__size-11px"
-            -# .ssb-contents__each-checkbox
-            -#   = f.check_box :new, class: ""
-            -#   = f.label :new, "新品、未使用", class: "font__size-11px"
-            -# .ssb-contents__each-checkbox
-            -#   = f.check_box :nearly_new, class: ""
-            -#   = f.label :nearly_new, "未使用に近い", class: "font__size-11px"
-            -# .ssb-contents__each-checkbox
-            -#   = f.check_box :good, class: ""
-            -#   = f.label :good, "目立った傷や汚れなし", class: "font__size-11px"
-            -# .ssb-contents__each-checkbox
-            -#   = f.check_box :little_dirty, class: ""
-            -#   = f.label :little_dirty, "やや傷や汚れあり", class: "font__size-11px"
-            -# .ssb-contents__each-checkbox
-            -#   = f.check_box :nearly_bad, class: ""
-            -#   = f.label :nearly_bad, "傷や汚れあり", class: "font__size-11px"
-            -# .ssb-contents__each-checkbox
-            -#   = f.check_box :bad, class: ""
-            -#   = f.label :bad, "全体的に状態が悪い", class: "font__size-11px"
+              = b.check_box class: ""
+              = b.label class: "font__size-11px"
         .ssb-contents__box
           .sub-title__sub
             配送料の負担
-          .ssb-contents__each-checkbox
-            -# = f.check_box :delivery_all, class: ""
-            -# = f.label :delivery_all, "すべて", class: "font__size-11px"
-          .ssb-contents__each-checkbox
-            -# = f.check_box :cash_on_delivery, class: ""
-            -# = f.label :cash_on_delivery, "着払い（購入者負担）", class: "font__size-11px"
-          .ssb-contents__each-checkbox
-            -# = f.check_box :free_delivery, class: ""
-            -# = f.label :free_delivery, "送料込み（出品者負担）", class: "font__size-11px"
+          = f.collection_check_boxes :delivery_payee_in, DeliveryPay.all, :id, :name do |b|
+            .ssb-contents__each-checkbox
+              = b.check_box class: ""
+              = b.label class: "font__size-11px"
         .ssb-contents__box
           .sub-title__sub
             販売状況
-          .ssb-contents__each-checkbox
+          = f.collection_check_boxes :sold_condition_in, SalesCondition.all, :id, :name do |b|
+            .ssb-contents__each-checkbox
+              = b.check_box class: ""
+              = b.label class: "font__size-11px"
             -# = f.check_box :all_sales_status, class: ""
             -# = f.label :all_sales_status, "すべて", class: "font__size-11px"
           .ssb-contents__each-checkbox
