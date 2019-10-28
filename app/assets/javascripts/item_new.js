@@ -33,7 +33,7 @@ $(function(){
     'drop' :function(e){
       e.preventDefault();
       let images = e.originalEvent.dataTransfer.files;
-      for (let i = 0; i < images.length; i++) { 
+      for (let i = 0; i < images.length; i++) {
         images_array.push(images[i]);
         let fileReader = new FileReader();
         //読み込みが成功した時にfunctionを作動
@@ -60,7 +60,7 @@ $(function(){
   $(DropArea1).on('change', 'input[type="file"]', function(e){
     e.preventDefault();
     let images = $(this).prop('files')
-      for (let i = 0; i < images.length; i++) { 
+      for (let i = 0; i < images.length; i++) {
         images_array.push(images[i]);
         let fileReader = new FileReader();
         fileReader.onload = function(e) {
@@ -91,7 +91,7 @@ $(function(){
     e.preventDefault();
     let formData = new FormData($(this).get(0));
     images_array.forEach(function(image, i){
-     formData.append(`item[images_attributes][${i}][image]`, image)
+      formData.append(`item[images_attributes][${i}][image]`, image)
     });
     let url = $(this).attr('action')
     $.ajax({
@@ -115,7 +115,7 @@ $(function(){
       e.preventDefault();
       let formData = new FormData($(this).get(0));
       images_array.forEach(function(image, i){
-       formData.append(`item[images_attributes][${i}][image]`, image)
+        formData.append(`item[images_attributes][${i}][image]`, image)
       });
       let url = $(this).attr('action')
       $.ajax({
@@ -142,8 +142,17 @@ $(function(){
     return html
   };
 
+  function buildSearchCategory(category){
+    let html =
+      `<div class="ssb-contents__each-checkbox">
+        <input class type="checkbox" value="${category.id}" name="q[category_id_in][]" id="q_category_id_in_${category.id}">
+        <label class="font__size-11px">${category.name}</label>
+      </div>`
+    return html
+  };
+
   function appendChildCategory(insertHTML){
-    let ChildCategoryHTML = 
+    let ChildCategoryHTML =
       `<div class="select-wrap iu-child">
         <select id="child-categories" name="item[category_id]">
           <option value="">---</option>
@@ -153,15 +162,24 @@ $(function(){
   };
 
   function appendGrandChildCategory(insertHTML){
-    let GrandChildCategoryHTML = 
+      let GrandChildCategoryHTML =
       `<div class="select-wrap iu-grandchild">
         <select id="grandchild-categories" name="item[category_id]">
           <option value="">---</option>
           ${insertHTML}
       </div>`
-    $('.select-wraps').append(GrandChildCategoryHTML)
+    $('.select-wraps').append(GrandChildCategoryHTML);
   };
-  
+
+  function appendSearchGrandChildCategory(insertHTML){
+    let GrandChildCategoryHTML =
+      `<div class="search-wrap iu-grandchild">
+      <input type="hidden" name="q[category_id_in][]" id="q_category_id_in">
+      ${insertHTML}
+      </div>`
+    $('.select-wraps').append(GrandChildCategoryHTML);
+  }
+
   //親カテゴリー選択時
   $('#parent-categories').on('change', function(e){
     e.preventDefault();
@@ -176,6 +194,7 @@ $(function(){
       .done(function(child){
         $('.select-wrap.iu-child').remove();
         $('.select-wrap.iu-grandchild').remove();
+        $('.search-wrap.iu-grandchild').remove();
         let insertHTML = '';
         child.forEach(function(child_category){
           insertHTML += buildCategory(child_category);
@@ -189,6 +208,7 @@ $(function(){
     else {
       $('.select-wrap.iu-child').remove();
       $('.select-wrap.iu-grandchild').remove();
+      $('.search-wrap.iu-grandchild').remove();
     }
   });
 
@@ -205,11 +225,20 @@ $(function(){
       })
       .done(function(grandchild){
         $('.select-wrap.iu-grandchild').remove();
-        let insertHTML = '';
-        grandchild.forEach(function(grandchild_category){
-          insertHTML += buildCategory(grandchild_category);
-        })
-        appendGrandChildCategory(insertHTML);
+        $('.search-wrap.iu-grandchild').remove();
+        var insertHTML = '';
+        let pathname = location.pathname;
+        if (pathname == '/items/new') {
+          grandchild.forEach(function(grandchild_category){
+            insertHTML += buildCategory(grandchild_category);
+          })
+          appendGrandChildCategory(insertHTML);
+        } else {
+          grandchild.forEach(function(grandchild_category){
+            insertHTML += buildSearchCategory(grandchild_category);
+          })
+          appendSearchGrandChildCategory(insertHTML);
+        }
       })
       .fail(function(){
         alert('カテゴリー取得に失敗しました');
@@ -217,6 +246,7 @@ $(function(){
     }
     else {
       $('.select-wrap.iu-grandchild').remove();
+      $('.search-wrap.iu-grandchild').remove();
     }
   });
 

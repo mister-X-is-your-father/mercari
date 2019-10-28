@@ -21,9 +21,10 @@
         = f.search_field :name_cont, placeholder: "例）値下げ", class: "form-group__input"
         .ssb-contents__box
           .sub-title__sub
-            カテゴリーを選択する
-            -# カテゴリ表示JS
-          -# = f.text_field :nickname, placeholder: "例)メルカリ太郎", class: "form-group__input"
+          カテゴリーを選択する
+        .select-wraps
+          .select-wrap.iu-parent
+            = f.collection_select :category_id_in, @parent_categories, :id, :name, {include_blank: '---'}, {id: 'parent-categories'}
         .ssb-contents__box
           .sub-title__sub
             ブランド名から探す
@@ -61,14 +62,6 @@
             .ssb-contents__each-checkbox
               = b.check_box class: ""
               = b.label class: "font__size-11px"
-            -# = f.check_box :all_sales_status, class: ""
-            -# = f.label :all_sales_status, "すべて", class: "font__size-11px"
-          .ssb-contents__each-checkbox
-            -# = f.check_box :on_sale, class: ""
-            -# = f.label :on_sale, "販売中", class: "font__size-11px"
-          .ssb-contents__each-checkbox
-            -# = f.check_box :sold_out, class: ""
-            -# = f.label :sold_out, "売り切れ", class: "font__size-11px"
           .ssb-contents__flex-box
             .btn-gray
               = link_to "クリア", class: ""

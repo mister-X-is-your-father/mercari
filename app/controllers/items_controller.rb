@@ -108,14 +108,12 @@ class ItemsController < ApplicationController
     @sizes = Size.all
     @parent_categories = Category.where(ancestry: nil)
     @items = @q.result(distinct: true)
-
     # 下記詳細検索に使用
     # @products = Item.where('name LIKE(?) OR description LIKE(?)', "%#{@keyword}%", "%#{@keyword}%").order(sort)
     @count = @items.count
     if @count == 0
       @Items = Item.order(sort)
     end
-    @sizes = Size.all
   end
 
   def get_child_categories
