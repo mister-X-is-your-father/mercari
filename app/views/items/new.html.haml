@@ -56,7 +56,6 @@
               %span.form-require-not 任意
               %div
                 .select-wrap
-                  -# = f.collection_select :brand_id, @brands, :id, :name, include_blank: '---'
                   = f.text_field :brand_name, placeholder: "例) シャネル", class: "input-brand"
             .form-group
               = f.label "商品の状態"

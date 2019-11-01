@@ -2,7 +2,7 @@
   .ssb-contents__soat
     %select{name: :sort_order, classs: "sort_order"}
       %option{value: "location.pathname", name: "location.pathname"}
-        並び替え
+        並べ替え
       %option{value: "price_asc"}
         価格の安い順
       %option{value: "price_desc"}
@@ -66,5 +66,5 @@
               = b.label class: "font__size-11px"
           .ssb-contents__flex-box
             .btn-gray
-              = link_to "クリア", class: ""
+              = link_to "クリア", "search?"
             = f.submit "完了", class: "btn-gray"

@@ -46,8 +46,9 @@ class ItemsController < ApplicationController
   end
 
   def create
-    ブランド入れ = ブランド、ファインドバイ、アイテムパラムスのブランドネーム
-    ブランドアイディー入れ = ブランド入れのアイディー 不要かも
+    brand = Brand.find_by(name: params[:item][:brand_name])
+    params[:item][:brand_id] = brand.id
+    params[:item].delete("brand_name")
     @item = Item.new(item_params)
     respond_to do |format|
       if @item.images.first == nil
@@ -103,7 +104,6 @@ class ItemsController < ApplicationController
   end
 
   def search
-    # @keyword = params[:keyword]
     sort = params[:sort] || "created_at DESC" #paramsのsortはitem_search.jsでgetクエリでsort=として表示している
     #↑params[:sort]が真なら（存在すれば）それを代入し、存在しなければ "created_at DESC"を代入。
     items = Item.search(params[:search]).order(sort)
