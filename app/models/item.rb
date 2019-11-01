@@ -24,6 +24,7 @@ class Item < ApplicationRecord
             :delivery_payee,
             :delivery_time,
             :delivery_method, presence: true
+  validates :images, presence: true, length: { minimum: 1, maximum: 10 }
 
   def self.search(search)
     return Item.order(created_at: "DESC").limit(24) unless search

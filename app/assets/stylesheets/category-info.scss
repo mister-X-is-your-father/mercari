@@ -1,0 +1,24 @@
+.info-description {
+  overflow: hidden;
+  border-radius: 4px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.info-description-title {
+  text-align: center;
+  background-color: #ea352d;
+  h3 {
+    padding: 16px 8px;
+    color: #fff;
+    font-size: 22px;
+  }
+}
+
+.info-description-text {
+  padding: 30px;
+  background-color: #fff;
+  p {
+    line-height: 1.6em;
+  }
+}

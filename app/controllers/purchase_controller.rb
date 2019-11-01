@@ -26,6 +26,7 @@ class PurchaseController < ApplicationController
   end
 
   def pay
+    redirect_to root_path and return if @item.user_id == current_user.id
     Payjp::api_key = Rails.application.credentials.PAYJP_PRIVATE_KEY
     Payjp::Charge.create(
       :amount => @item.price,

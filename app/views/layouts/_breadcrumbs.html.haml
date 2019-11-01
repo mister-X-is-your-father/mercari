@@ -6,11 +6,23 @@
 - when ['mypage/profile', 'edit']
   - breadcrumb :mypage_profile
 
+- when ['mypage/card', 'new']
+  - breadcrumb :mypage_card
+
+- when ['mypage/identification', 'edit']
+  - breadcrumb :mypage_identification
+
 - when ['mypage/logout', 'logout']
   - breadcrumb :mypage_logout
 
 - when ['mypage/listings', 'index']
-  - breadcrumb :mypage_item_list
+  - breadcrumb :mypage_itemList
+
+- when ['items', 'show']
+  - breadcrumb :mypage_itemList_item
+
+- when ['categories', 'index']
+  - breadcrumb :categories
 
 %nav.breadcrumbs
   = breadcrumbs class: "breadcrumbs__text", separator: " &nbsp;&nbsp;&#12297;&nbsp; "

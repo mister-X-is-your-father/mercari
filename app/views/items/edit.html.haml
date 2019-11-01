@@ -12,30 +12,29 @@
             .iu-image__container__preview-area
               .iu-image__container__preview-area__images
                 %ul
-                  - @item.images.each do |image|
+                  - @item.images.each.with_index do |image, index|
                     %li.iu-preview-box
                       %figure.iu-preview-box__image
                         = image_tag image.image.url
                       .iu-preview-box__text
                         = link_to "", class: "iu-preview-box__text__edit" do
-                          編集
-                        = link_to "", class: "iu-preview-box__text__delete" do
+                          %s 編集
+                        = link_to "", class: "iu-preview-box__text__delete", 'data-id': index do
                           削除
             .iu-image__container__drop-area
+              = f.label :image, class: "iu-image__container__drop-area__label" do
+                = f.file_field :image, class: "iu-image__container__drop-area__label__file", style: "display: none;"
+                %pre.visible-pc
+                  ドラッグアンドドロップ
+                  またはクリックしてファイルをアップロード
+            .iu-image__container__drop-area.drop-area-second
               = f.fields_for :images do |i|
                 = i.label :image, class: "iu-image__container__drop-area__label" do
-                  = i.file_field :image, class: "iu-image__container__drop-area__label__file", style: "display: none;"
+                  = i.file_field :image, class: "iu-image__container__drop-area__label__file"
+                  = i.check_box :_destroy, class: "delete-checkbox", 'data-destroy_id': i.index
                   %pre.visible-pc
                     ドラッグアンドドロップ
                     またはクリックしてファイルをアップロード
-                  -# = fa_icon "camera"
-              -# .iu-image__container__drop-area-second
-              -#   = i.label :image, class: "iu-image__container__drop-area__label" do
-              -#     = i.file_field :image, class: "iu-image__container__drop-area__label__file", style: "display: none;"
-              -#     %pre.visible-pc
-              -#       ドラッグアンドドロップ
-              -#       -# またはクリックしてファイルをアップロード
-              -#     -# = fa_icon "camera"
         .iu-content
           .form-group
             = f.label "商品名"
@@ -60,7 +59,7 @@
                   = f.collection_select :category_id, @grandchild_categories, :id, :name, {include_blank: '---', selected: @item.category_id}, {id: 'grandchild-categories'}
             .form-group
               = f.label "サイズ"
-              %span.form-require 必須
+              %span.form-require-not 任意
               %div
                 .select-wrap
                   = f.collection_select :size_id, @sizes, :id, :name, include_blank: '---'
@@ -133,4 +132,4 @@
               = link_to "加盟店規約", "#", class: "iu-sell-link"
               に同意したことになります。
           = f.submit "変更する", class: "btn-red"
-          = link_to "もどる", :back, class: "btn-gray"
+          = link_to "キャンセル", :back, class: "btn-gray"
