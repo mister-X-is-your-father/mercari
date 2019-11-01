@@ -230,7 +230,8 @@ $(function(){
         $('.search-wrap.iu-grandchild').remove();
         var insertHTML = '';
         let pathname = location.pathname;
-        if (pathname == '/items/new') {
+        if (pathname.indexOf('search') == -1 ) {
+        // if (pathname != '/items/search*') {
           grandchild.forEach(function(grandchild_category){
             insertHTML += buildCategory(grandchild_category);
           })
