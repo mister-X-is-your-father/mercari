@@ -146,7 +146,9 @@ $(function(){
     let html =
       `<div class="ssb-contents__each-checkbox">
         <input type="checkbox" value="${category.id}" name="q[category_id_in][]" id="q_category_id_in_${category.id}">
-        <label class="font__size-11px">${category.name}</label>
+        <div class="ssb-contents__each-checkbox__label">
+        <label class="font__size-12px">${category.name}</label>
+      </div>
       </div>`
     return html
   };
