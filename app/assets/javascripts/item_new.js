@@ -145,7 +145,7 @@ $(function(){
   function buildSearchCategory(category){
     let html =
       `<div class="ssb-contents__each-checkbox">
-        <input class type="checkbox" value="${category.id}" name="q[category_id_in][]" id="q_category_id_in_${category.id}">
+        <input type="checkbox" value="${category.id}" name="q[category_id_in][]" id="q_category_id_in_${category.id}">
         <label class="font__size-11px">${category.name}</label>
       </div>`
     return html
@@ -174,7 +174,7 @@ $(function(){
   function appendSearchGrandChildCategory(insertHTML){
     let GrandChildCategoryHTML =
       `<div class="search-wrap iu-grandchild">
-      <input type="hidden" name="q[category_id_in][]" id="q_category_id_in">
+      <input type="hidden" name="q[category_id_in][]" value[]>
       ${insertHTML}
       </div>`
     $('.select-wraps').append(GrandChildCategoryHTML);

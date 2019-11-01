@@ -46,6 +46,8 @@ class ItemsController < ApplicationController
   end
 
   def create
+    ブランド入れ = ブランド、ファインドバイ、アイテムパラムスのブランドネーム
+    ブランドアイディー入れ = ブランド入れのアイディー 不要かも
     @item = Item.new(item_params)
     respond_to do |format|
       if @item.images.first == nil
@@ -101,10 +103,12 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @keyword = params[:keyword]
-    sort = params[:sort] || "created_at DESC"
+    # @keyword = params[:keyword]
+    sort = params[:sort] || "created_at DESC" #paramsのsortはitem_search.jsでgetクエリでsort=として表示している
+    #↑params[:sort]が真なら（存在すれば）それを代入し、存在しなければ "created_at DESC"を代入。
     items = Item.search(params[:search]).order(sort)
-    @q = items.ransack(params[:q])
+    @q = items.includes(:brand).ransack(params[:q])
+    @q.sorts = sort.sub('+', '\s') #getクエリーで受け取っているprice+ascなどを、ransackのsortsメソッドで受け取れるprice ascなどに変換している
     @sizes = Size.all
     @parent_categories = Category.where(ancestry: nil)
     @items = @q.result(distinct: true)

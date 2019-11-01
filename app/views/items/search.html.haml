@@ -8,7 +8,8 @@
             新着商品
         - else
           %h2.search-result-text
-            = "#{params[:search]}の検索結果"
+            - search_word = "#{params[:search]}の" if params[:search]
+            = "#{search_word}検索結果"
         .search-result-items.search-clearfix
           - @items.each do |item|
             %section.search-item-box

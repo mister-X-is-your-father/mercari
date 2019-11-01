@@ -24,11 +24,13 @@
           カテゴリーを選択する
         .select-wraps
           .select-wrap.iu-parent
-            = f.collection_select :category_id_in, @parent_categories, :id, :name, {include_blank: '---'}, {id: 'parent-categories'}
+            = f.collection_select :category_id, @parent_categories, :id, :name, {include_blank: '---'}, {id: 'parent-categories'}
+            - f.collection_check_boxes :category_id_in, @parent_categories, :id, :name do |b|
+              - b.check_box class: ""
         .ssb-contents__box
           .sub-title__sub
             ブランド名から探す
-          = f.search_field :brand_id_cont, placeholder: "例）シャネル", class: "form-group__input"
+          = f.search_field :brand_name_cont, placeholder: "例）シャネル", class: "form-group__input"
         .ssb-contents__box
           .sub-title__sub
             サイズを指定する
