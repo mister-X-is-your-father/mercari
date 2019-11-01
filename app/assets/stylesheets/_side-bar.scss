@@ -1,0 +1,61 @@
+.ssb-contents {
+  width: 280px;
+  min-height: 500px;
+  float: left;
+  margin: 0 40px 0 0;
+  &__soat {
+    background-color: #fff;
+    border-radius: 5px;
+  }
+  &__container {
+    padding: 16px;
+    background-color: #fff;
+  }
+  &__flex-box {
+    display: flex;
+    justify-content: space-between;
+    line-height: 60px;
+  }
+  &__each-checkbox {
+    display: inline-block;
+    box-sizing: border-box;
+    height: 15px;
+    margin: 10px 0;
+    width: 48%;
+    padding-right: 25px;
+    vertical-align: middle;
+    &__label {
+      position: relative;
+      bottom: 14px;
+      left: 20px;
+      line-height: 11px;
+    }
+  }
+}
+
+.sub-title {
+  &__sub {
+    margin-top: 30px;
+  }
+}
+
+.gray_icon {
+  color: gray;
+  margin-right: 4px;
+}
+
+.gray-btn {
+  width: 45%;
+  margin: 24px 0;
+  background: #aaa;
+  color: #fff;
+  display: block;
+  line-height: 48px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.red-btn {
+  border: none;
+  background: #EA352D;
+}

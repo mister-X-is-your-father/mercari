@@ -9,25 +9,25 @@
       - @user.errors.full_messages.each do |msg|
         %li
           = msg
-        
+
   %section.new-user-contents
     %h2.new-user-input
       会員情報入力
     = form_for(@user, url: sms_confirmation_signup_index_path, class: "form-wrap", method: :get) do |f|
       .contents__main
         .form-content.form-group
-          
+
           .form-group
             = f.label :nickname, "ニックネーム"
             %span.form-require 必須
             = f.text_field :nickname, placeholder: "例)メルカリ太郎", class: "form-group__input"
-    
+
           .form-group
             = f.label :email, "メールアドレス"
             %span.form-require 必須
             = f.email_field :email, placeholder: "PC・携帯どちらでも可", class: "form-group__input reg-email"
-          
-          - if @user.email.blank? 
+
+          - if @user.email.blank?
             .form-group.reg-pass
               = f.label :password, "パスワード"
               %span.form-require 必須
@@ -54,7 +54,7 @@
               本人確認
             %p.contents__text
               安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-          
+
           .form-group
             %div
               = f.label "お名前(全角)"
@@ -62,7 +62,7 @@
             .form-name
               = f.text_field :kan_familyname, placeholder: "例)山田", class: "form-group__input name-left"
               = f.text_field :kan_firstname, placeholder: "例)彩", class: "form-group__input"
-            
+
           .form-group
             %div
               = f.label "お名前カナ(全角)"
@@ -70,7 +70,7 @@
             .form-name
               = f.text_field :kana_familyname, placeholder: "例)ヤマダ", class: "form-group__input name-left"
               = f.text_field :kana_firstname, placeholder: "例)アヤ", class: "form-group__input"
-          
+
           .form-group
             = f.label :birth_day, "生年月日"
             %span.form-require 必須

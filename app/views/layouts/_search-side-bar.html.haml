@@ -1,0 +1,81 @@
+.ssb-contents
+  .ssb-contents__soat
+    %select{name: :sort_order, classs: "sort_order"}
+      %option{value: "location.pathname", name: "location.pathname"}
+        並べ替え
+      %option{value: "price_asc"}
+        価格の安い順
+      %option{value: "price_desc"}
+        価格の高い順
+      %option{value: "created_at_asc"}
+        出品の古い順
+      %option{value: "created_at_desc"}
+        出品の新しい順
+  .ssb-contents__container.margin__top-40px
+    .ssb-contents__box
+      .sub-title
+        詳細検索
+      .sub-title__sub
+        = fa_icon 'plus', class: "gray_icon"
+        キーワードを追加する
+      = search_form_for(@q, url: search_items_path) do |f|
+        = f.search_field :name_cont, placeholder: "例）値下げ", class: "form-group__input"
+        .ssb-contents__box
+          .sub-title__sub
+            = fa_icon 'list', class: "gray_icon"
+            カテゴリーを選択する
+        .select-wraps
+          .select-wrap.iu-parent
+            = f.collection_select :category_id, @parent_categories, :id, :name, {include_blank: '---'}, {id: 'parent-categories'}
+            - f.collection_check_boxes :category_id_in, @parent_categories, :id, :name do |b|
+              - b.check_box class: ""
+        .ssb-contents__box
+          .sub-title__sub
+            = fa_icon 'tags', class: "gray_icon"
+            ブランド名から探す
+          = f.search_field :brand_name_cont, placeholder: "例）シャネル", class: "form-group__input"
+        .ssb-contents__box
+          .sub-title__sub
+            = fa_icon 'expand', class: "gray_icon"
+            サイズを指定する
+          .margin__top-8px
+          = f.collection_select :size_id_eq, @sizes, :id, :name, include_blank: 'すべて'
+        .ssb-contents__box
+          .sub-title__sub
+            = fa_icon 'coins', class: "gray_icon"
+            価格
+          .ssb-contents__flex-box
+            = f.number_field :price_gteq, placeholder: "¥ Min", class: "form-serch-price"
+            = "~"
+            = f.number_field :price_lteq, placeholder: "¥ Max", class: "form-serch-price"
+        .ssb-contents__box
+          .sub-title__sub
+            = fa_icon 'star', class: "gray_icon"
+            商品の状態
+          .ssb-contents__box__inner
+          = f.collection_check_boxes :product_condition_in, ProductCondition.all, :id, :name do |b|
+            .ssb-contents__each-checkbox
+              = b.check_box
+              .ssb-contents__each-checkbox__label
+                = b.label class: " font__size-12px"
+        .ssb-contents__box
+          .sub-title__sub
+            = fa_icon 'truck', class: "gray_icon"
+            配送料の負担
+          = f.collection_check_boxes :delivery_payee_in, DeliveryPay.all, :id, :name do |b|
+            .ssb-contents__each-checkbox
+              = b.check_box
+              .ssb-contents__each-checkbox__label
+                = b.label class: "font__size-12px"
+        .ssb-contents__box
+          .sub-title__sub
+            = fa_icon 'shopping-cart', class: "gray_icon"
+            販売状況
+          = f.collection_check_boxes :sold_condition_in, SalesCondition.all, :id, :name do |b|
+            .ssb-contents__each-checkbox
+              = b.check_box
+              .ssb-contents__each-checkbox__label
+                = b.label class: "font__size-12px"
+          .ssb-contents__flex-box
+            = link_to "クリア", "search?", class: "gray-btn"
+            = f.submit "完了", class: "gray-btn red-btn"

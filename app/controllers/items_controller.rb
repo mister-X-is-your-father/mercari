@@ -45,6 +45,9 @@ class ItemsController < ApplicationController
   end
 
   def create
+    brand = Brand.find_by(name: params[:item][:brand_name])
+    params[:item][:brand_id] = brand.id
+    params[:item].delete("brand_name")
     @item = Item.new(item_params)
     respond_to do |format|
       if @item.save!
@@ -61,7 +64,7 @@ class ItemsController < ApplicationController
       @sizes = Size.all
       @brands = Brand.all
       @parent_categories = Category.where(ancestry: nil)
-      @parent_category = Category.find_by(id: @item.category_id).root.id 
+      @parent_category = Category.find_by(id: @item.category_id).root.id
       @child_categories = Category.find_by(id: @item.category_id).root.children
       @child_category = Category.find_by(id: @item.category_id).parent.id
       @grandchild_categories = Category.find_by(id: @item.category_id).parent.children
@@ -78,7 +81,7 @@ class ItemsController < ApplicationController
         format.html{ redirect_to root_path }
       else
         format.html{render :edit}
-      end     
+      end
     end
   end
 
@@ -92,7 +95,20 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @items = Item.search(params[:search])
+    sort = params[:sort] || "created_at DESC" #paramsのsortはitem_search.jsでgetクエリでsort=として表示している
+    #↑params[:sort]が真なら（存在すれば）それを代入し、存在しなければ "created_at DESC"を代入。
+    items = Item.search(params[:search]).order(sort)
+    @q = items.includes(:brand).ransack(params[:q])
+    @q.sorts = sort.sub('+', '\s') #getクエリーで受け取っているprice+ascなどを、ransackのsortsメソッドで受け取れるprice ascなどに変換している
+    @sizes = Size.all
+    @parent_categories = Category.where(ancestry: nil)
+    @items = @q.result(distinct: true)
+    # 下記詳細検索に使用
+    # @products = Item.where('name LIKE(?) OR description LIKE(?)', "%#{@keyword}%", "%#{@keyword}%").order(sort)
+    @count = @items.count
+    if @count == 0
+      @Items = Item.order(sort)
+    end
   end
 
   def get_child_categories
@@ -140,6 +156,10 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def search_params
+    params.require(:q).permit!
   end
 
 end

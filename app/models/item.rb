@@ -9,14 +9,14 @@ class Item < ApplicationRecord
   belongs_to :size, optional: true
   accepts_nested_attributes_for :images, allow_destroy: true
 
-  validates :name,         presence: true,  length: { in: 1..40 } 
-  validates :description,  presence: true,  length: { in: 1..1000 } 
-  validates :price,        presence: true, numericality: { 
+  validates :name,         presence: true,  length: { in: 1..40 }
+  validates :description,  presence: true,  length: { in: 1..1000 }
+  validates :price,        presence: true, numericality: {
               only_integer: true,
               greater_than_or_equal_to: 300,
               less_than_or_equal_to: 9999999,
-               } 
-  validates :product_condition, 
+              }
+  validates :product_condition,
             :category_id,
             :region_id,
             :sold_condition,
@@ -28,6 +28,6 @@ class Item < ApplicationRecord
 
   def self.search(search)
     return Item.order(created_at: "DESC").limit(24) unless search
-    Item.where(['name LIKE ?', "%#{search}%"])
+    Item.where(['name LIKE(?) OR description LIKE(?)', "%#{search}%", "%#{search}%"])
   end
 end
