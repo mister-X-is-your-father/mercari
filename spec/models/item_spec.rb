@@ -37,6 +37,24 @@ RSpec.describe Item, type: :model do
         expect(item).to be_valid
       end
 
+      it "is valid with all propeties and one image" do
+        item = build(:item, user: @user, category: @category, region: @region)
+        item.images = []
+        item.images << build(:image, item: item)
+        expect(item).to be_valid
+      end
+
+      it "is valid with all propeties and ten images" do
+        item = build(:item, user: @user, category: @category, region: @region)
+        item.images = []
+        i = 0
+        while i < 10 
+          item.images << build(:image, item: item)
+          i += 1
+        end
+        expect(item).to be_valid
+      end
+
       it "is valid without a brand_id" do
         item = build(:item, user: @user, category: @category, region: @region, brand_id: nil)
         expect(item).to be_valid
@@ -139,6 +157,25 @@ RSpec.describe Item, type: :model do
         item = build(:item, user: @user, category: @category, region: @region, delivery_method: nil)
         item.valid?
         expect(item.errors[:delivery_method]).to include("can't be blank")
+      end
+
+      it "is invalid without a image" do
+        item = build(:item, user: @user, category: @category, region: @region)
+        item.images = []
+        item.valid?
+        expect(item.errors[:images]).to include("can't be blank")
+      end
+
+      it "is invalid with images more than 10" do
+        item = build(:item, user: @user, category: @category, region: @region)
+        item.images = []
+        i = 0
+        while i <= 10 
+          item.images << build(:image, item: item)
+          i += 1
+        end
+        item.valid?
+        expect(item.errors[:images][0]).to include("is too long")
       end
 
     end

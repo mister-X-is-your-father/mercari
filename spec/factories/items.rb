@@ -16,7 +16,7 @@ FactoryBot.define do
     delivery_time         {1} #1~2日で発送
     delivery_method       {5} #クロネコヤマト
     after(:build) do |item|
-      item.images << FactoryBot.build(:image)
+      item.images << build(:image, item: item)
     end
   end
 
