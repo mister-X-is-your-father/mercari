@@ -52,7 +52,6 @@ RSpec.describe Item, type: :model do
           item.images << build(:image, item: item)
           i += 1
         end
-        binding.pry
         expect(item).to be_valid
       end
 
